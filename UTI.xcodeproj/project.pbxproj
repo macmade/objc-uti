@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		05161B7D19A271B600BAB80B /* Clang-Warnings.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7319A271B600BAB80B /* Clang-Warnings.h */; };
 		05161B7E19A271B600BAB80B /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7519A271B600BAB80B /* PrefixHeader.pch */; };
-		05161B7F19A271B600BAB80B /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; };
+		05161B7F19A271B600BAB80B /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05161B8019A271B600BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B8119A271B600BAB80B /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7B19A271B600BAB80B /* PrefixHeader.pch */; };
 		05161B8319A271C500BAB80B /* UTITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7C19A271B600BAB80B /* UTITest.m */; };
@@ -17,8 +17,8 @@
 		05161B9B19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B9C19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05E71B691961D9D100F911C4 /* libUTI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libUTI.a */; };
-		05E8979D19A28A6E00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; };
-		05E8979E19A28A6F00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; };
+		05E8979D19A28A6E00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		05E8979E19A28A6F00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
