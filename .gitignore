@@ -1,11 +1,23 @@
-# Build and Release Folders
-bin/
-bin-debug/
-bin-release/
+# Mac Finder
+.DS_Store
+.Trashes
+Icon?
 
-# Other files and folders
-.settings/
+# Thumbnails
+._*
 
-# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
-# should NOT be excluded as they contain compiler settings and other important
-# information for Eclipse / Flash Builder.
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Xcode
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.xccheckout
+!default.pbxuser
+!default.mode1v3
+!default.mode2v3
+!default.perspectivev3
+xcuserdata
