@@ -48,6 +48,9 @@
 /*!
  * @typedef     UTITagClass
  * @abstract    The tagging classification schemes that a uniform type identifier can be converted to and from.
+ * @discussion  The 'UTITagClassNSPboardType' and 'UTITagClassOSType' values
+ *              are only available for OS X targets. Using them on iOS
+ *              platforms will always return a nil value.
  */
 typedef enum
 {
@@ -993,6 +996,8 @@ UTIDeclarationDictionaryKey;
  * @abstract    Encodes an OSType into a string suitable for use as a tag argument.
  * @param       type        The OSType to convert.
  * @return      A string that encodes the OSType.
+ * @discussion  This method is only available for OS X targets. On iOS platforms,
+ *              nil will be always returned.
  */
 + ( NSString * )stringForOSType: ( OSType )type;
 
@@ -1001,6 +1006,8 @@ UTIDeclarationDictionaryKey;
  * @abstract    Decodes a tag string into an OSType.
  * @param       str         A string that encodes an OSType.
  * @return      The OSType that was encoded in the string.
+ * @discussion  This method is only available for OS X targets. On iOS platforms,
+ *              nil will be always returned.
  */
 + ( OSType )OSTypeForString: ( NSString * )str;
 

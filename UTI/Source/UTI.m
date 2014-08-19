@@ -31,12 +31,6 @@
 
 #import "UTI.h"
 
-#ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-@import MobileCoreServices;
-#else
-@import CoreServices;
-#endif
-
 #ifndef __has_feature
 #define __has_feature( _x_ )    0
 #endif
@@ -45,6 +39,18 @@
 #define __UTI_ARC               1
 #else
 #define __UTI_ARC               0
+#endif
+
+#if defined( __IPHONE_OS_VERSION_MIN_REQUIRED ) && __IPHONE_OS_VERSION_MIN_REQUIRED
+#define __UTI_IOS               1
+#else
+#define __UTI_IOS               0
+#endif
+
+#if __UTI_IOS
+@import MobileCoreServices;
+#else
+@import CoreServices;
 #endif
 
 @interface UTI()
@@ -638,7 +644,7 @@
         case UTITagClassOSType:             cfTagClass = kUTTagClassFilenameExtension; break;
     }
     
-    #ifdef __UTI_ARC
+    #if __UTI_ARC
     cfUTIs = ( __bridge_transfer NSArray * )UTTypeCreateAllIdentifiersForTag( cfTagClass, ( __bridge CFStringRef )tag, ( __bridge CFStringRef )( uti.UTIValue ) );
     #else
     cfUTIs = [ ( NSArray * )UTTypeCreateAllIdentifiersForTag( cfTagClass, ( CFStringRef )tag, ( CFStringRef )( uti.UTIValue ) ) autorelease ];
@@ -661,10 +667,20 @@
 
 + ( NSString * )stringForOSType: ( OSType )type
 {
-    #ifdef __UTI_ARC
+    #if __UTI_IOS
+    
+    ( void )type;
+    
+    return nil;
+    
+    #elif __UTI_ARC
+    
     return ( __bridge_transfer NSString * )UTCreateStringForOSType( type );
+    
     #else
+    
     return ( NSString * )UTCreateStringForOSType( type );
+    
     #endif
 }
 
@@ -675,10 +691,20 @@
         return 0;
     }
     
-    #ifdef __UTI_ARC
+    #if __UTI_IOS
+    
+    ( void )str;
+    
+    return 0;
+    
+    #elif __UTI_ARC
+    
     return UTGetOSTypeFromString( ( __bridge CFStringRef )str ) ;
+    
     #else
+    
     return UTGetOSTypeFromString( ( CFStringRef )str ) ;
+    
     #endif
 }
 
@@ -748,10 +774,29 @@
     
     switch( tagClass )
     {
-        case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension; break;
-        case UTITagClassMIMEType:           cfTagClass = kUTTagClassFilenameExtension; break;
-        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassFilenameExtension; break;
-        case UTITagClassOSType:             cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension;  break;
+        case UTITagClassMIMEType:           cfTagClass = kUTTagClassMIMEType;           break;
+        
+        #if __UTI_IOS
+        
+        #if __UTI_ARC
+        
+        case UTITagClassNSPboardType:       return nil;
+        case UTITagClassOSType:             return nil;
+        
+        #else
+        
+        case UTITagClassNSPboardType:       [ self release ]; return nil;
+        case UTITagClassOSType:             [ self release ]; return nil;
+        
+        #endif
+        
+        #else
+        
+        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassNSPboardType;       break;
+        case UTITagClassOSType:             cfTagClass = kUTTagClassOSType;             break;
+        
+        #endif
     }
     
     #if __UTI_ARC
@@ -807,11 +852,21 @@
     {
         case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension;  break;
         case UTITagClassMIMEType:           cfTagClass = kUTTagClassMIMEType;           break;
+        
+        #if __UTI_IOS
+        
+        case UTITagClassNSPboardType:       return nil;
+        case UTITagClassOSType:             return nil;
+        
+        #else
+        
         case UTITagClassNSPboardType:       cfTagClass = kUTTagClassNSPboardType;       break;
         case UTITagClassOSType:             cfTagClass = kUTTagClassOSType;             break;
+        
+        #endif
     }
     
-    #ifdef __UTI_ARC
+    #if __UTI_ARC
     return ( __bridge_transfer NSString * )UTTypeCopyPreferredTagWithClass( ( __bridge CFStringRef )( self.UTIValue ), cfTagClass );
     #else
     return [ ( NSString * )UTTypeCopyPreferredTagWithClass( ( CFStringRef )( self.UTIValue ), cfTagClass ) autorelease ];

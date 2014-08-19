@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE header PUBLIC "-//Apple Computer//DTD HEADERDOC 1.6//EN" "/System/Library/DTDs/HeaderDoc-1.6.dtd">
+<!DOCTYPE header PUBLIC "-//Apple Computer//DTD HEADERDOC 1.2//EN" "/System/Library/DTDs/HeaderDoc-1.2.dtd">
 <header id="//xsdoc_ref/doc/header/UTI.h" lang="c" filename="UTI.h" headerpath="/Users/macmade/Documents/Macmade/Development/GitHub/objc-uti/Documentation/../UTI/Source/UTI.h"><name>UTI.h</name>
 <abstract><p>Objective-C wrapper class for Uniform Type Identifiers (UTIs)
 </p></abstract>
@@ -81,7 +81,10 @@
     <declaration_var>UTITagClassOSType</declaration_var> = <declaration_number>0x03</declaration_number> <declaration_comment>/*! Indicates that the tag is an OSType. </declaration_comment>
         <declaration_comment>*/</declaration_comment>
 } <declaration_var>UTITagClass</declaration_var>;  </declaration>
-<desc><p/></desc>
+<desc><p>The 'UTITagClassNSPboardType' and 'UTITagClassOSType' values
+are only available for OS X targets. Using them on iOS
+platforms will always return a nil value.
+</p></desc>
 </typedef></typedefs><defines><pdefine id="//xsdoc_ref/c/macro/NS_DESIGNATED_INITIALIZER" definetype="block" lang="c"><name>NS_DESIGNATED_INITIALIZER</name>
 <abstract><p>Marks a designated initializer of an Objective-C class.
 </p></abstract>
@@ -804,13 +807,17 @@ the subset of type identifiers that conform to that type.</declaration_comment>
 @method      stringForOSType:
 @abstract    Encodes an OSType into a string suitable for use as a tag argument.
 @param       type        The OSType to convert.
-@return      A string that encodes the OSType.</declaration_comment>
+@return      A string that encodes the OSType.
+@discussion  This method is only available for OS X targets. On iOS platforms,
+nil will be always returned.</declaration_comment>
         <declaration_comment>*/</declaration_comment>
     + ( <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> )<declaration_type>stringForOSType</declaration_type>: ( <declaration_param>OSType</declaration_param> )<declaration_var>type</declaration_var>;   <declaration_comment>/*!
 @method      OSTypeForString:
 @abstract    Decodes a tag string into an OSType.
 @param       str         A string that encodes an OSType.
-@return      The OSType that was encoded in the string.</declaration_comment>
+@return      The OSType that was encoded in the string.
+@discussion  This method is only available for OS X targets. On iOS platforms,
+nil will be always returned.</declaration_comment>
         <declaration_comment>*/</declaration_comment>
     + ( <declaration_param>OSType</declaration_param> )<declaration_type>OSTypeForString</declaration_type>: ( <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> )<declaration_var>str</declaration_var>;   <declaration_comment>/*!
 @method      initWithString:
@@ -5126,7 +5133,9 @@ conform to that type.
 <result><p>The OSType that was encoded in the string.
 </p></result>
 <declaration>+ ( <declaration_type>OSType</declaration_type> )<declaration_function>OSTypeForString</declaration_function>: ( <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> )<declaration_var>str</declaration_var>; </declaration>
-<desc><p/></desc>
+<desc><p>This method is only available for OS X targets. On iOS platforms,
+nil will be always returned.
+</p></desc>
 </method><method id="//xsdoc_ref/occ/clm/UTI/packageTypeUTI" lang="occ" type="clm" accessControl="private"><name>packageTypeUTI</name>
 <abstract><p>Gets an UTI object for the 'com.apple.package' UTI.
 </p></abstract>
@@ -5721,7 +5730,9 @@ conform to that type.
 <result><p>A string that encodes the OSType.
 </p></result>
 <declaration>+ ( <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> )<declaration_function>stringForOSType</declaration_function>: ( <declaration_type>OSType</declaration_type> )<declaration_var>type</declaration_var>; </declaration>
-<desc><p/></desc>
+<desc><p>This method is only available for OS X targets. On iOS platforms,
+nil will be always returned.
+</p></desc>
 </method><method id="//xsdoc_ref/occ/clm/UTI/symLinkTypeUTI" lang="occ" type="clm" accessControl="private"><name>symLinkTypeUTI</name>
 <abstract><p>Gets an UTI object for the 'public.symlink' UTI.
 </p></abstract>
