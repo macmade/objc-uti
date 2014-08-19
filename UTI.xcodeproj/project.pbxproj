@@ -58,6 +58,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0509E30D19A3A7E500D7BC48 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		05161B7319A271B600BAB80B /* Clang-Warnings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
 		05161B7419A271B600BAB80B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05161B7519A271B600BAB80B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -114,6 +115,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0509E30219A3A7E500D7BC48 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				0509E30D19A3A7E500D7BC48 /* Makefile */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
 		05161B7219A271B600BAB80B /* UTI */ = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +156,7 @@
 		056C87C518C8B0F8006260B3 = {
 			isa = PBXGroup;
 			children = (
+				0509E30219A3A7E500D7BC48 /* Documentation */,
 				051F09651946EB70004B6E47 /* README.md */,
 				05161B7219A271B600BAB80B /* UTI */,
 				05161B7919A271B600BAB80B /* UTI Tests */,
@@ -205,6 +215,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
+
+/* Begin PBXLegacyTarget section */
+		0509E32419A3A86C00D7BC48 /* Documentation */ = {
+			isa = PBXLegacyTarget;
+			buildArgumentsString = "$(ACTION)";
+			buildConfigurationList = 0509E32519A3A86C00D7BC48 /* Build configuration list for PBXLegacyTarget "Documentation" */;
+			buildPhases = (
+			);
+			buildToolPath = /usr/bin/make;
+			buildWorkingDirectory = Documentation;
+			dependencies = (
+			);
+			name = Documentation;
+			passBuildSettingsInEnvironment = 1;
+			productName = Documentation;
+		};
+/* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
 		056C881118C8B85F006260B3 /* Mac Static Library */ = {
@@ -305,6 +332,9 @@
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
+					0509E32419A3A86C00D7BC48 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					05E71B621961D9D100F911C4 = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 056C881118C8B85F006260B3;
@@ -328,6 +358,7 @@
 				056C885E18C8C76B006260B3 /* Mac Framework */,
 				056C88A918C8C8AC006260B3 /* iOS Static Library */,
 				05E71B621961D9D100F911C4 /* UTI Tests */,
+				0509E32419A3A86C00D7BC48 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
@@ -411,6 +442,39 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		0509E32619A3A86C00D7BC48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				DEBUGGING_SYMBOLS = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0509E32719A3A86C00D7BC48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		056C87D518C8B0F8006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -647,7 +711,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = UTIPrefixHeader.pch;
+				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				PRODUCT_NAME = UTI;
 			};
 			name = Debug;
@@ -658,7 +722,7 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				EXECUTABLE_PREFIX = lib;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = UTIPrefixHeader.pch;
+				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				PRODUCT_NAME = UTI;
 			};
 			name = Release;
@@ -755,6 +819,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0509E32519A3A86C00D7BC48 /* Build configuration list for PBXLegacyTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0509E32619A3A86C00D7BC48 /* Debug */,
+				0509E32719A3A86C00D7BC48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "UTI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
