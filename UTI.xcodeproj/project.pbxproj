@@ -16,7 +16,7 @@
 				0509E32D19A3C42B00D7BC48 /* PBXTargetDependency */,
 				0509E32F19A3C42B00D7BC48 /* PBXTargetDependency */,
 				0509E33119A3C42B00D7BC48 /* PBXTargetDependency */,
-				0509E33319A3C42B00D7BC48 /* PBXTargetDependency */,
+				0509E33819A3DCCC00D7BC48 /* PBXTargetDependency */,
 				0509E33519A3C42B00D7BC48 /* PBXTargetDependency */,
 			);
 			name = CI;
@@ -61,19 +61,19 @@
 			remoteGlobalIDString = 056C885E18C8C76B006260B3;
 			remoteInfo = "Mac Framework";
 		};
-		0509E33219A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 056C88A918C8C8AC006260B3;
-			remoteInfo = "iOS Static Library";
-		};
 		0509E33419A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 0509E32419A3A86C00D7BC48;
 			remoteInfo = Documentation;
+		};
+		0509E33719A3DCCC00D7BC48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C88A918C8C8AC006260B3;
+			remoteInfo = "iOS Static Library";
 		};
 		05169CA01962ACD80082861C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -496,15 +496,15 @@
 			target = 056C885E18C8C76B006260B3 /* Mac Framework */;
 			targetProxy = 0509E33019A3C42B00D7BC48 /* PBXContainerItemProxy */;
 		};
-		0509E33319A3C42B00D7BC48 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 056C88A918C8C8AC006260B3 /* iOS Static Library */;
-			targetProxy = 0509E33219A3C42B00D7BC48 /* PBXContainerItemProxy */;
-		};
 		0509E33519A3C42B00D7BC48 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0509E32419A3A86C00D7BC48 /* Documentation */;
 			targetProxy = 0509E33419A3C42B00D7BC48 /* PBXContainerItemProxy */;
+		};
+		0509E33819A3DCCC00D7BC48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C88A918C8C8AC006260B3 /* iOS Static Library */;
+			targetProxy = 0509E33719A3DCCC00D7BC48 /* PBXContainerItemProxy */;
 		};
 		05169CA11962ACD80082861C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
