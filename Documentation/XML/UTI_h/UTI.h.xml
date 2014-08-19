@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE header PUBLIC "-//Apple Computer//DTD HEADERDOC 1.2//EN" "/System/Library/DTDs/HeaderDoc-1.2.dtd">
+<!DOCTYPE header PUBLIC "-//Apple Computer//DTD HEADERDOC 1.6//EN" "/System/Library/DTDs/HeaderDoc-1.6.dtd">
 <header id="//xsdoc_ref/doc/header/UTI.h" lang="c" filename="UTI.h" headerpath="/Users/macmade/Documents/Macmade/Development/GitHub/objc-uti/Documentation/../UTI/Source/UTI.h"><name>UTI.h</name>
 <abstract><p>Objective-C wrapper class for Uniform Type Identifiers (UTIs)
 </p></abstract>

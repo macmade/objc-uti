@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "056C884918C8C547006260B3"
-               BuildableName = "libUTI.dylib"
-               BlueprintName = "Mac Dynamic Library"
+               BlueprintIdentifier = "056C885E18C8C76B006260B3"
+               BuildableName = "UTI.framework"
+               BlueprintName = "ARC - Mac Framework"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -52,9 +52,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "056C884918C8C547006260B3"
-            BuildableName = "libUTI.dylib"
-            BlueprintName = "Mac Dynamic Library"
+            BlueprintIdentifier = "056C885E18C8C76B006260B3"
+            BuildableName = "UTI.framework"
+            BlueprintName = "ARC - Mac Framework"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

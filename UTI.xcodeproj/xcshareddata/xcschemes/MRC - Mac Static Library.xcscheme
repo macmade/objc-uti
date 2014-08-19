@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "056C885E18C8C76B006260B3"
-               BuildableName = "UTI.framework"
-               BlueprintName = "Mac Framework"
+               BlueprintIdentifier = "0509E35819A3E06700D7BC48"
+               BuildableName = "libARC - Mac Static Library copy.a"
+               BlueprintName = "MRC - Mac Static Library copy"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,16 +28,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES"
       buildConfiguration = "Debug">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "05E71B621961D9D100F911C4"
-               BuildableName = "UTI Tests.xctest"
-               BlueprintName = "UTI Tests"
-               ReferencedContainer = "container:UTI.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -52,9 +42,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "056C885E18C8C76B006260B3"
-            BuildableName = "UTI.framework"
-            BlueprintName = "Mac Framework"
+            BlueprintIdentifier = "0509E35819A3E06700D7BC48"
+            BuildableName = "libARC - Mac Static Library copy.a"
+            BlueprintName = "MRC - Mac Static Library copy"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,6 +57,15 @@
       useCustomWorkingDirectory = "NO"
       buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "0509E35819A3E06700D7BC48"
+            BuildableName = "libARC - Mac Static Library copy.a"
+            BlueprintName = "MRC - Mac Static Library copy"
+            ReferencedContainer = "container:UTI.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">
