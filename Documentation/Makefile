@@ -90,3 +90,7 @@ ifeq ($(_HAS_XSDOCGEN),true)
 else
 	@echo $(call _PRINT,XSDoc,universal,Skipping documentation generation - XSDocgen is not installed)
 endif
+
+# Support for Xcode
+clean:
+	@
