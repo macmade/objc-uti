@@ -35,160 +35,997 @@
  * @abstract    Objective-C wrapper class for Uniform Type Identifiers (UTIs)
  */
 
+/*!
+ * @define      NS_DESIGNATED_INITIALIZER
+ * @abstract    ...
+ */
 #ifndef NS_DESIGNATED_INITIALIZER
 #define NS_DESIGNATED_INITIALIZER
 #endif
 
+/*!
+ * @typedef     UTITagClass
+ * @abstract    ...
+ */
 typedef NS_ENUM( NSInteger, UTITagClass )
 {
-    UTITagClassFilenameExtension    = 0x00,
-    UTITagClassMIMEType             = 0x01,
-    UTITagClassNSPboardType         = 0x02,
-    UTITagClassOSType               = 0x03
+    UTITagClassFilenameExtension    = 0x00, /*! ... */
+    UTITagClassMIMEType             = 0x01, /*! ... */
+    UTITagClassNSPboardType         = 0x02, /*! ... */
+    UTITagClassOSType               = 0x03  /*! ... */
 };
 
+/*!
+ * @typedef     UTIDeclarationDictionaryKey
+ * @abstract    ...
+ */
 typedef NS_ENUM( NSInteger, UTIDeclarationDictionaryKey )
 {
-    UTIDeclarationDictionaryKeyExportedType     = 0x00,
-    UTIDeclarationDictionaryKeyImportedType     = 0x01,
-    UTIDeclarationDictionaryKeyIdentifier       = 0x02,
-    UTIDeclarationDictionaryKeyTagSpecification = 0x03,
-    UTIDeclarationDictionaryKeyConformsTo       = 0x04,
-    UTIDeclarationDictionaryKeyDescription      = 0x05,
-    UTIDeclarationDictionaryKeyIconFile         = 0x06,
-    UTIDeclarationDictionaryKeyReferenceURL     = 0x07,
-    UTIDeclarationDictionaryKeyVersion          = 0x08
+    UTIDeclarationDictionaryKeyExportedType     = 0x00, /*! ... */
+    UTIDeclarationDictionaryKeyImportedType     = 0x01, /*! ... */
+    UTIDeclarationDictionaryKeyIdentifier       = 0x02, /*! ... */
+    UTIDeclarationDictionaryKeyTagSpecification = 0x03, /*! ... */
+    UTIDeclarationDictionaryKeyConformsTo       = 0x04, /*! ... */
+    UTIDeclarationDictionaryKeyDescription      = 0x05, /*! ... */
+    UTIDeclarationDictionaryKeyIconFile         = 0x06, /*! ... */
+    UTIDeclarationDictionaryKeyReferenceURL     = 0x07, /*! ... */
+    UTIDeclarationDictionaryKeyVersion          = 0x08  /*! ... */
 };
 
+/*!
+ * @class       UTI
+ * @abstract    ...
+ */
 @interface UTI: NSObject < NSCopying >
 
-@property ( nonatomic, readonly ) NSString * preferredFilenameExtension;
-@property ( nonatomic, readonly ) NSString * preferredMIMEType;
-@property ( nonatomic, readonly ) NSString * preferredNSPboardType;
-@property ( nonatomic, readonly ) NSString * preferredOSType;
-@property ( nonatomic, readonly ) NSString * description;
-@property ( nonatomic, readonly ) NSDictionary * declaration;
-@property ( nonatomic, readonly ) NSURL * declaringBundleURL;
-@property ( nonatomic, readonly ) NSArray * exportedTypes;
-@property ( nonatomic, readonly ) NSArray * importedTypes;
-@property ( nonatomic, readonly ) NSString * identifier;
-@property ( nonatomic, readonly ) NSDictionary * tagSpecifications;
-@property ( nonatomic, readonly ) NSArray * conformsTo;
-@property ( nonatomic, readonly ) NSString * iconFile;
-@property ( nonatomic, readonly ) NSURL * referenceURL;
-@property ( nonatomic, readonly ) NSString * version;
+/*!
+ * @property    preferredFilenameExtension
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * preferredFilenameExtension;
+
+/*!
+ * @property    preferredMIMEType
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * preferredMIMEType;
+
+/*!
+ * @property    preferredNSPboardType
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * preferredNSPboardType;
+
+/*!
+ * @property    preferredOSType
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * preferredOSType;
+
+/*!
+ * @property    description
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * description;
+
+/*!
+ * @property    declaration
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSDictionary * declaration;
+
+/*!
+ * @property    declaringBundleURL
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSURL * declaringBundleURL;
+
+/*!
+ * @property    exportedTypes
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSArray * exportedTypes;
+
+/*!
+ * @property    importedTypes
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSArray * importedTypes;
+
+/*!
+ * @property    identifier
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * identifier;
+
+/*!
+ * @property    tagSpecifications
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSDictionary * tagSpecifications;
+
+/*!
+ * @property    conformsTo
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSArray * conformsTo;
+
+/*!
+ * @property    iconFile
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * iconFile;
+
+/*!
+ * @property    referenceURL
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSURL * referenceURL;
+
+/*!
+ * @property    version
+ * @abstract    ...
+ */
+@property( nonatomic, readonly ) NSString * version;
+
+/*!
+ * @method      UTIWithString:
+ * @abstract    ...
+ * @param       str         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithString: ( NSString * )str;
+
+/*!
+ * @method      UTIWithCFString:
+ * @abstract    ...
+ * @param       str         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithCFString: ( CFStringRef )str;
+
+/*!
+ * @method      UTIWithFileExtension:
+ * @abstract    ...
+ * @param       extension   ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension;
+
+/*!
+ * @method      UTIWithFileExtension:conformingTo:
+ * @abstract    ...
+ * @param       extension   ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      UTIWithMIMEType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithMIMEType: ( NSString * )type;
+
+/*!
+ * @method      UTIWithMIMEType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      UTIWithNSPboardType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithNSPboardType: ( NSString * )type;
+
+/*!
+ * @method      UTIWithNSPboardType:UTIWithMIMEType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      UTIWithOSType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithOSType: ( NSString * )type;
+
+/*!
+ * @method      UTIWithOSType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      UTIWithTag:tagClass:conformingTo:
+ * @abstract    ...
+ * @param       tag         ...
+ * @param       tagClass    ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      abstractTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )abstractTypes;
+
+/*!
+ * @method      concreteTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )concreteTypes;
+
+/*!
+ * @method      textTypes
+ * @abstract    ...
+ * @return      ...
+ */
++ ( NSArray * )textTypes;
+
+/*!
+ * @method      compositeContentTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )compositeContentTypes;
+
+/*!
+ * @method      imageContentTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )imageContentTypes;
+
+/*!
+ * @method      audioVisualContentTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )audioVisualContentTypes;
+
+/*!
+ * @method      directoryTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )directoryTypes;
+
+/*!
+ * @method      applicationTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )applicationTypes;
+
+/*!
+ * @method      contactTypes
+ * @abstract    ...
+ * @return      ...
+ */
++ ( NSArray * )contactTypes;
+
+/*!
+ * @method      miscellaneousTypes
+ * @abstract    ...
+ * @return      ...
+ */
 + ( NSArray * )miscellaneousTypes;
+
+/*!
+ * @method      itemTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )itemTypeUTI;
+
+/*!
+ * @method      contentTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )contentTypeUTI;
+
+/*!
+ * @method      compositeContentTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )compositeContentTypeUTI;
+
+/*!
+ * @method      applicationTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )applicationTypeUTI;
+
+/*!
+ * @method      messageTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )messageTypeUTI;
+
+/*!
+ * @method      contactTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )contactTypeUTI;
+
+/*!
+ * @method      archiveTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )archiveTypeUTI;
+
+/*!
+ * @method      diskImageTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )diskImageTypeUTI;
+
+/*!
+ * @method      dataTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )dataTypeUTI;
+
+/*!
+ * @method      directoryTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )directoryTypeUTI;
+
+/*!
+ * @method      resolvableTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )resolvableTypeUTI;
+
+/*!
+ * @method      symLinkTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )symLinkTypeUTI;
+
+/*!
+ * @method      mountPointTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )mountPointTypeUTI;
+
+/*!
+ * @method      aliasFileTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )aliasFileTypeUTI;
+
+/*!
+ * @method      aliasRecordTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )aliasRecordTypeUTI;
+
+/*!
+ * @method      URLTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )URLTypeUTI;
+
+/*!
+ * @method      fileURLTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )fileURLTypeUTI;
+
+/*!
+ * @method      textTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )textTypeUTI;
+
+/*!
+ * @method      plainTextTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )plainTextTypeUTI;
+
+/*!
+ * @method      UTF8PlainTextTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )UTF8PlainTextTypeUTI;
+
+/*!
+ * @method      UTF16ExternalPlainTextTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )UTF16ExternalPlainTextTypeUTI;
+
+/*!
+ * @method      UTF16PlainTextTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )UTF16PlainTextTypeUTI;
+
+/*!
+ * @method      RTFTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )RTFTypeUTI;
+
+/*!
+ * @method      HTMLTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )HTMLTypeUTI;
+
+/*!
+ * @method      XMLTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )XMLTypeUTI;
+
+/*!
+ * @method      sourceCodeTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )sourceCodeTypeUTI;
+
+/*!
+ * @method      CSourceTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )CSourceTypeUTI;
+
+/*!
+ * @method      objectiveCSourceTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )objectiveCSourceTypeUTI;
+
+/*!
+ * @method      CPlusPlusSourceTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )CPlusPlusSourceTypeUTI;
+
+/*!
+ * @method      objectiveCPlusPlusSourceTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )objectiveCPlusPlusSourceTypeUTI;
+
+/*!
+ * @method      CHeaderTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )CHeaderTypeUTI;
+
+/*!
+ * @method      CPlusPlusHeaderTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )CPlusPlusHeaderTypeUTI;
+
+/*!
+ * @method      javaSourceTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )javaSourceTypeUTI;
+
+/*!
+ * @method      PDFTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )PDFTypeUTI;
+
+/*!
+ * @method      RTFDTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )RTFDTypeUTI;
+
+/*!
+ * @method      flatRTFDTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )flatRTFDTypeUTI;
+
+/*!
+ * @method      TXNTextAndMultimediaDataTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )TXNTextAndMultimediaDataTypeUTI;
+
+/*!
+ * @method      webArchiveTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )webArchiveTypeUTI;
+
+/*!
+ * @method      imageTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )imageTypeUTI;
+
+/*!
+ * @method      JPEGTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )JPEGTypeUTI;
+
+/*!
+ * @method      JPEG2000TypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )JPEG2000TypeUTI;
+
+/*!
+ * @method      TIFFTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )TIFFTypeUTI;
+
+/*!
+ * @method      PICTTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )PICTTypeUTI;
+
+/*!
+ * @method      GIFTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )GIFTypeUTI;
+
+/*!
+ * @method      PNGTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )PNGTypeUTI;
+
+/*!
+ * @method      quickTimeImageTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )quickTimeImageTypeUTI;
-+ ( instancetype )appleICNS;
+
+/*!
+ * @method      appleICNSTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
++ ( instancetype )appleICNSTypeUTI;
+
+/*!
+ * @method      BMPTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )BMPTypeUTI;
+
+/*!
+ * @method      ICOTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )ICOTypeUTI;
+
+/*!
+ * @method      audiovisualContentTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )audiovisualContentTypeUTI;
+
+/*!
+ * @method      movieTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )movieTypeUTI;
+
+/*!
+ * @method      videoTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )videoTypeUTI;
+
+/*!
+ * @method      audioTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )audioTypeUTI;
+
+/*!
+ * @method      quickTimeMovieTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )quickTimeMovieTypeUTI;
+
+/*!
+ * @method      MPEGTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )MPEGTypeUTI;
+
+/*!
+ * @method      MPEG4TypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )MPEG4TypeUTI;
+
+/*!
+ * @method      MP3TypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )MP3TypeUTI;
+
+/*!
+ * @method      MPEG4AudioTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )MPEG4AudioTypeUTI;
+
+/*!
+ * @method      appleProtectedMPEG4AudioTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )appleProtectedMPEG4AudioTypeUTI;
+
+/*!
+ * @method      folderTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )folderTypeUTI;
+
+/*!
+ * @method      volumeTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )volumeTypeUTI;
+
+/*!
+ * @method      packageTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )packageTypeUTI;
+
+/*!
+ * @method      bundleTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )bundleTypeUTI;
+
+/*!
+ * @method      frameworkTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )frameworkTypeUTI;
+
+/*!
+ * @method      applicationBundleTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )applicationBundleTypeUTI;
+
+/*!
+ * @method      applicationFileTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )applicationFileTypeUTI;
+
+/*!
+ * @method      vCardTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )vCardTypeUTI;
+
+/*!
+ * @method      inkTextTypeUTI
+ * @abstract    ...
+ * @return      ...
+ */
 + ( instancetype )inkTextTypeUTI;
+
+/*!
+ * @method      allUTIsWithFileExtension:
+ * @abstract    ...
+ * @param       extension   ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension;
+
+/*!
+ * @method      allUTIsWithFileExtension:conformingTo:
+ * @abstract    ...
+ * @param       extension   ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      allUTIsWithMIMEType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type;
+
+/*!
+ * @method      allUTIsWithMIMEType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      allUTIsWithNSPboardType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type;
+
+/*!
+ * @method      allUTIsWithNSPboardType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      allUTIsWithOSType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type;
+
+/*!
+ * @method      allUTIsWithOSType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      allUTIsWithTag:tagClass:conformingTo:
+ * @abstract    ...
+ * @param       tag         ...
+ * @param       tagClass    ...
+ * @param       uti         ...
+ * @return      ...
+ */
 + ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      stringForOSType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 + ( NSString * )stringForOSType: ( OSType )type;
+
+/*!
+ * @method      OSTypeForString:
+ * @abstract    ...
+ * @param       str         ...
+ * @return      ...
+ */
 + ( OSType )OSTypeForString: ( NSString * )str;
+
+/*!
+ * @method      initWithString:
+ * @abstract    ...
+ * @param       str         ...
+ * @return      ...
+ */
 - ( instancetype )initWithString: ( NSString * )str;
+
+/*!
+ * @method      initWithCFString:
+ * @abstract    ...
+ * @param       str         ...
+ * @return      ...
+ */
 - ( instancetype )initWithCFString: ( CFStringRef )str NS_DESIGNATED_INITIALIZER;
+
+/*!
+ * @method      initWithFileExtension:
+ * @abstract    ...
+ * @param       extension   ...
+ * @return      ...
+ */
 - ( instancetype )initWithFileExtension: ( NSString * )extension;
+
+/*!
+ * @method      initWithFileExtension:conformingTo:
+ * @abstract    ...
+ * @param       extension   ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      initWithMIMEType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 - ( instancetype )initWithMIMEType: ( NSString * )type;
+
+/*!
+ * @method      initWithMIMEType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      initWithNSPboardType
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 - ( instancetype )initWithNSPboardType: ( NSString * )type;
+
+/*!
+ * @method      initWithNSPboardType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      initWithOSType:
+ * @abstract    ...
+ * @param       type        ...
+ * @return      ...
+ */
 - ( instancetype )initWithOSType: ( NSString * )type;
+
+/*!
+ * @method      initWithOSType:conformingTo:
+ * @abstract    ...
+ * @param       type        ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( instancetype )initWithOSType: ( NSString * )type conformingTo: ( UTI * )uti;
+
+/*!
+ * @method      initWithTag:tagClass:conformingTo:
+ * @abstract    ...
+ * @param       tag         ...
+ * @param       tagClass    ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( instancetype )initWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti NS_DESIGNATED_INITIALIZER;
+
+/*!
+ * @method      preferredTagForTagClass:
+ * @abstract    ...
+ * @param       tagClass    ...
+ * @return      ...
+ */
 - ( NSString * )preferredTagForTagClass: ( UTITagClass )tagClass;
+
+/*!
+ * @method      isEqualToUTI:
+ * @abstract    ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( BOOL )isEqualToUTI: ( UTI * )uti;
+
+/*!
+ * @method      conformsToUTI
+ * @abstract    ...
+ * @param       uti         ...
+ * @return      ...
+ */
 - ( BOOL )conformsToUTI: ( UTI * )uti;
+
+/*!
+ * @method      objectForDeclarationDictionaryKey
+ * @abstract    ...
+ * @param       key         ...
+ * @return      ...
+ */
 - ( id )objectForDeclarationDictionaryKey: ( UTIDeclarationDictionaryKey )key;
 
 @end

@@ -29,575 +29,657 @@
  
 /* $Id$ */
 
-/*!
- * @file        UTI.m
- * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com
- * @abstract    Objective-C wrapper class for Uniform Type Identifiers (UTIs)
- */
-
 #import "UTI.h"
 
 #ifdef __IPHONE_OS_VERSION_MIN_REQUIRED
-
 @import MobileCoreServices;
-
 #else
-
 @import CoreServices;
+#endif
 
+#ifndef __has_feature
+#define __has_feature( _x_ )    0
+#endif
+
+#if __has_feature( objc_arc )
+#define __UTI_ARC               1
+#else
+#define __UTI_ARC               0
 #endif
 
 @interface UTI()
-{}
+
+@property ( nonatomic, readwrite, retain ) NSString     * UTIValue;
+@property ( nonatomic, readwrite, retain ) NSDictionary * representation;
 
 @end
 
 @implementation UTI
 
+@synthesize UTIValue;
+@synthesize representation;
+
 + ( instancetype )UTIWithString: ( NSString * )str
 {
-    ( void )str;
-    
-    return nil;
+    #if __UTI_ARC
+    return [ self UTIWithCFString: ( __bridge CFStringRef )str ];
+    #else
+    return [ self UTIWithCFString: ( CFStringRef )str ];
+    #endif
 }
 
 + ( instancetype )UTIWithCFString: ( CFStringRef )str
 {
-    ( void )str;
-    
-    return nil;
+    #if __UTI_ARC
+    return [ [ self alloc ] initWithCFString: str ];
+    #else
+    return [ [ [ self alloc ] initWithCFString: str ] autorelease ];
+    #endif
 }
 
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension
 {
-    ( void )extension;
-    
-    return nil;
+    return [ self UTIWithFileExtension: extension conformingTo: nil ];
 }
 
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
 {
-    ( void )extension;
-    ( void )uti;
-    
-    return nil;
+    return [ self UTIWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti ];
 }
 
 + ( instancetype )UTIWithMIMEType: ( NSString * )type
 {
-    ( void )type;
-    
-    return nil;
+    return [ self UTIWithMIMEType: type conformingTo: nil ];
 }
 
 + ( instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    ( void )type;
-    ( void )uti;
-    
-    return nil;
+    return [ self UTIWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti ];
 }
 
 + ( instancetype )UTIWithNSPboardType: ( NSString * )type
 {
-    ( void )type;
-    
-    return nil;
+    return [ self UTIWithNSPboardType: type conformingTo: nil ];
 }
 
 + ( instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    ( void )type;
-    ( void )uti;
-    
-    return nil;
+    return [ self UTIWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti ];
 }
 
 + ( instancetype )UTIWithOSType: ( NSString * )type
 {
-    ( void )type;
-    
-    return nil;
+    return [ self UTIWithOSType: type conformingTo: nil ];
 }
 
 + ( instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    ( void )type;
-    ( void )uti;
-    
-    return nil;
+    return [ self UTIWithTag: type tagClass: UTITagClassOSType conformingTo: uti ];
 }
 
 + ( instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti
 {
-    ( void )tag;
-    ( void )tagClass;
-    ( void )uti;
-    
-    return nil;
+    #if __UTI_ARC
+    return [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti ];
+    #else
+    return [ [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti ] autorelease ];
+    #endif
 }
 
 + ( NSArray * )abstractTypes
 {
-    return nil;
+    return @[ [ self itemTypeUTI ],
+              [ self contentTypeUTI ],
+              [ self compositeContentTypeUTI ],
+              [ self applicationTypeUTI ],
+              [ self messageTypeUTI ],
+              [ self contactTypeUTI ],
+              [ self archiveTypeUTI ],
+              [ self diskImageTypeUTI ]
+    ];
 }
 
 + ( NSArray * )concreteTypes
 {
-    return nil;
+    return @[ [ self dataTypeUTI ],
+              [ self directoryTypeUTI ],
+              [ self resolvableTypeUTI ],
+              [ self symLinkTypeUTI ],
+              [ self mountPointTypeUTI ],
+              [ self aliasFileTypeUTI ],
+              [ self aliasRecordTypeUTI ],
+              [ self URLTypeUTI ],
+              [ self fileURLTypeUTI ]
+    ];
+}
+
++ ( NSArray * )textTypes
+{
+    return @[ [ self textTypeUTI ],
+              [ self plainTextTypeUTI ],
+              [ self UTF8PlainTextTypeUTI ],
+              [ self UTF16ExternalPlainTextTypeUTI ],
+              [ self UTF16PlainTextTypeUTI ],
+              [ self RTFTypeUTI ],
+              [ self HTMLTypeUTI ],
+              [ self XMLTypeUTI ],
+              [ self sourceCodeTypeUTI ],
+              [ self CSourceTypeUTI ],
+              [ self objectiveCSourceTypeUTI ],
+              [ self CPlusPlusSourceTypeUTI ],
+              [ self objectiveCPlusPlusSourceTypeUTI ],
+              [ self CHeaderTypeUTI ],
+              [ self CPlusPlusHeaderTypeUTI ],
+              [ self javaSourceTypeUTI ]
+    ];
 }
 
 + ( NSArray * )compositeContentTypes
 {
-    return nil;
+    return @[ [ self PDFTypeUTI ],
+              [ self RTFDTypeUTI ],
+              [ self flatRTFDTypeUTI ],
+              [ self TXNTextAndMultimediaDataTypeUTI ],
+              [ self webArchiveTypeUTI ]
+    ];
 }
 
 + ( NSArray * )imageContentTypes
 {
-    return nil;
+    return @[ [ self imageTypeUTI ],
+              [ self JPEGTypeUTI ],
+              [ self JPEG2000TypeUTI ],
+              [ self TIFFTypeUTI ],
+              [ self PICTTypeUTI ],
+              [ self GIFTypeUTI ],
+              [ self PNGTypeUTI ],
+              [ self quickTimeImageTypeUTI ],
+              [ self appleICNSTypeUTI ],
+              [ self BMPTypeUTI ],
+              [ self ICOTypeUTI ]
+    ];
 }
 
 + ( NSArray * )audioVisualContentTypes
 {
-    return nil;
+    return @[ [ self audiovisualContentTypeUTI ],
+              [ self movieTypeUTI ],
+              [ self videoTypeUTI ],
+              [ self audioTypeUTI ],
+              [ self quickTimeMovieTypeUTI ],
+              [ self MPEGTypeUTI ],
+              [ self MPEG4TypeUTI ],
+              [ self MP3TypeUTI ],
+              [ self MPEG4AudioTypeUTI ],
+              [ self appleProtectedMPEG4AudioTypeUTI ]
+    ];
 }
 
 + ( NSArray * )directoryTypes
 {
-    return nil;
+    return @[ [ self folderTypeUTI ],
+              [ self volumeTypeUTI ],
+              [ self packageTypeUTI ],
+              [ self bundleTypeUTI ],
+              [ self frameworkTypeUTI ]
+    ];
 }
 
 + ( NSArray * )applicationTypes
 {
-    return nil;
+    return @[ [ self applicationBundleTypeUTI ],
+              [ self applicationFileTypeUTI ]
+    ];
+}
+
++ ( NSArray * )contactTypes
+{
+    return @[ [ self vCardTypeUTI ] ];
 }
 
 + ( NSArray * )miscellaneousTypes
 {
-    return nil;
+    return @[ [ self inkTextTypeUTI ] ];
 }
 
 + ( instancetype )itemTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeItem ];
 }
 
 + ( instancetype )contentTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeContent ];
 }
 
 + ( instancetype )compositeContentTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeCompositeContent ];
 }
 
 + ( instancetype )applicationTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeApplication ];
 }
 
 + ( instancetype )messageTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMessage ];
 }
 
 + ( instancetype )contactTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeContact ];
 }
 
 + ( instancetype )archiveTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeArchive ];
 }
 
 + ( instancetype )diskImageTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeDiskImage ];
 }
 
 + ( instancetype )dataTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeData ];
 }
 
 + ( instancetype )directoryTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeDirectory ];
 }
 
 + ( instancetype )resolvableTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeResolvable ];
 }
 
 + ( instancetype )symLinkTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeSymLink ];
 }
 
 + ( instancetype )mountPointTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMountPoint ];
 }
 
 + ( instancetype )aliasFileTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeAliasFile ];
 }
 
 + ( instancetype )aliasRecordTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeAliasRecord ];
 }
 
 + ( instancetype )URLTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeURL ];
 }
 
 + ( instancetype )fileURLTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeFileURL ];
 }
 
 + ( instancetype )textTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeText ];
 }
 
 + ( instancetype )plainTextTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypePlainText ];
 }
 
 + ( instancetype )UTF8PlainTextTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeUTF8PlainText ];
 }
 
 + ( instancetype )UTF16ExternalPlainTextTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeUTF16ExternalPlainText ];
 }
 
 + ( instancetype )UTF16PlainTextTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeUTF16PlainText ];
 }
 
 + ( instancetype )RTFTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeRTF ];
 }
 
 + ( instancetype )HTMLTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeHTML ];
 }
 
 + ( instancetype )XMLTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeXML ];
 }
 
 + ( instancetype )sourceCodeTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeSourceCode ];
 }
 
 + ( instancetype )CSourceTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeCSource ];
 }
 
 + ( instancetype )objectiveCSourceTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeObjectiveCSource ];
 }
 
 + ( instancetype )CPlusPlusSourceTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeCPlusPlusSource ];
 }
 
 + ( instancetype )objectiveCPlusPlusSourceTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeObjectiveCPlusPlusSource ];
 }
 
 + ( instancetype )CHeaderTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeCHeader ];
 }
 
 + ( instancetype )CPlusPlusHeaderTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeCPlusPlusHeader ];
 }
 
 + ( instancetype )javaSourceTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeJavaSource ];
 }
 
 + ( instancetype )PDFTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypePDF ];
 }
 
 + ( instancetype )RTFDTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeRTFD ];
 }
 
 + ( instancetype )flatRTFDTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeFlatRTFD ];
 }
 
 + ( instancetype )TXNTextAndMultimediaDataTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeTXNTextAndMultimediaData ];
 }
 
 + ( instancetype )webArchiveTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeWebArchive ];
 }
 
 + ( instancetype )imageTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeImage ];
 }
 
 + ( instancetype )JPEGTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeJPEG ];
 }
 
 + ( instancetype )JPEG2000TypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeJPEG2000 ];
 }
 
 + ( instancetype )TIFFTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeTIFF ];
 }
 
 + ( instancetype )PICTTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypePICT ];
 }
 
 + ( instancetype )GIFTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeGIF ];
 }
 
 + ( instancetype )PNGTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypePNG ];
 }
 
 + ( instancetype )quickTimeImageTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeQuickTimeImage ];
 }
 
-+ ( instancetype )appleICNS
++ ( instancetype )appleICNSTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeAppleICNS ];
 }
 
 + ( instancetype )BMPTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeBMP ];
 }
 
 + ( instancetype )ICOTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeICO ];
 }
 
 + ( instancetype )audiovisualContentTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeAudiovisualContent ];
 }
 
 + ( instancetype )movieTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMovie ];
 }
 
 + ( instancetype )videoTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeVideo ];
 }
 
 + ( instancetype )audioTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeAudio ];
 }
 
 + ( instancetype )quickTimeMovieTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeQuickTimeMovie ];
 }
 
 + ( instancetype )MPEGTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMPEG ];
 }
 
 + ( instancetype )MPEG4TypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMPEG4 ];
 }
 
 + ( instancetype )MP3TypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMP3 ];
 }
 
 + ( instancetype )MPEG4AudioTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeMPEG4Audio ];
 }
 
 + ( instancetype )appleProtectedMPEG4AudioTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeAppleProtectedMPEG4Audio ];
 }
 
 + ( instancetype )folderTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeFolder ];
 }
 
 + ( instancetype )volumeTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeVolume ];
 }
 
 + ( instancetype )packageTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypePackage ];
 }
 
 + ( instancetype )bundleTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeBundle ];
 }
 
 + ( instancetype )frameworkTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeFramework ];
 }
 
 + ( instancetype )applicationBundleTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeApplicationBundle ];
 }
 
 + ( instancetype )applicationFileTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeApplicationFile ];
 }
 
 + ( instancetype )vCardTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeVCard ];
 }
 
 + ( instancetype )inkTextTypeUTI
 {
-    return nil;
+    return [ self UTIWithCFString: kUTTypeInkText ];
 }
 
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension
 {
-    ( void )extension;
-    
-    return nil;
+    return [ self allUTIsWithFileExtension: extension conformingTo: nil ];
 }
 
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
 {
-    ( void )extension;
-    ( void )uti;
-    
-    return nil;
+    return [ self allUTIsWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti ];
 }
 
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type
 {
-    ( void )type;
-    
-    return nil;
+    return [ self allUTIsWithMIMEType: type conformingTo: nil ];
 }
 
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    ( void )type;
-    ( void )uti;
-    
-    return nil;
+    return [ self allUTIsWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti ];
 }
 
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type
 {
-    ( void )type;
-    
-    return nil;
+    return [ self allUTIsWithNSPboardType: type conformingTo: nil ];
 }
 
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    ( void )type;
-    ( void )uti;
-    
-    return nil;
+    return [ self allUTIsWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti ];
 }
 
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type
 {
-    ( void )type;
-    
-    return nil;
+    return [ self allUTIsWithOSType: type conformingTo: nil ];
 }
 
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    ( void )type;
-    ( void )uti;
-    
-    return nil;
+    return [ self allUTIsWithTag: type tagClass: UTITagClassOSType conformingTo: uti ];
 }
 
 + ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti
 {
-    ( void )tag;
-    ( void )tagClass;
-    ( void )uti;
+    CFStringRef      cfTagClass;
+    NSArray        * cfUTIs;
+    NSString       * str;
+    NSMutableArray * utis;
+    UTI            * obj;
     
-    return nil;
+    switch( tagClass )
+    {
+        case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassMIMEType:           cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassOSType:             cfTagClass = kUTTagClassFilenameExtension; break;
+    }
+    
+    #ifdef __UTI_ARC
+    cfUTIs = ( __bridge_transfer NSArray * )UTTypeCreateAllIdentifiersForTag( cfTagClass, ( __bridge CFStringRef )tag, ( __bridge CFStringRef )( uti.UTIValue ) );
+    #else
+    cfUTIs = [ ( NSArray * )UTTypeCreateAllIdentifiersForTag( cfTagClass, ( CFStringRef )tag, ( CFStringRef )( uti.UTIValue ) ) autorelease ];
+    #endif
+    
+    utis = [ NSMutableArray arrayWithCapacity: cfUTIs.count ];
+    
+    for( str in cfUTIs )
+    {
+        obj = [ UTI UTIWithString: str ];
+        
+        if( obj != nil )
+        {
+            [ utis addObject: obj ];
+        }
+    }
+    
+    return [ NSArray arrayWithArray: utis ];
 }
 
 + ( NSString * )stringForOSType: ( OSType )type
 {
-    ( void )type;
-    
-    return nil;
+    #ifdef __UTI_ARC
+    return ( __bridge_transfer NSString * )UTCreateStringForOSType( type );
+    #else
+    return ( NSString * )UTCreateStringForOSType( type );
+    #endif
 }
 
 + ( OSType )OSTypeForString: ( NSString * )str
 {
-    ( void )str;
+    if( str == nil )
+    {
+        return 0;
+    }
     
-    return 0;
+    #ifdef __UTI_ARC
+    return UTGetOSTypeFromString( ( __bridge CFStringRef )str ) ;
+    #else
+    return UTGetOSTypeFromString( ( CFStringRef )str ) ;
+    #endif
 }
 
 - ( instancetype )initWithString: ( NSString * )str
@@ -607,9 +689,16 @@
 
 - ( instancetype )initWithCFString: ( CFStringRef )str /* NS_DESIGNATED_INITIALIZER */
 {
-    ( void )str;
+    if( ( self = [ super init ] ) )
+    {
+        #if __UTI_ARC
+        self.UTIValue = ( __bridge NSString * )str;
+        #else
+        self.UTIValue = ( NSString * )str;
+        #endif
+    }
     
-    return nil;
+    return self;
 }
 
 - ( instancetype )initWithFileExtension: ( NSString * )extension
@@ -654,121 +743,265 @@
 
 - ( instancetype )initWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti /* NS_DESIGNATED_INITIALIZER */
 {
-    ( void )tag;
-    ( void )tagClass;
-    ( void )uti;
+    CFStringRef utiValue;
+    CFStringRef cfTagClass;
     
-    return nil;
+    switch( tagClass )
+    {
+        case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassMIMEType:           cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassOSType:             cfTagClass = kUTTagClassFilenameExtension; break;
+    }
+    
+    #if __UTI_ARC
+    utiValue = UTTypeCreatePreferredIdentifierForTag( ( __bridge CFStringRef )tag, cfTagClass, ( __bridge CFStringRef )( uti.UTIValue ) );
+    #else
+    utiValue = UTTypeCreatePreferredIdentifierForTag( ( CFStringRef )tag, ( CFStringRef )tagClass, ( CFStringRef )( uti.UTIValue ) );
+    #endif
+    
+    if( utiValue == NULL )
+    {
+        #if __UTI_ARC == 0
+        [ self release ];
+        #endif
+        
+        return nil;
+    }
+    
+    if( ( self = [ super init ] ) )
+    {
+        #if __UTI_ARC
+        self.UTIValue = ( __bridge NSString * )utiValue;
+        #else
+        self.UTIValue = ( NSString * )utiValue;
+        #endif
+    }
+    
+    CFRelease( utiValue );
+    
+    return self;
+}
+
+- ( void )dealloc
+{
+    self.UTIValue       = nil;
+    self.representation = nil;
 }
 
 - ( id )copyWithZone: ( NSZone * )zone
 {
-    ( void )zone;
-    
-    return nil;
+    return [ [ [ self class ] allocWithZone: zone ] initWithString: self.UTIValue ];
 }
 
 - ( NSString * )preferredTagForTagClass: ( UTITagClass )tagClass
 {
-    ( void )tagClass;
+    CFStringRef cfTagClass;
     
-    return nil;
+    if( self.UTIValue == nil )
+    {
+        return nil;
+    }
+    
+    switch( tagClass )
+    {
+        case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension;  break;
+        case UTITagClassMIMEType:           cfTagClass = kUTTagClassMIMEType;           break;
+        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassNSPboardType;       break;
+        case UTITagClassOSType:             cfTagClass = kUTTagClassOSType;             break;
+    }
+    
+    #ifdef __UTI_ARC
+    return ( __bridge_transfer NSString * )UTTypeCopyPreferredTagWithClass( ( __bridge CFStringRef )( self.UTIValue ), cfTagClass );
+    #else
+    return [ ( NSString * )UTTypeCopyPreferredTagWithClass( ( CFStringRef )( self.UTIValue ), cfTagClass ) autorelease ];
+    #endif
+}
+
+- ( NSUInteger )hash
+{
+    return [ self.UTIValue hash ];
+}
+
+- ( BOOL )isEqual: ( id )object
+{
+    if( self == object )
+    {
+        return YES;
+    }
+    
+    if( [ object isKindOfClass: [ UTI class ] ] == NO )
+    {
+        return NO;
+    }
+    
+    return [ self isEqualToUTI: ( UTI * )object ];
 }
 
 - ( BOOL )isEqualToUTI: ( UTI * )uti
 {
-    ( void )uti;
+    if( uti == nil )
+    {
+        return NO;
+    }
     
-    return NO;
+    return [ self.UTIValue isEqualToString: uti.UTIValue ];
 }
 
 - ( BOOL )conformsToUTI: ( UTI * )uti
 {
-    ( void )uti;
+    if( self.UTIValue == nil || uti.UTIValue == nil )
+    {
+        return NO;
+    }
     
-    return NO;
+    #if __UTI_ARC
+    return ( UTTypeConformsTo( ( __bridge CFStringRef )( self.UTIValue ), ( __bridge CFStringRef )( uti.UTIValue ) ) ) ? YES : NO;
+    #else
+    return ( UTTypeConformsTo( ( CFStringRef )( self.UTIValue ), ( CFStringRef )( uti.UTIValue ) ) ) ? YES : NO;
+    #endif
 }
 
 - ( id )objectForDeclarationDictionaryKey: ( UTIDeclarationDictionaryKey )key
 {
-    ( void )key;
+    NSDictionary * dic;
+    CFStringRef    cfKey;
     
-    return nil;
+    if( self.UTIValue == nil )
+    {
+        return nil;
+    }
+    
+    dic = self.declaration;
+    
+    switch( key )
+    {
+        case UTIDeclarationDictionaryKeyExportedType:       cfKey = kUTExportedTypeDeclarationsKey; break;
+        case UTIDeclarationDictionaryKeyImportedType:       cfKey = kUTImportedTypeDeclarationsKey; break;
+        case UTIDeclarationDictionaryKeyIdentifier:         cfKey = kUTTypeIdentifierKey;           break;
+        case UTIDeclarationDictionaryKeyTagSpecification:   cfKey = kUTTypeTagSpecificationKey;     break;
+        case UTIDeclarationDictionaryKeyConformsTo:         cfKey = kUTTypeConformsToKey;           break;
+        case UTIDeclarationDictionaryKeyDescription:        cfKey = kUTTypeDescriptionKey;          break;
+        case UTIDeclarationDictionaryKeyIconFile:           cfKey = kUTTypeIconFileKey;             break;
+        case UTIDeclarationDictionaryKeyReferenceURL:       cfKey = kUTTypeReferenceURLKey;         break;
+        case UTIDeclarationDictionaryKeyVersion:            cfKey = kUTTypeVersionKey;              break;
+    }
+    
+    #if __UTI_ARC
+    return [ dic objectForKey: ( __bridge NSString * )cfKey ];
+    #else
+    return [ dic objectForKey: ( NSString * )cfKey ];
+    #endif
 }
 
 - ( NSString * )preferredFilenameExtension
 {
-    return nil;
+    return [ self preferredTagForTagClass: UTITagClassFilenameExtension ];
 }
 
 - ( NSString * )preferredMIMEType
 {
-    return nil;
+    return [ self preferredTagForTagClass: UTITagClassMIMEType ];
 }
 
 - ( NSString * )preferredNSPboardType
 {
-    return nil;
+    return [ self preferredTagForTagClass: UTITagClassNSPboardType ];
 }
 
 - ( NSString * )preferredOSType
 {
-    return nil;
+    return [ self preferredTagForTagClass: UTITagClassOSType ];
 }
 
 - ( NSString * )description
 {
-    return nil;
+    if( self.UTIValue == nil )
+    {
+        return nil;
+    }
+    
+    #if __UTI_ARC
+    return ( __bridge_transfer NSString * )UTTypeCopyDescription( ( __bridge CFStringRef )( self.UTIValue ) );
+    #else
+    return [ ( NSString * )UTTypeCopyDeclaration( ( CFStringRef )( self.UTIValue ) ) autorelease ];
+    #endif
 }
 
 - ( NSDictionary * )declaration
 {
-    return nil;
+    if( self.UTIValue == nil )
+    {
+        return nil;
+    }
+    
+    @synchronized( self )
+    {
+        if( self.representation == nil )
+        {
+            #if __UTI_ARC
+            self.representation = ( __bridge_transfer NSDictionary * )UTTypeCopyDeclaration( ( __bridge CFStringRef )( self.UTIValue ) );
+            #else
+            self.representation = [ ( NSDictionary * )UTTypeCopyDeclaration( ( CFStringRef )( self.UTIValue ) ) autorelease ];
+            #endif
+        }
+    }
+    
+    return self.representation;
 }
 
 - ( NSURL * )declaringBundleURL
 {
-    return nil;
+    if( self.UTIValue == nil )
+    {
+        return nil;
+    }
+    
+    #if __UTI_ARC
+    return ( __bridge_transfer NSURL * )UTTypeCopyDeclaringBundleURL( ( __bridge CFStringRef )( self.UTIValue ) );
+    #else
+    return [ ( NSURL * )UTTypeCopyDeclaringBundleURL( ( CFStringRef )( self.UTIValue ) ) autorelease ];
+    #endif
 }
 
 - ( NSArray * )exportedTypes
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyExportedType ];
 }
 
 - ( NSArray * )importedTypes
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyImportedType ];
 }
 
 - ( NSString * )identifier
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIdentifier ];
 }
 
 - ( NSDictionary * )tagSpecifications
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ];
 }
 
 - ( NSArray * )conformsTo
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ];
 }
 
 - ( NSString * )iconFile
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ];
 }
 
 - ( NSURL * )referenceURL
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ];
 }
 
 - ( NSString * )version
 {
-    return nil;
+    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ];
 }
 
 @end
