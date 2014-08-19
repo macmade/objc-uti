@@ -6,6 +6,24 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		0509E32819A3C41900D7BC48 /* CI */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 0509E32B19A3C41900D7BC48 /* Build configuration list for PBXAggregateTarget "CI" */;
+			buildPhases = (
+			);
+			dependencies = (
+				0509E32D19A3C42B00D7BC48 /* PBXTargetDependency */,
+				0509E32F19A3C42B00D7BC48 /* PBXTargetDependency */,
+				0509E33119A3C42B00D7BC48 /* PBXTargetDependency */,
+				0509E33319A3C42B00D7BC48 /* PBXTargetDependency */,
+				0509E33519A3C42B00D7BC48 /* PBXTargetDependency */,
+			);
+			name = CI;
+			productName = CI;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		05161B7D19A271B600BAB80B /* Clang-Warnings.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7319A271B600BAB80B /* Clang-Warnings.h */; };
 		05161B7E19A271B600BAB80B /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7519A271B600BAB80B /* PrefixHeader.pch */; };
@@ -22,6 +40,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0509E32C19A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C881118C8B85F006260B3;
+			remoteInfo = "Mac Static Library";
+		};
+		0509E32E19A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C884918C8C547006260B3;
+			remoteInfo = "Mac Dynamic Library";
+		};
+		0509E33019A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C885E18C8C76B006260B3;
+			remoteInfo = "Mac Framework";
+		};
+		0509E33219A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 056C88A918C8C8AC006260B3;
+			remoteInfo = "iOS Static Library";
+		};
+		0509E33419A3C42B00D7BC48 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0509E32419A3A86C00D7BC48;
+			remoteInfo = Documentation;
+		};
 		05169CA01962ACD80082861C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
@@ -335,6 +388,9 @@
 					0509E32419A3A86C00D7BC48 = {
 						CreatedOnToolsVersion = 6.0;
 					};
+					0509E32819A3C41900D7BC48 = {
+						CreatedOnToolsVersion = 6.0;
+					};
 					05E71B621961D9D100F911C4 = {
 						CreatedOnToolsVersion = 6.0;
 						TestTargetID = 056C881118C8B85F006260B3;
@@ -359,6 +415,7 @@
 				056C88A918C8C8AC006260B3 /* iOS Static Library */,
 				05E71B621961D9D100F911C4 /* UTI Tests */,
 				0509E32419A3A86C00D7BC48 /* Documentation */,
+				0509E32819A3C41900D7BC48 /* CI */,
 			);
 		};
 /* End PBXProject section */
@@ -424,6 +481,31 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		0509E32D19A3C42B00D7BC48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C881118C8B85F006260B3 /* Mac Static Library */;
+			targetProxy = 0509E32C19A3C42B00D7BC48 /* PBXContainerItemProxy */;
+		};
+		0509E32F19A3C42B00D7BC48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C884918C8C547006260B3 /* Mac Dynamic Library */;
+			targetProxy = 0509E32E19A3C42B00D7BC48 /* PBXContainerItemProxy */;
+		};
+		0509E33119A3C42B00D7BC48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C885E18C8C76B006260B3 /* Mac Framework */;
+			targetProxy = 0509E33019A3C42B00D7BC48 /* PBXContainerItemProxy */;
+		};
+		0509E33319A3C42B00D7BC48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 056C88A918C8C8AC006260B3 /* iOS Static Library */;
+			targetProxy = 0509E33219A3C42B00D7BC48 /* PBXContainerItemProxy */;
+		};
+		0509E33519A3C42B00D7BC48 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0509E32419A3A86C00D7BC48 /* Documentation */;
+			targetProxy = 0509E33419A3C42B00D7BC48 /* PBXContainerItemProxy */;
+		};
 		05169CA11962ACD80082861C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 056C881118C8B85F006260B3 /* Mac Static Library */;
@@ -471,6 +553,20 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		0509E32919A3C41900D7BC48 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0509E32A19A3C41900D7BC48 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -827,6 +923,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		0509E32B19A3C41900D7BC48 /* Build configuration list for PBXAggregateTarget "CI" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0509E32919A3C41900D7BC48 /* Debug */,
+				0509E32A19A3C41900D7BC48 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "UTI" */ = {
 			isa = XCConfigurationList;
