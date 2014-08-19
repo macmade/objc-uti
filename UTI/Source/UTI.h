@@ -47,19 +47,20 @@
  * @typedef     UTITagClass
  * @abstract    ...
  */
-typedef NS_ENUM( NSInteger, UTITagClass )
+typedef enum
 {
     UTITagClassFilenameExtension    = 0x00, /*! ... */
     UTITagClassMIMEType             = 0x01, /*! ... */
     UTITagClassNSPboardType         = 0x02, /*! ... */
     UTITagClassOSType               = 0x03  /*! ... */
-};
+}
+UTITagClass;
 
 /*!
  * @typedef     UTIDeclarationDictionaryKey
  * @abstract    ...
  */
-typedef NS_ENUM( NSInteger, UTIDeclarationDictionaryKey )
+typedef enum
 {
     UTIDeclarationDictionaryKeyExportedType     = 0x00, /*! ... */
     UTIDeclarationDictionaryKeyImportedType     = 0x01, /*! ... */
@@ -70,7 +71,8 @@ typedef NS_ENUM( NSInteger, UTIDeclarationDictionaryKey )
     UTIDeclarationDictionaryKeyIconFile         = 0x06, /*! ... */
     UTIDeclarationDictionaryKeyReferenceURL     = 0x07, /*! ... */
     UTIDeclarationDictionaryKeyVersion          = 0x08  /*! ... */
-};
+}
+UTIDeclarationDictionaryKey;
 
 /*!
  * @class       UTI
