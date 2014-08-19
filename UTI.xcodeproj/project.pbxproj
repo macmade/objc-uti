@@ -836,6 +836,7 @@
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				INFOPLIST_FILE = UTI/Info.plist;
 				PRODUCT_NAME = UTIMRC;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Debug;
@@ -852,6 +853,7 @@
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				INFOPLIST_FILE = UTI/Info.plist;
 				PRODUCT_NAME = UTIMRC;
+				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -865,6 +867,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				PRODUCT_NAME = UTIMRC;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -877,6 +880,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				PRODUCT_NAME = UTIMRC;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -890,6 +894,7 @@
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				PRODUCT_NAME = UTIMRC;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Debug;
 		};
@@ -903,6 +908,7 @@
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				PRODUCT_NAME = UTIMRC;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = "i386 x86_64";
 			};
 			name = Release;
 		};
@@ -1004,7 +1010,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
