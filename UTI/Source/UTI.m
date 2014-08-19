@@ -679,7 +679,7 @@
     
     #else
     
-    return ( NSString * )UTCreateStringForOSType( type );
+    return [ ( NSString * )UTCreateStringForOSType( type ) autorelease ];
     
     #endif
 }
@@ -802,7 +802,7 @@
     #if __UTI_ARC
     utiValue = UTTypeCreatePreferredIdentifierForTag( ( __bridge CFStringRef )tag, cfTagClass, ( __bridge CFStringRef )( uti.UTIValue ) );
     #else
-    utiValue = UTTypeCreatePreferredIdentifierForTag( ( CFStringRef )tag, ( CFStringRef )tagClass, ( CFStringRef )( uti.UTIValue ) );
+    utiValue = UTTypeCreatePreferredIdentifierForTag( ( CFStringRef )tag, ( CFStringRef )cfTagClass, ( CFStringRef )( uti.UTIValue ) );
     #endif
     
     if( utiValue == NULL )
@@ -832,6 +832,10 @@
 {
     self.UTIValue       = nil;
     self.representation = nil;
+    
+    #if __UTI_ARC == 0
+    [ super dealloc ];
+    #endif
 }
 
 - ( id )copyWithZone: ( NSZone * )zone
@@ -979,7 +983,7 @@
     #if __UTI_ARC
     return ( __bridge_transfer NSString * )UTTypeCopyDescription( ( __bridge CFStringRef )( self.UTIValue ) );
     #else
-    return [ ( NSString * )UTTypeCopyDeclaration( ( CFStringRef )( self.UTIValue ) ) autorelease ];
+    return [ ( NSString * )UTTypeCopyDescription( ( CFStringRef )( self.UTIValue ) ) autorelease ];
     #endif
 }
 
