@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0509E35819A3E06700D7BC48"
-               BuildableName = "libARC - Mac Static Library copy.a"
+               BuildableName = "libUTIMRC.a"
                BlueprintName = "MRC - Mac Static Library copy"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E35819A3E06700D7BC48"
-            BuildableName = "libARC - Mac Static Library copy.a"
+            BuildableName = "libUTIMRC.a"
             BlueprintName = "MRC - Mac Static Library copy"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E35819A3E06700D7BC48"
-            BuildableName = "libARC - Mac Static Library copy.a"
+            BuildableName = "libUTIMRC.a"
             BlueprintName = "MRC - Mac Static Library copy"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>

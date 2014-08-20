@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0509E34E19A3E06400D7BC48"
-               BuildableName = "libARC - Mac Dynamic Library copy.dylib"
+               BuildableName = "libUTIMRC.dylib"
                BlueprintName = "MRC - Mac Dynamic Library copy"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E34E19A3E06400D7BC48"
-            BuildableName = "libARC - Mac Dynamic Library copy.dylib"
+            BuildableName = "libUTIMRC.dylib"
             BlueprintName = "MRC - Mac Dynamic Library copy"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
@@ -61,7 +61,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E34E19A3E06400D7BC48"
-            BuildableName = "libARC - Mac Dynamic Library copy.dylib"
+            BuildableName = "libUTIMRC.dylib"
             BlueprintName = "MRC - Mac Dynamic Library copy"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
