@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                  = "objc-uti"
-    s.version               = "0.0.1"
+    s.version               = "1.0.0"
     s.summary               = "Objective-C wrapper for Uniform Type Identifiers (UTIs)."
     s.description           = <<-DESC
                               This project consists of an Objective-C wrapper for all the
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
     s.social_media_url      = "http://twitter.com/macmade"
     s.ios.deployment_target = "6.0"
     s.osx.deployment_target = "10.7"
-    s.source                = { :git => "https://github.com/macmade/objc-uti.git", :tag => "0.0.1" }
+    s.source                = { :git => "https://github.com/macmade/objc-uti.git", :tag => "1.0.0" }
     s.source_files          = "UTI/Source/**/*.{h,m}"
     s.requires_arc          = false
 end
