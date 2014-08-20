@@ -24,7 +24,7 @@ All targets are available for both ARC and MRC (see below).
 ### Supported platforms
 
  * OS X deployment target: **OS X 10.6** (ARC - see below), **OS X 10.4** (MRC - see below)
- * iOS architectures: **x86_64, i386** (non-ARC - see below)
+ * OS X architectures: **x86_64, i386** (non-ARC - see below)
  * iOS deployment target: **iOS 6.0**
  * iOS architectures: **armv7, armv7s, arm64**
 
