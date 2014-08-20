@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
                               painful to use, especially with ARC.
                               DESC
     s.homepage              = "http://www.xs-labs.com/"
+    s.documentation_url     = "http://doc.xs-labs.com/objc-uti/"
     s.license               = "MIT"
     s.author                = "Jean-David Gadina"
     s.social_media_url      = "http://twitter.com/macmade"
