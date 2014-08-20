@@ -39,7 +39,7 @@
         </p>
         <h3>License</h3>
         <p>
-            The project is released under the terms of the Boost Software License - Version 1.0.
+            The project is released under the terms of the MIT License.
         </p>
     </div>
 </div>

@@ -44,7 +44,7 @@ Documentation and API reference can be found at: http://doc.xs-labs.com/objc-uti
 License
 -------
 
-The project is released under the terms of the Boost Software License - Version 1.0.
+The project is released under the terms of the MIT License.
 
 Repository Infos
 ----------------
