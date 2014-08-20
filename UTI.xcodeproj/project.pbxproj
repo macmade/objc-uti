@@ -154,6 +154,7 @@
 		0509E35719A3E06400D7BC48 /* libUTIMRC.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libUTIMRC.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		0509E36419A3E06700D7BC48 /* libUTIMRC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUTIMRC.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0509E38519A4940700D7BC48 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		0509E38719A4954D00D7BC48 /* objc-uti.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "objc-uti.podspec"; sourceTree = "<group>"; };
 		05161B7319A271B600BAB80B /* Clang-Warnings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Clang-Warnings.h"; sourceTree = "<group>"; };
 		05161B7419A271B600BAB80B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05161B7519A271B600BAB80B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -281,6 +282,7 @@
 			children = (
 				0509E30219A3A7E500D7BC48 /* Documentation */,
 				0509E38519A4940700D7BC48 /* LICENSE.txt */,
+				0509E38719A4954D00D7BC48 /* objc-uti.podspec */,
 				051F09651946EB70004B6E47 /* README.md */,
 				05161B7219A271B600BAB80B /* UTI */,
 				05161B7919A271B600BAB80B /* UTI Tests */,
