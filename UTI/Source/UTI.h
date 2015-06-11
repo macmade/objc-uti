@@ -22,8 +22,6 @@
  * THE SOFTWARE.
  ******************************************************************************/
 
-/* $Id$ */
-
 /*!
  * @header      UTI.h
  * @copyright   (c) 2014 - Jean-David Gadina - www.xs-labs.com

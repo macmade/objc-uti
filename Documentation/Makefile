@@ -22,8 +22,6 @@
 # THE SOFTWARE.
 #-------------------------------------------------------------------------------
 
-# $Id$
-
 # Check for the XSDocgen utility
 _HAS_XSDOCGEN       := $(shell if [ -f "/usr/local/bin/XSDocgen" ]; then echo true; else echo false; fi )
 
