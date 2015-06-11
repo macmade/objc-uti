@@ -34,7 +34,7 @@
 #define __UTI_PREFIX_H__
 
 #import <Foundation/Foundation.h>
-#import "Clang-Warnings.h"
+#import "../Submodules/SeriousCode/clang-warnings.h"
 
 /*
  * Ignores warnings about dropping the `const` qualifier, so we can cast
