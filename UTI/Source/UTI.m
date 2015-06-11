@@ -703,6 +703,11 @@
     #endif
 }
 
+- ( instancetype )init
+{
+    return [ self initWithString: nil ];
+}
+
 - ( instancetype )initWithString: ( NSString * )str
 {
     return [ self initWithCFString: ( __bridge CFStringRef )str ];

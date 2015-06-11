@@ -35,15 +35,7 @@
 		0509E35019A3E06400D7BC48 /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		0509E35319A3E06400D7BC48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0509E35A19A3E06700D7BC48 /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
-		0509E35D19A3E06700D7BC48 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7B19A271B600BAB80B /* PrefixHeader.pch */; };
-		0509E35E19A3E06700D7BC48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0509E35F19A3E06700D7BC48 /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7519A271B600BAB80B /* PrefixHeader.pch */; };
-		0509E36019A3E06700D7BC48 /* Clang-Warnings.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7319A271B600BAB80B /* Clang-Warnings.h */; };
-		05161B7D19A271B600BAB80B /* Clang-Warnings.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7319A271B600BAB80B /* Clang-Warnings.h */; };
-		05161B7E19A271B600BAB80B /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7519A271B600BAB80B /* PrefixHeader.pch */; };
-		05161B7F19A271B600BAB80B /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05161B8019A271B600BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
-		05161B8119A271B600BAB80B /* PrefixHeader.pch in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7B19A271B600BAB80B /* PrefixHeader.pch */; };
 		05161B8319A271C500BAB80B /* UTITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7C19A271B600BAB80B /* UTITest.m */; };
 		05161B9A19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B9B19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
@@ -337,10 +329,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0509E35D19A3E06700D7BC48 /* PrefixHeader.pch in Headers */,
-				0509E35E19A3E06700D7BC48 /* UTI.h in Headers */,
-				0509E35F19A3E06700D7BC48 /* PrefixHeader.pch in Headers */,
-				0509E36019A3E06700D7BC48 /* Clang-Warnings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,10 +336,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05161B8119A271B600BAB80B /* PrefixHeader.pch in Headers */,
-				05161B7F19A271B600BAB80B /* UTI.h in Headers */,
-				05161B7E19A271B600BAB80B /* PrefixHeader.pch in Headers */,
-				05161B7D19A271B600BAB80B /* Clang-Warnings.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +537,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0600;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					0509E32419A3A86C00D7BC48 = {
@@ -798,7 +782,6 @@
 		0509E33F19A3E06000D7BC48 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
@@ -814,7 +797,6 @@
 		0509E34019A3E06000D7BC48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_OBJC_ARC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
@@ -840,6 +822,7 @@
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				INFOPLIST_FILE = UTI/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.UTI";
 				PRODUCT_NAME = UTIMRC;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
@@ -858,6 +841,7 @@
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				INFOPLIST_FILE = UTI/Info.plist;
 				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.UTI";
 				PRODUCT_NAME = UTIMRC;
 				VALID_ARCHS = "i386 x86_64";
 				WRAPPER_EXTENSION = framework;
@@ -926,7 +910,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
@@ -976,6 +959,7 @@
 				CLANG_WARN__EXIT_TIME_DESTRUCTORS = YES;
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1020,7 +1004,7 @@
 				GCC_WARN_UNUSED_VALUE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.6;
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
 				VALID_ARCHS = x86_64;
@@ -1031,7 +1015,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ANALYZER_DEADCODE_DEADSTORES = YES;
 				CLANG_ANALYZER_GCD = YES;
 				CLANG_ANALYZER_MEMORY_MANAGEMENT = YES;
@@ -1184,6 +1167,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				INFOPLIST_FILE = UTI/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.UTI";
 				PRODUCT_NAME = UTI;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1199,6 +1183,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				INFOPLIST_FILE = UTI/Info.plist;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.UTI";
 				PRODUCT_NAME = UTI;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -1207,7 +1192,6 @@
 		056C88CA18C8C8AD006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1222,7 +1206,6 @@
 		056C88CB18C8C8AD006260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = UTI/PrefixHeader.pch;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
@@ -1239,12 +1222,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UTI Tests/PrefixHeader.pch";
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = "UTI Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -1253,12 +1238,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UTI Tests/PrefixHeader.pch";
 				GCC_WARN_PEDANTIC = NO;
 				INFOPLIST_FILE = "UTI Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.xs-labs.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

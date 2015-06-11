@@ -36,4 +36,12 @@
 #import <Foundation/Foundation.h>
 #import "Clang-Warnings.h"
 
+/*
+ * Ignores warnings about dropping the `const` qualifier, so we can cast
+ * between CF and NS...
+ */
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wcast-qual"
+#endif
+
 #endif /* __UTI_PREFIX_H__ */

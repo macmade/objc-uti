@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE header PUBLIC "-//Apple Computer//DTD HEADERDOC 1.6//EN" "/System/Library/DTDs/HeaderDoc-1.6.dtd">
-<header id="//xsdoc_ref/doc/header/UTI.h" lang="c" filename="UTI.h" headerpath="/Users/macmade/Documents/Macmade/Development/GitHub/objc-uti/Documentation/../UTI/Source/UTI.h"><name>UTI.h</name>
+<header id="//xsdoc_ref/doc/header/UTI.h" lang="c" filename="UTI.h" headerpath="/Users/macmade/Documents/Macmade/GitHub/objc-uti/Documentation/../UTI/Source/UTI.h"><name>UTI.h</name>
 <abstract><p>Objective-C wrapper class for Uniform Type Identifiers (UTIs)
 </p></abstract>
 <includes>
@@ -7273,9 +7273,9 @@ accessor method.
     <declaration_param>readonly</declaration_param> ) <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> <declaration_var>version</declaration_var>; </declaration>
 <desc><p/></desc>
 </property></properties>
-<timestamp>Wednesday, August 20, 2014</timestamp>
+<timestamp>Thursday, June 11, 2015</timestamp>
 </class></classes>
 <copyrightinfo>&#169; (c) 2014 - Jean-David Gadina - www.xs-labs.com
 </copyrightinfo>
-<timestamp>Wednesday, August 20, 2014</timestamp>
+<timestamp>Thursday, June 11, 2015</timestamp>
 </header>
