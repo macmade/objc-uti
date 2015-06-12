@@ -603,4 +603,32 @@
     XCTAssertNotNil( [ UTI inkTextTypeUTI ] );
 }
 
+/* ... */
+
+- ( void )testPreferredTagForTagClass
+{
+    UTI * uti;
+    
+    uti = [ UTI HTMLTypeUTI ];
+    
+    XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassFilenameExtension ], @"html" );
+    XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassMIMEType ],          @"text/html" );
+    XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassNSPboardType ],      @"Apple HTML pasteboard type" );
+    XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassOSType ],            @"HTML" );
+}
+
+- ( void )testIsEqualToUTI
+{
+    XCTAssertTrue(  [ [ UTI imageTypeUTI ] isEqualToUTI: [ UTI UTIWithCFString: kUTTypeImage ] ] );
+    XCTAssertFalse( [ [ UTI imageTypeUTI ] isEqualToUTI: [ UTI JPEGTypeUTI ] ] );
+}
+
+- ( void )testConformsToUTI
+{
+    XCTAssertTrue(  [ [ UTI JPEGTypeUTI ] conformsToUTI: [ UTI imageTypeUTI ] ] );
+    XCTAssertFalse( [ [ UTI textTypeUTI ] conformsToUTI: [ UTI imageTypeUTI ] ] );
+}
+
+/* ... */
+
 @end
