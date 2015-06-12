@@ -14,6 +14,14 @@ This project consists of an Objective-C wrapper for all the UTI functions availa
 
 The goal is to provide an object-oriented approach to the Uniform Type Identifier system, using Objective-C (Foundation) data types, rather than CoreFoundation types, which may be painful to use, especially with ARC.
 
+### Swift support
+
+This project is fully compatible with Swift.
+
+In order to use the `UTI` class from Swift, simply link with `UTI.framework` (ARC target - see below) and:
+
+    import UTI
+
 ### Targets
 
 The following targets are available:
