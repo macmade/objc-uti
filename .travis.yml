@@ -1,7 +1,8 @@
 language: objective-c
 compiler: clang
 xcode_project: UTI.xcodeproj
-xcode_scheme: CI
+xcode_scheme: ARC - Mac Framework
 before_install:
-  - git clone git://github.com/macmade/XSDocgen
-  - cd XSDocgen && make && sudo make install && cd ..
+  - bash Scripts/travis-before.sh
+after_success:
+  - bash Scripts/travis-after.sh

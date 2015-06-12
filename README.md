@@ -2,6 +2,7 @@ Objective-C wrapper for Uniform Type Identifiers (UTIs)
 =======================================================
 
 [![Build Status](https://img.shields.io/travis/macmade/objc-uti.svg?branch=master&style=flat)](https://travis-ci.org/macmade/objc-uti)
+[![Coverage Status](https://img.shields.io/coveralls/macmade/objc-uti.svg?branch=master&style=flat)](https://coveralls.io/r/macmade/objc-uti?branch=master)
 [![Issues](http://img.shields.io/github/issues/macmade/objc-uti.svg?style=flat)](https://github.com/macmade/objc-uti/issues)
 ![Status](https://img.shields.io/badge/status-active-brightgreen.svg?style=flat)
 ![License](https://img.shields.io/badge/license-mit-brightgreen.svg?style=flat)
