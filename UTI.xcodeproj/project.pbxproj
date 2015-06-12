@@ -18,18 +18,18 @@
 		05161B9A19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B9B19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B9C19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
-		0542B7891B2AFD4F008807D3 /* UTI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C885F18C8C76B006260B3 /* UTI.framework */; };
+		0542B78C1B2AFF7A008807D3 /* libUTI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C881218C8B85F006260B3 /* libUTI.a */; };
 		05E8979D19A28A6E00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05E8979E19A28A6F00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		0542B7871B2AFD4B008807D3 /* PBXContainerItemProxy */ = {
+		0542B78D1B2AFF7F008807D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 056C87C618C8B0F8006260B3 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 056C885E18C8C76B006260B3;
-			remoteInfo = "ARC - Mac Framework";
+			remoteGlobalIDString = 056C881118C8B85F006260B3;
+			remoteInfo = "ARC - Mac Static Library";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -140,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0542B7891B2AFD4F008807D3 /* UTI.framework in Frameworks */,
+				0542B78C1B2AFF7A008807D3 /* libUTI.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -376,6 +376,7 @@
 				056C880E18C8B85F006260B3 /* Sources */,
 				056C880F18C8B85F006260B3 /* Frameworks */,
 				056C881018C8B85F006260B3 /* Headers */,
+				0542B78F1B2AFF90008807D3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -411,7 +412,6 @@
 				056C885B18C8C76B006260B3 /* Frameworks */,
 				056C885C18C8C76B006260B3 /* Headers */,
 				056C885D18C8C76B006260B3 /* Resources */,
-				0542B78A1B2AFEBA008807D3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -451,7 +451,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				0542B7881B2AFD4B008807D3 /* PBXTargetDependency */,
+				0542B78E1B2AFF7F008807D3 /* PBXTargetDependency */,
 			);
 			name = "UTI Tests";
 			productName = "CF++ Tests";
@@ -527,19 +527,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0542B78A1B2AFEBA008807D3 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export | egrep '(BUILT_PRODUCTS_DIR)|(CURRENT_ARCH)|(OBJECT_FILE_DIR_normal)|(SRCROOT)|(OBJROOT)' > Scripts/xcenv-lib.sh\n";
-		};
 		0542B78B1B2AFECE008807D3 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -552,6 +539,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export | egrep '(BUILT_PRODUCTS_DIR)|(CURRENT_ARCH)|(OBJECT_FILE_DIR_normal)|(SRCROOT)|(OBJROOT)' > Scripts/xcenv-tests.sh\n";
+		};
+		0542B78F1B2AFF90008807D3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export | egrep '(BUILT_PRODUCTS_DIR)|(CURRENT_ARCH)|(OBJECT_FILE_DIR_normal)|(SRCROOT)|(OBJROOT)' > Scripts/xcenv-lib.sh\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -631,10 +631,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		0542B7881B2AFD4B008807D3 /* PBXTargetDependency */ = {
+		0542B78E1B2AFF7F008807D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 056C885E18C8C76B006260B3 /* ARC - Mac Framework */;
-			targetProxy = 0542B7871B2AFD4B008807D3 /* PBXContainerItemProxy */;
+			target = 056C881118C8B85F006260B3 /* ARC - Mac Static Library */;
+			targetProxy = 0542B78D1B2AFF7F008807D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
