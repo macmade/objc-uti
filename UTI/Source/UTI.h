@@ -28,6 +28,8 @@
  * @abstract    Objective-C wrapper class for Uniform Type Identifiers (UTIs)
  */
 
+@import Foundation;
+
 /*!
  * @define      NS_DESIGNATED_INITIALIZER
  * @abstract    Marks a designated initializer of an Objective-C class.
