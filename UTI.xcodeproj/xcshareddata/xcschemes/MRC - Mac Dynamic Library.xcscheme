@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0509E34E19A3E06400D7BC48"
                BuildableName = "libUTIMRC.dylib"
-               BlueprintName = "MRC - Mac Dynamic Library copy"
+               BlueprintName = "MRC - Mac Dynamic Library"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,7 +26,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      buildConfiguration = "GCov">
       <Testables>
       </Testables>
       <AdditionalOptions>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E34E19A3E06400D7BC48"
             BuildableName = "libUTIMRC.dylib"
-            BlueprintName = "MRC - Mac Dynamic Library copy"
+            BlueprintName = "MRC - Mac Dynamic Library"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E34E19A3E06400D7BC48"
             BuildableName = "libUTIMRC.dylib"
-            BlueprintName = "MRC - Mac Dynamic Library copy"
+            BlueprintName = "MRC - Mac Dynamic Library"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

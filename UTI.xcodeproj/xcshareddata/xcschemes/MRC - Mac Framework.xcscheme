@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0509E34219A3E06200D7BC48"
                BuildableName = "UTIMRC.framework"
-               BlueprintName = "MRC - Mac Framework copy"
+               BlueprintName = "MRC - Mac Framework"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -26,7 +26,7 @@
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      buildConfiguration = "GCov">
       <Testables>
       </Testables>
       <AdditionalOptions>
@@ -47,7 +47,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E34219A3E06200D7BC48"
             BuildableName = "UTIMRC.framework"
-            BlueprintName = "MRC - Mac Framework copy"
+            BlueprintName = "MRC - Mac Framework"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -65,7 +65,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "0509E34219A3E06200D7BC48"
             BuildableName = "UTIMRC.framework"
-            BlueprintName = "MRC - Mac Framework copy"
+            BlueprintName = "MRC - Mac Framework"
             ReferencedContainer = "container:UTI.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
