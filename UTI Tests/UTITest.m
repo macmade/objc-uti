@@ -603,6 +603,30 @@
     XCTAssertNotNil( [ UTI inkTextTypeUTI ] );
 }
 
+- ( void )testAllUTIsWithFileExtension
+{
+    XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"mp4" ].count, ( NSUInteger )1 );
+    XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"xyz" ].count, ( NSUInteger )0 );
+}
+
+- ( void )testAllUTIsWithFileExtensionConformingTo
+{
+    XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
+}
+
+- ( void )testAllUTIsWithMIMEType
+{
+    XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"audio/mpeg" ].count, ( NSUInteger )1 );
+    XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"xyz/xyz"    ].count, ( NSUInteger )0 );
+}
+
+- ( void )testAllUTIsWithMIMETypeConformingTo
+{
+    XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
+}
+
 /* ... */
 
 - ( void )testPreferredTagForTagClass
