@@ -86,6 +86,12 @@ UTIDeclarationDictionaryKey;
 @interface UTI: NSObject < NSCopying >
 
 /*!
+ * @property    isDynamic
+ * @abstract    Whether the UTI is dynamic or not
+ */
+@property( nonatomic, readonly ) BOOL isDynamic;
+
+/*!
  * @property    preferredFilenameExtension
  * @abstract    Returns the preferred filename extension for an UTI.
  */

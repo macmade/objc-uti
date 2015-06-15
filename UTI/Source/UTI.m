@@ -687,12 +687,12 @@
     
     for( str in cfUTIs )
     {
-        if( dyn == NO && [ str hasPrefix: @"dyn." ] )
+        obj = [ UTI UTIWithString: str ];
+        
+        if( dyn == NO && obj.isDynamic )
         {
             continue;
         }
-        
-        obj = [ UTI UTIWithString: str ];
         
         if( obj != nil )
         {
@@ -994,6 +994,11 @@
     #else
     return [ dic objectForKey: ( NSString * )cfKey ];
     #endif
+}
+
+- ( BOOL )isDynamic
+{
+    return [ self.UTIValue hasPrefix: @"dyn." ];
 }
 
 - ( NSString * )preferredFilenameExtension
