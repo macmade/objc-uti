@@ -583,45 +583,85 @@
 
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension
 {
-    return [ self allUTIsWithFileExtension: extension conformingTo: nil ];
+    return [ self allUTIsWithFileExtension: extension allowDynamic: NO ];
+}
+
++ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithFileExtension: extension conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
 {
-    return [ self allUTIsWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti ];
+    return [ self allUTIsWithFileExtension: extension conformingTo: uti allowDynamic: NO ];
+}
+
++ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type
 {
-    return [ self allUTIsWithMIMEType: type conformingTo: nil ];
+    return [ self allUTIsWithMIMEType: type allowDynamic: NO ];
+}
+
++ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithMIMEType: type conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    return [ self allUTIsWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti ];
+    return [ self allUTIsWithMIMEType: type conformingTo: uti allowDynamic: NO ];
+}
+
++ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type
 {
-    return [ self allUTIsWithNSPboardType: type conformingTo: nil ];
+    return [ self allUTIsWithNSPboardType: type allowDynamic: NO];
+}
+
++ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithNSPboardType: type conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    return [ self allUTIsWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti ];
+    return [ self allUTIsWithNSPboardType: type conformingTo: uti allowDynamic: NO ];
+}
+
++ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type
 {
-    return [ self allUTIsWithOSType: type conformingTo: nil ];
+    return [ self allUTIsWithOSType: type allowDynamic: NO ];
+}
+
++ ( NSArray * )allUTIsWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithOSType: type conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    return [ self allUTIsWithTag: type tagClass: UTITagClassOSType conformingTo: uti ];
+    return [ self allUTIsWithOSType: type conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti
++ ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self allUTIsWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: dyn ];
+}
+
++ ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
 {
     CFStringRef      cfTagClass;
     NSArray        * cfUTIs;
@@ -647,7 +687,7 @@
     
     for( str in cfUTIs )
     {
-        if( [ str hasPrefix: @"dyn." ] )
+        if( dyn == NO && [ str hasPrefix: @"dyn." ] )
         {
             continue;
         }

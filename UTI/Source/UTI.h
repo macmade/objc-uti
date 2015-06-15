@@ -909,6 +909,15 @@ UTIDeclarationDictionaryKey;
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension;
 
 /*!
+ * @method      allUTIsWithFileExtension:
+ * @abstract    Gets an array of all uniform type identifiers for the specified file extension.
+ * @param       extension   The file extension.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ */
++ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      allUTIsWithFileExtension:conformingTo:
  * @abstract    Gets an array of all uniform type identifiers for the specified file extension.
  * @param       extension   The file extension.
@@ -918,12 +927,31 @@ UTIDeclarationDictionaryKey;
 + ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      allUTIsWithFileExtension:conformingTo:
+ * @abstract    Gets an array of all uniform type identifiers for the specified file extension.
+ * @param       extension   The file extension.
+ * @param       uti         If not nil, all returned uniform type identifiers must conform to this parameter.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ */
++ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      allUTIsWithMIMEType:
  * @abstract    Gets an array of all uniform type identifiers for the specified mime-type.
  * @param       type        The mime-type.
  * @return      An array of uniform type identifiers.
  */
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type;
+
+/*!
+ * @method      allUTIsWithMIMEType:
+ * @abstract    Gets an array of all uniform type identifiers for the specified mime-type.
+ * @param       type        The mime-type.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ */
++ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      allUTIsWithMIMEType:conformingTo:
@@ -935,12 +963,31 @@ UTIDeclarationDictionaryKey;
 + ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      allUTIsWithMIMEType:conformingTo:
+ * @abstract    Gets an array of all uniform type identifiers for the specified mime-type.
+ * @param       type        The mime-type.
+ * @param       uti         If not nil, all returned uniform type identifiers must conform to this parameter.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ */
++ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      allUTIsWithNSPboardType:
  * @abstract    Gets an array of all uniform type identifiers for the specified NSPasteboardType.
  * @param       type        The NSPasteboardType.
  * @return      An array of uniform type identifiers.
  */
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type;
+
+/*!
+ * @method      allUTIsWithNSPboardType:
+ * @abstract    Gets an array of all uniform type identifiers for the specified NSPasteboardType.
+ * @param       type        The NSPasteboardType.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ */
++ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      allUTIsWithNSPboardType:conformingTo:
@@ -952,6 +999,16 @@ UTIDeclarationDictionaryKey;
 + ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      allUTIsWithNSPboardType:conformingTo:
+ * @abstract    Gets an array of all uniform type identifiers for the specified NSPasteboardType.
+ * @param       type        The NSPasteboardType.
+ * @param       uti         If not nil, all returned uniform type identifiers must conform to this parameter.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ */
++ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      allUTIsWithOSType:
  * @abstract    Gets an array of all uniform type identifiers for the specified OSType.
  * @param       type        The OSType.
@@ -959,6 +1016,16 @@ UTIDeclarationDictionaryKey;
  * @see         stringForOSType
  */
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type;
+
+/*!
+ * @method      allUTIsWithOSType:
+ * @abstract    Gets an array of all uniform type identifiers for the specified OSType.
+ * @param       type        The OSType.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ * @see         stringForOSType
+ */
++ ( NSArray * )allUTIsWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      allUTIsWithOSType:conformingTo:
@@ -971,11 +1038,23 @@ UTIDeclarationDictionaryKey;
 + ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      allUTIsWithOSType:conformingTo:
+ * @abstract    Gets an array of all uniform type identifiers for the specified OSType.
+ * @param       type        The OSType.
+ * @param       uti         If not nil, all returned uniform type identifiers must conform to this parameter.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An array of uniform type identifiers.
+ * @see         stringForOSType
+ */
++ ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      allUTIsWithTag:tagClass:conformingTo:
  * @abstract    Gets an array of all uniform type identifiers for the type indicated by the specified tag.
  * @param       tag         The tag to translate into a uniform type identifier.
  * @param       tagClass    The class of the tag parameter.
  * @param       uti         If not nil, all returned uniform type identifiers must conform to this parameter.
+ * @param       dyn         Allows dynamic UTIs.
  * @return      An array of uniform type identifiers.
  * @discussion  This method is used to translate a type declared using another
  *              declaration mechanism (for example, MIME types) into a uniform
@@ -984,7 +1063,7 @@ UTIDeclarationDictionaryKey;
  *              If a conforming parameter is assigned, the search is reduced to
  *              the subset of type identifiers that conform to that type.
  */
-+ ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti;
++ ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      stringForOSType:
