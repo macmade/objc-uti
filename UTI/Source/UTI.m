@@ -632,9 +632,9 @@
     switch( tagClass )
     {
         case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension; break;
-        case UTITagClassMIMEType:           cfTagClass = kUTTagClassFilenameExtension; break;
-        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassFilenameExtension; break;
-        case UTITagClassOSType:             cfTagClass = kUTTagClassFilenameExtension; break;
+        case UTITagClassMIMEType:           cfTagClass = kUTTagClassMIMEType;          break;
+        case UTITagClassNSPboardType:       cfTagClass = kUTTagClassNSPboardType;      break;
+        case UTITagClassOSType:             cfTagClass = kUTTagClassOSType;            break;
     }
     
     #if UTI_ARC
@@ -647,6 +647,11 @@
     
     for( str in cfUTIs )
     {
+        if( [ str hasPrefix: @"dyn." ] )
+        {
+            continue;
+        }
+        
         obj = [ UTI UTIWithString: str ];
         
         if( obj != nil )
