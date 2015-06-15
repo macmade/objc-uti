@@ -60,69 +60,137 @@
 
 + ( instancetype )UTIWithString: ( NSString * )str
 {
+    return [ UTI UTIWithString: str allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithString: ( NSString * )str allowDynamic: ( BOOL )dyn
+{
     #if UTI_ARC
-    return [ self UTIWithCFString: ( __bridge CFStringRef )str ];
+    return [ self UTIWithCFString: ( __bridge CFStringRef )str allowDynamic: dyn ];
     #else
-    return [ self UTIWithCFString: ( CFStringRef )str ];
+    return [ self UTIWithCFString: ( CFStringRef )str allowDynamic: dyn ];
     #endif
 }
 
 + ( instancetype )UTIWithCFString: ( CFStringRef )str
 {
+    return [ UTI UTIWithCFString: str allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithCFString: ( CFStringRef )str allowDynamic: ( BOOL )dyn
+{
+    UTI * obj;
+    
     #if UTI_ARC
-    return [ [ self alloc ] initWithCFString: str ];
+    obj = [ [ self alloc ] initWithCFString: str ];
     #else
-    return [ [ [ self alloc ] initWithCFString: str ] autorelease ];
+    obj = [ [ [ self alloc ] initWithCFString: str ] autorelease ];
     #endif
+    
+    if( dyn == NO && obj.isDynamic )
+    {
+        return nil;
+    }
+    
+    return obj;
 }
 
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension
 {
-    return [ self UTIWithFileExtension: extension conformingTo: nil ];
+    return [ self UTIWithFileExtension: extension allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithFileExtension: extension conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
 {
-    return [ self UTIWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti ];
+    return [ self UTIWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithMIMEType: ( NSString * )type
 {
-    return [ self UTIWithMIMEType: type conformingTo: nil ];
+    return [ self UTIWithMIMEType: type allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithMIMEType: type conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    return [ self UTIWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti ];
+    return [ self UTIWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithNSPboardType: ( NSString * )type
 {
-    return [ self UTIWithNSPboardType: type conformingTo: nil ];
+    return [ self UTIWithNSPboardType: type allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithNSPboardType: type conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    return [ self UTIWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti ];
+    return [ self UTIWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithOSType: ( NSString * )type
 {
-    return [ self UTIWithOSType: type conformingTo: nil ];
+    return [ self UTIWithOSType: type allowDynamic: NO ];
+}
+
++ ( instancetype )UTIWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
+{
+    return [ self UTIWithOSType: type conformingTo: nil allowDynamic: dyn ];
 }
 
 + ( instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
 {
-    return [ self UTIWithTag: type tagClass: UTITagClassOSType conformingTo: uti ];
+    return [ self UTIWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti
++ ( instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
 {
+    return [ self UTIWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: dyn ];
+}
+
++ ( instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+{
+    UTI * obj;
+    
     #if UTI_ARC
-    return [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti ];
+    obj = [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti ];
     #else
-    return [ [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti ] autorelease ];
+    obj = [ [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti ] autorelease ];
     #endif
+    
+    if( dyn == NO && obj.isDynamic )
+    {
+        return nil;
+    }
+    
+    return obj;
 }
 
 + ( NSArray * )abstractTypes
