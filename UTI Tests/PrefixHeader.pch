@@ -28,8 +28,8 @@
  * @abstract    UTI tests precompiled header
  */
 
-#ifndef __UTI_TESTS_PREFIX_H__
-#define __UTI_TESTS_PREFIX_H__
+#ifndef UTI_TESTS_PREFIX_H
+#define UTI_TESTS_PREFIX_H
 
 #ifdef __clang__
 #pragma clang diagnostic ignored "-Wvariadic-macros"
@@ -38,4 +38,4 @@
 
 #import <XCTest/XCTest.h>
 
-#endif /* __UTI_TESTS_PREFIX_H__ */
+#endif /* UTI_TESTS_PREFIX_H */

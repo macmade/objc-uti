@@ -28,8 +28,8 @@
  * @abstract    UTI precompiled header
  */
 
-#ifndef __UTI_PREFIX_H__
-#define __UTI_PREFIX_H__
+#ifndef UTI_PREFIX_H
+#define UTI_PREFIX_H
 
 #import <Foundation/Foundation.h>
 #import "../Submodules/SeriousCode/clang-warnings.h"
@@ -42,4 +42,4 @@
 #pragma clang diagnostic ignored "-Wcast-qual"
 #endif
 
-#endif /* __UTI_PREFIX_H__ */
+#endif /* UTI_PREFIX_H */
