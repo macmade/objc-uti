@@ -47,7 +47,87 @@
     [ super tearDown ];
 }
 
-- ( void )testUTIWithString
+- ( void )test_isDynamic
+{
+    
+}
+
+- ( void )test_preferredFilenameExtension
+{
+    
+}
+
+- ( void )test_preferredMIMEType
+{
+    
+}
+
+- ( void )test_preferredNSPboardType
+{
+    
+}
+
+- ( void )test_preferredOSType
+{
+    
+}
+
+- ( void )test_description
+{
+    
+}
+
+- ( void )test_declaration
+{
+    
+}
+
+- ( void )test_declaringBundleURL
+{
+    
+}
+
+- ( void )test_exportedTypes
+{
+    
+}
+
+- ( void )test_importedTypes
+{
+    
+}
+
+- ( void )test_identifier
+{
+    
+}
+
+- ( void )test_tagSpecifications
+{
+    
+}
+
+- ( void )test_conformsTo
+{
+    
+}
+
+- ( void )test_iconFile
+{
+    
+}
+
+- ( void )test_referenceURL
+{
+    
+}
+
+- ( void )test_version
+{
+    
+}
+
+- ( void )test_UTIWithString
 {
     UTI * uti;
     
@@ -57,7 +137,12 @@
     XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
 }
 
-- ( void )testUTIWithCFString
+- ( void )test_UTIWithString_allowDynamic
+{
+    
+}
+
+- ( void )test_UTIWithCFString
 {
     UTI       * uti;
     CFStringRef s;
@@ -71,52 +156,97 @@
     XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
 }
 
-- ( void )testUTIWithFileExtension
+- ( void )test_UTIWithCFString_allowDynamic
 {
     
 }
 
-- ( void )testUTIWithFileExtensionConformingTo
+- ( void )test_UTIWithFileExtension
 {
     
 }
 
-- ( void )testUTIWithMIMEType
+- ( void )test_UTIWithFileExtension_allowDynamic
 {
     
 }
 
-- ( void )testUTIWithMIMETypeConformingTo
+- ( void )test_UTIWithFileExtension_ConformingTo
 {
     
 }
 
-- ( void )testUTIWithNSPboardType
+- ( void )test_UTIWithFileExtension_ConformingTo_allowDynamic
 {
     
 }
 
-- ( void )testUTIWithNSPboardTypeConformingTo
+- ( void )test_UTIWithMIMEType
 {
     
 }
 
-- ( void )testUTIWithOSType
+- ( void )test_UTIWithMIMEType_allowDynamic
 {
     
 }
 
-- ( void )testUTIWithOSTypeConformingTo
+- ( void )test_UTIWithMIMEType_ConformingTo
 {
     
 }
 
-- ( void )testUTIWithTagTagClassConformingTo
+- ( void )test_UTIWithMIMEType_ConformingTo_allowDynamic
 {
     
 }
 
-- ( void )testAbstractTypes
+- ( void )test_UTIWithNSPboardType
+{
+    
+}
+
+- ( void )test_UTIWithNSPboardType_allowDynamic
+{
+    
+}
+
+- ( void )test_UTIWithNSPboardType_ConformingTo
+{
+    
+}
+
+- ( void )test_UTIWithNSPboardType_ConformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_UTIWithOSType
+{
+    
+}
+
+- ( void )test_UTIWithOSType_allowDynamic
+{
+    
+}
+
+- ( void )test_UTIWithOSType_ConformingTo
+{
+    
+}
+
+- ( void )test_UTIWithOSType_ConformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_UTIWithTag_TagClass_ConformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_abstractTypes
 {
     NSArray * types;
     
@@ -130,7 +260,7 @@
     }
 }
 
-- ( void )testConcreteTypes
+- ( void )test_concreteTypes
 {
     NSArray * types;
     
@@ -144,7 +274,7 @@
     }
 }
 
-- ( void )testTextTypes
+- ( void )test_textTypes
 {
     NSArray * types;
     
@@ -159,7 +289,7 @@
     }
 }
 
-- ( void )testCompositeContentTypes
+- ( void )test_compositeContentTypes
 {
     NSArray * types;
     
@@ -174,7 +304,7 @@
     }
 }
 
-- ( void )testImageContentTypes
+- ( void )test_imageContentTypes
 {
     NSArray * types;
     
@@ -189,7 +319,7 @@
     }
 }
 
-- ( void )testAudioVisualContentTypes
+- ( void )test_audioVisualContentTypes
 {
     NSArray * types;
     
@@ -204,7 +334,7 @@
     }
 }
 
-- ( void )testDirectoryTypes
+- ( void )test_directoryTypes
 {
     NSArray * types;
     
@@ -219,7 +349,7 @@
     }
 }
 
-- ( void )testApplicationTypes
+- ( void )test_applicationTypes
 {
     NSArray * types;
     
@@ -234,7 +364,7 @@
     }
 }
 
-- ( void )testContactTypes
+- ( void )test_contactTypes
 {
     NSArray * types;
     
@@ -249,7 +379,7 @@
     }
 }
 
-- ( void )testMiscellaneousTypes
+- ( void )test_miscellaneousTypes
 {
     NSArray * types;
     
@@ -263,373 +393,501 @@
     }
 }
 
-- ( void )testItemTypeUTI
+- ( void )test_itemTypeUTI
 {
     XCTAssertNotNil( [ UTI itemTypeUTI ] );
 }
 
-- ( void )testContentTypeUTI
+- ( void )test_contentTypeUTI
 {
     XCTAssertNotNil( [ UTI contentTypeUTI ] );
 }
 
-- ( void )testCompositeContentTypeUTI
+- ( void )test_CompositeContentTypeUTI
 {
     XCTAssertNotNil( [ UTI compositeContentTypeUTI ] );
 }
 
-- ( void )testApplicationTypeUTI
+- ( void )test_applicationTypeUTI
 {
     XCTAssertNotNil( [ UTI applicationTypeUTI ] );
 }
 
-- ( void )testMessageTypeUTI
+- ( void )test_messageTypeUTI
 {
     XCTAssertNotNil( [ UTI messageTypeUTI ] );
 }
 
-- ( void )testContactTypeUTI
+- ( void )test_contactTypeUTI
 {
     XCTAssertNotNil( [ UTI contactTypeUTI ] );
 }
 
-- ( void )testArchiveTypeUTI
+- ( void )test_archiveTypeUTI
 {
     XCTAssertNotNil( [ UTI archiveTypeUTI ] );
 }
 
-- ( void )testDiskImageTypeUTI
+- ( void )test_diskImageTypeUTI
 {
     XCTAssertNotNil( [ UTI diskImageTypeUTI ] );
 }
 
-- ( void )testDataTypeUTI
+- ( void )test_dataTypeUTI
 {
     XCTAssertNotNil( [ UTI dataTypeUTI ] );
 }
 
-- ( void )testDirectoryTypeUTI
+- ( void )test_directoryTypeUTI
 {
     XCTAssertNotNil( [ UTI directoryTypeUTI ] );
 }
 
-- ( void )testResolvableTypeUTI
+- ( void )test_resolvableTypeUTI
 {
     XCTAssertNotNil( [ UTI resolvableTypeUTI ] );
 }
 
-- ( void )testSymLinkTypeUTI
+- ( void )test_symLinkTypeUTI
 {
     XCTAssertNotNil( [ UTI symLinkTypeUTI ] );
 }
 
-- ( void )testMountPointTypeUTI
+- ( void )test_mountPointTypeUTI
 {
     XCTAssertNotNil( [ UTI mountPointTypeUTI ] );
 }
 
-- ( void )testAliasFileTypeUTI
+- ( void )test_aliasFileTypeUTI
 {
     XCTAssertNotNil( [ UTI aliasFileTypeUTI ] );
 }
 
-- ( void )testAliasRecordTypeUTI
+- ( void )test_aliasRecordTypeUTI
 {
     XCTAssertNotNil( [ UTI aliasRecordTypeUTI ] );
 }
 
-- ( void )testURLTypeUTI
+- ( void )test_URLTypeUTI
 {
     XCTAssertNotNil( [ UTI URLTypeUTI ] );
 }
 
-- ( void )testFileURLTypeUTI
+- ( void )test_fileURLTypeUTI
 {
     XCTAssertNotNil( [ UTI fileURLTypeUTI ] );
 }
 
-- ( void )testTextTypeUTI
+- ( void )test_textTypeUTI
 {
     XCTAssertNotNil( [ UTI textTypeUTI ] );
 }
 
-- ( void )testPlainTextTypeUTI
+- ( void )test_plainTextTypeUTI
 {
     XCTAssertNotNil( [ UTI plainTextTypeUTI ] );
 }
 
-- ( void )testUTF8PlainTextTypeUTI
+- ( void )test_UTF8PlainTextTypeUTI
 {
     XCTAssertNotNil( [ UTI UTF8PlainTextTypeUTI ] );
 }
 
-- ( void )testUTF16ExternalPlainTextTypeUTI
+- ( void )test_UTF16ExternalPlainTextTypeUTI
 {
     XCTAssertNotNil( [ UTI UTF16ExternalPlainTextTypeUTI ] );
 }
 
-- ( void )testUTF16PlainTextTypeUTI
+- ( void )test_UTF16PlainTextTypeUTI
 {
     XCTAssertNotNil( [ UTI UTF16PlainTextTypeUTI ] );
 }
 
-- ( void )testRTFTypeUTI
+- ( void )test_RTFTypeUTI
 {
     XCTAssertNotNil( [ UTI RTFTypeUTI ] );
 }
 
-- ( void )testHTMLTypeUTI
+- ( void )test_HTMLTypeUTI
 {
     XCTAssertNotNil( [ UTI HTMLTypeUTI ] );
 }
 
-- ( void )testXMLTypeUTI
+- ( void )test_XMLTypeUTI
 {
     XCTAssertNotNil( [ UTI XMLTypeUTI ] );
 }
 
-- ( void )testSourceCodeTypeUTI
+- ( void )test_sourceCodeTypeUTI
 {
     XCTAssertNotNil( [ UTI sourceCodeTypeUTI ] );
 }
 
-- ( void )testCSourceTypeUTI
+- ( void )test_CSourceTypeUTI
 {
     XCTAssertNotNil( [ UTI CSourceTypeUTI ] );
 }
 
-- ( void )testObjectiveCSourceTypeUTI
+- ( void )test_objectiveCSourceTypeUTI
 {
     XCTAssertNotNil( [ UTI objectiveCSourceTypeUTI ] );
 }
 
-- ( void )testCPlusPlusSourceTypeUTI
+- ( void )test_CPlusPlusSourceTypeUTI
 {
     XCTAssertNotNil( [ UTI CPlusPlusSourceTypeUTI ] );
 }
 
-- ( void )testObjectiveCPlusPlusSourceTypeUTI
+- ( void )test_objectiveCPlusPlusSourceTypeUTI
 {
     XCTAssertNotNil( [ UTI objectiveCPlusPlusSourceTypeUTI ] );
 }
 
-- ( void )testCHeaderTypeUTI
+- ( void )test_CHeaderTypeUTI
 {
     XCTAssertNotNil( [ UTI CHeaderTypeUTI ] );
 }
 
-- ( void )testCPlusPlusHeaderTypeUTI
+- ( void )test_CPlusPlusHeaderTypeUTI
 {
     XCTAssertNotNil( [ UTI CPlusPlusHeaderTypeUTI ] );
 }
 
-- ( void )testJavaSourceTypeUTI
+- ( void )test_javaSourceTypeUTI
 {
     XCTAssertNotNil( [ UTI javaSourceTypeUTI ] );
 }
 
-- ( void )testPDFTypeUTI
+- ( void )test_PDFTypeUTI
 {
     XCTAssertNotNil( [ UTI PDFTypeUTI ] );
 }
 
-- ( void )testRTFDTypeUTI
+- ( void )test_RTFDTypeUTI
 {
     XCTAssertNotNil( [ UTI RTFDTypeUTI ] );
 }
 
-- ( void )testFlatRTFDTypeUTI
+- ( void )test_flatRTFDTypeUTI
 {
     XCTAssertNotNil( [ UTI flatRTFDTypeUTI ] );
 }
 
-- ( void )testTXNTextAndMultimediaDataTypeUTI
+- ( void )test_TXNTextAndMultimediaDataTypeUTI
 {
     XCTAssertNotNil( [ UTI TXNTextAndMultimediaDataTypeUTI ] );
 }
 
-- ( void )testWebArchiveTypeUTI
+- ( void )test_webArchiveTypeUTI
 {
     XCTAssertNotNil( [ UTI webArchiveTypeUTI ] );
 }
 
-- ( void )testImageTypeUTI
+- ( void )test_imageTypeUTI
 {
     XCTAssertNotNil( [ UTI imageTypeUTI ] );
 }
 
-- ( void )testJPEGTypeUTI
+- ( void )test_JPEGTypeUTI
 {
     XCTAssertNotNil( [ UTI JPEGTypeUTI ] );
 }
 
-- ( void )testJPEG2000TypeUTI
+- ( void )test_JPEG2000TypeUTI
 {
     XCTAssertNotNil( [ UTI JPEG2000TypeUTI ] );
 }
 
-- ( void )testTIFFTypeUTI
+- ( void )test_TIFFTypeUTI
 {
     XCTAssertNotNil( [ UTI TIFFTypeUTI ] );
 }
 
-- ( void )testPICTTypeUTI
+- ( void )test_PICTTypeUTI
 {
     XCTAssertNotNil( [ UTI PICTTypeUTI ] );
 }
 
-- ( void )testGIFTypeUTI
+- ( void )test_GIFTypeUTI
 {
     XCTAssertNotNil( [ UTI GIFTypeUTI ] );
 }
 
-- ( void )testPNGTypeUTI
+- ( void )test_PNGTypeUTI
 {
     XCTAssertNotNil( [ UTI PNGTypeUTI ] );
 }
 
-- ( void )testQuickTimeImageTypeUTI
+- ( void )test_quickTimeImageTypeUTI
 {
     XCTAssertNotNil( [ UTI quickTimeImageTypeUTI ] );
 }
 
-- ( void )testAppleICNSTypeUTI
+- ( void )test_appleICNSTypeUTI
 {
     XCTAssertNotNil( [ UTI appleICNSTypeUTI ] );
 }
 
-- ( void )testBMPTypeUTI
+- ( void )test_BMPTypeUTI
 {
     XCTAssertNotNil( [ UTI BMPTypeUTI ] );
 }
 
-- ( void )testICOTypeUTI
+- ( void )test_ICOTypeUTI
 {
     XCTAssertNotNil( [ UTI ICOTypeUTI ] );
 }
 
-- ( void )testAudiovisualContentTypeUTI
+- ( void )test_audiovisualContentTypeUTI
 {
     XCTAssertNotNil( [ UTI audiovisualContentTypeUTI ] );
 }
 
-- ( void )testMovieTypeUTI
+- ( void )test_movieTypeUTI
 {
     XCTAssertNotNil( [ UTI movieTypeUTI ] );
 }
 
-- ( void )testVideoTypeUTI
+- ( void )test_videoTypeUTI
 {
     XCTAssertNotNil( [ UTI videoTypeUTI ] );
 }
 
-- ( void )testAudioTypeUTI
+- ( void )test_audioTypeUTI
 {
     XCTAssertNotNil( [ UTI audioTypeUTI ] );
 }
 
-- ( void )testQuickTimeMovieTypeUTI
+- ( void )test_quickTimeMovieTypeUTI
 {
     XCTAssertNotNil( [ UTI quickTimeMovieTypeUTI ] );
 }
 
-- ( void )testMPEGTypeUTI
+- ( void )test_MPEGTypeUTI
 {
     XCTAssertNotNil( [ UTI MPEGTypeUTI ] );
 }
 
-- ( void )testMPEG4TypeUTI
+- ( void )test_MPEG4TypeUTI
 {
     XCTAssertNotNil( [ UTI MPEG4TypeUTI ] );
 }
 
-- ( void )testMP3TypeUTI
+- ( void )test_MP3TypeUTI
 {
     XCTAssertNotNil( [ UTI MP3TypeUTI ] );
 }
 
-- ( void )testMPEG4AudioTypeUTI
+- ( void )test_MPEG4AudioTypeUTI
 {
     XCTAssertNotNil( [ UTI MPEG4AudioTypeUTI ] );
 }
 
-- ( void )testAppleProtectedMPEG4AudioTypeUTI
+- ( void )test_appleProtectedMPEG4AudioTypeUTI
 {
     XCTAssertNotNil( [ UTI appleProtectedMPEG4AudioTypeUTI ] );
 }
 
-- ( void )testFolderTypeUTI
+- ( void )test_folderTypeUTI
 {
     XCTAssertNotNil( [ UTI folderTypeUTI ] );
 }
 
-- ( void )testVolumeTypeUTI
+- ( void )test_volumeTypeUTI
 {
     XCTAssertNotNil( [ UTI volumeTypeUTI ] );
 }
 
-- ( void )testPackageTypeUTI
+- ( void )test_packageTypeUTI
 {
     XCTAssertNotNil( [ UTI packageTypeUTI ] );
 }
 
-- ( void )testBundleTypeUTI
+- ( void )test_bundleTypeUTI
 {
     XCTAssertNotNil( [ UTI bundleTypeUTI ] );
 }
 
-- ( void )testFrameworkTypeUTI
+- ( void )test_frameworkTypeUTI
 {
     XCTAssertNotNil( [ UTI frameworkTypeUTI ] );
 }
 
-- ( void )testApplicationBundleTypeUTI
+- ( void )test_applicationBundleTypeUTI
 {
     XCTAssertNotNil( [ UTI applicationBundleTypeUTI ] );
 }
 
-- ( void )testApplicationFileTypeUTI
+- ( void )test_applicationFileTypeUTI
 {
     XCTAssertNotNil( [ UTI applicationFileTypeUTI ] );
 }
 
-- ( void )testVCardTypeUTI
+- ( void )test_vCardTypeUTI
 {
     XCTAssertNotNil( [ UTI vCardTypeUTI ] );
 }
 
-- ( void )testInkTextTypeUTI
+- ( void )test_inkTextTypeUTI
 {
     XCTAssertNotNil( [ UTI inkTextTypeUTI ] );
 }
 
-- ( void )testAllUTIsWithFileExtension
+- ( void )test_allUTIsWithFileExtension
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"mp4" ].count, ( NSUInteger )1 );
     XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"xyz" ].count, ( NSUInteger )0 );
 }
 
-- ( void )testAllUTIsWithFileExtensionConformingTo
+- ( void )test_allUTIsWithFileExtension_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithFileExtension_ConformingTo
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
     XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
 }
 
-- ( void )testAllUTIsWithMIMEType
+- ( void )test_AllUTIsWithFileExtension_ConformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithMIMEType
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"audio/mpeg" ].count, ( NSUInteger )1 );
     XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"xyz/xyz"    ].count, ( NSUInteger )0 );
 }
 
-- ( void )testAllUTIsWithMIMETypeConformingTo
+- ( void )test_AllUTIsWithMIMEType_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithMIMEType_ConformingTo
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
     XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
 }
 
-/* ... */
+- ( void )test_allUTIsWithMIMEType_ConformingTo_allowDynamic
+{
+    
+}
 
-- ( void )testPreferredTagForTagClass
+- ( void )test_allUTIsWithNSPboardType
+{
+    
+}
+
+- ( void )test_allUTIsWithNSPboardType_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithNSPboardType_ConformingTo
+{
+    
+}
+
+- ( void )test_allUTIsWithNSPboardType_ConformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithOSType
+{
+    
+}
+
+- ( void )test_allUTIsWithOSType_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithOSType_ConformingTo
+{
+    
+}
+
+- ( void )test_allUTIsWithOSType_ConformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_allUTIsWithTag_tagClass_conformingTo_allowDynamic
+{
+    
+}
+
+- ( void )test_stringForOSType
+{
+    
+}
+
+- ( void )test_OSTypeForString
+{
+    
+}
+
+- ( void )test_initWithString
+{
+    
+}
+
+- ( void )test_initWithCFString
+{
+    
+}
+
+- ( void )test_initWithFileExtension
+{
+    
+}
+
+- ( void )test_initWithFileExtension_conformingTo
+{
+    
+}
+
+- ( void )test_initWithMIMEType
+{
+    
+}
+
+- ( void )test_initWithMIMEType_conformingTo
+{
+    
+}
+
+- ( void )test_initWithNSPboardType
+{
+    
+}
+
+- ( void )test_initWithNSPboardType_conformingTo
+{
+    
+}
+
+- ( void )test_initWithOSType
+{
+    
+}
+
+- ( void )test_initWithOSType_conformingTo
+{
+    
+}
+
+- ( void )test_initWithTag_tagClass_conformingTo
+{
+    
+}
+
+- ( void )test_preferredTagForTagClass
 {
     UTI * uti;
     
@@ -641,18 +899,31 @@
     XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassOSType ],            @"HTML" );
 }
 
-- ( void )testIsEqualToUTI
+- ( void )test_isEqualToUTI
 {
     XCTAssertTrue(  [ [ UTI imageTypeUTI ] isEqualToUTI: [ UTI UTIWithCFString: kUTTypeImage ] ] );
     XCTAssertFalse( [ [ UTI imageTypeUTI ] isEqualToUTI: [ UTI JPEGTypeUTI ] ] );
 }
 
-- ( void )testConformsToUTI
+- ( void )test_conformsToUTI
 {
     XCTAssertTrue(  [ [ UTI JPEGTypeUTI ] conformsToUTI: [ UTI imageTypeUTI ] ] );
     XCTAssertFalse( [ [ UTI textTypeUTI ] conformsToUTI: [ UTI imageTypeUTI ] ] );
 }
 
-/* ... */
+- ( void )test_objectForDeclarationDictionaryKey
+{
+    
+}
+
+- ( void )test_copy
+{
+    
+}
+
+- ( void )test_isEqual
+{
+    
+}
 
 @end
