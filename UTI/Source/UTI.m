@@ -741,8 +741,18 @@
     {
         case UTITagClassFilenameExtension:  cfTagClass = kUTTagClassFilenameExtension; break;
         case UTITagClassMIMEType:           cfTagClass = kUTTagClassMIMEType;          break;
+        
+        #if UTI_IOS
+        
+        case UTITagClassNSPboardType:       return [ NSArray array ];
+        case UTITagClassOSType:             return [ NSArray array ];
+        
+        #else
+        
         case UTITagClassNSPboardType:       cfTagClass = kUTTagClassNSPboardType;      break;
         case UTITagClassOSType:             cfTagClass = kUTTagClassOSType;            break;
+        
+        #endif
     }
     
     #if UTI_ARC
