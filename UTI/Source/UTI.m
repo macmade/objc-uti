@@ -811,10 +811,19 @@
     return [ self initWithCFString: ( __bridge CFStringRef )str ];
 }
 
-- ( instancetype )initWithCFString: ( CFStringRef )str /* NS_DESIGNATED_INITIALIZER */
+- ( instancetype )initWithCFString: ( CFStringRef )str
 {
     if( ( self = [ super init ] ) )
     {
+        if( str == NULL )
+        {
+            #if UTI_ARC == 0
+            [ self release ];
+            #endif
+            
+            return nil;
+        }
+        
         #if UTI_ARC
         self.UTIValue = ( __bridge NSString * )str;
         #else
@@ -1076,16 +1085,32 @@
 
 - ( NSString * )description
 {
+    NSString * description;
+    
     if( self.UTIValue == nil )
     {
-        return nil;
+        return [ super description ];
     }
     
     #if UTI_ARC
-    return ( __bridge_transfer NSString * )UTTypeCopyDescription( ( __bridge CFStringRef )( self.UTIValue ) );
+    description = ( __bridge_transfer NSString * )UTTypeCopyDescription( ( __bridge CFStringRef )( self.UTIValue ) );
     #else
-    return [ ( NSString * )UTTypeCopyDescription( ( CFStringRef )( self.UTIValue ) ) autorelease ];
+    description = [ ( NSString * )UTTypeCopyDescription( ( CFStringRef )( self.UTIValue ) ) autorelease ];
     #endif
+    
+    if( description == nil )
+    {
+        if( self.identifier != nil )
+        {
+            description = [ NSString stringWithFormat: @"%@: %@", [ super description ], self.identifier ];
+        }
+        else
+        {
+            description = [ NSString stringWithFormat: @"%@: %@", [ super description ], self.UTIValue ];
+        }
+    }
+    
+    return description;
 }
 
 - ( NSDictionary * )declaration
