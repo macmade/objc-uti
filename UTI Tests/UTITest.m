@@ -191,11 +191,6 @@
     XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
 }
 
-- ( void )test_UTIWithString_allowDynamic
-{
-    
-}
-
 - ( void )test_UTIWithCFString
 {
     UTI       * uti;
@@ -208,11 +203,6 @@
     
     XCTAssertNotNil( uti );
     XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
-}
-
-- ( void )test_UTIWithCFString_allowDynamic
-{
-    
 }
 
 - ( void )test_UTIWithFileExtension

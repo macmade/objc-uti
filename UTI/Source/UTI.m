@@ -60,39 +60,16 @@
 
 + ( instancetype )UTIWithString: ( NSString * )str
 {
-    return [ UTI UTIWithString: str allowDynamic: NO ];
-}
-
-+ ( instancetype )UTIWithString: ( NSString * )str allowDynamic: ( BOOL )dyn
-{
-    #if UTI_ARC
-    return [ self UTIWithCFString: ( __bridge CFStringRef )str allowDynamic: dyn ];
-    #else
-    return [ self UTIWithCFString: ( CFStringRef )str allowDynamic: dyn ];
-    #endif
+    return [ self UTIWithCFString: ( __bridge CFStringRef )str ];
 }
 
 + ( instancetype )UTIWithCFString: ( CFStringRef )str
 {
-    return [ UTI UTIWithCFString: str allowDynamic: NO ];
-}
-
-+ ( instancetype )UTIWithCFString: ( CFStringRef )str allowDynamic: ( BOOL )dyn
-{
-    UTI * obj;
-    
     #if UTI_ARC
-    obj = [ [ self alloc ] initWithCFString: str ];
+    return [ [ self alloc ] initWithCFString: str ];
     #else
-    obj = [ [ [ self alloc ] initWithCFString: str ] autorelease ];
+    return [ [ [ self alloc ] initWithCFString: str ] autorelease ];
     #endif
-    
-    if( dyn == NO && obj.isDynamic )
-    {
-        return nil;
-    }
-    
-    return obj;
 }
 
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension

@@ -184,30 +184,12 @@ UTIDeclarationDictionaryKey;
 + ( instancetype )UTIWithString: ( NSString * )str;
 
 /*!
- * @method      initWithString:
- * @abstract    Gets an UTI object with a string.
- * @param       str         The UTI identifier, as a string.
- * @param       dyn         Allows dynamic UTIs.
- * @return      An UTI object.
- */
-+ ( instancetype )UTIWithString: ( NSString * )str allowDynamic: ( BOOL )dyn;
-
-/*!
  * @method      initWithCFString:
  * @abstract    Gets an UTI object with a CoreFoundation string.
  * @param       str         The UTI identifier, as a CoreFoundation string.
  * @return      An UTI object.
  */
 + ( instancetype )UTIWithCFString: ( CFStringRef )str;
-
-/*!
- * @method      initWithCFString:
- * @abstract    Gets an UTI object with a CoreFoundation string.
- * @param       str         The UTI identifier, as a CoreFoundation string.
- * @param       dyn         Allows dynamic UTIs.
- * @return      An UTI object.
- */
-+ ( instancetype )UTIWithCFString: ( CFStringRef )str allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      initWithFileExtension:
