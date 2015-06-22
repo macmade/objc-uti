@@ -1180,12 +1180,26 @@
 
 - ( void )test_stringForOSType
 {
+    OSType t;
     
+    #pragma clang diagnostic push
+    #pragma clang diagnostic ignored "-Wfour-char-constants"
+    t = 'ABCD';
+    #pragma clang diagnostic pop
+    
+    XCTAssertEqualObjects( [ UTI stringForOSType: t ], @"ABCD" );
 }
 
 - ( void )test_OSTypeForString
 {
+    OSType t;
     
+    t = [ UTI OSTypeForString: @"ABCD" ];
+    
+    XCTAssertEqual( ( t >> 24 ) & 0xFF, ( unsigned int )'A' );
+    XCTAssertEqual( ( t >> 16 ) & 0xFF, ( unsigned int )'B' );
+    XCTAssertEqual( ( t >>  8 ) & 0xFF, ( unsigned int )'C' );
+    XCTAssertEqual( ( t >>  0 ) & 0xFF, ( unsigned int )'D' );
 }
 
 - ( void )test_init
