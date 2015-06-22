@@ -1418,11 +1418,6 @@
     XCTAssertNil( uti );
 }
 
-- ( void )test_initWithTag_tagClass_conformingTo
-{
-    
-}
-
 - ( void )test_preferredTagForTagClass
 {
     UTI * uti;
