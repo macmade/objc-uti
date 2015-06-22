@@ -1270,8 +1270,8 @@
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyImportedType ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ] );
-    XCTAssertNotNil( [ [ UTI plainTextTypeUTI ] objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyDescription ] );
-    XCTAssertNotNil( [ [ UTI plainTextTypeUTI ] objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyDescription ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ] );
     */
 }
 
