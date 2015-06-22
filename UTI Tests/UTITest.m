@@ -1239,6 +1239,10 @@
     XCTAssertEqual( ( t >> 16 ) & 0xFF, ( unsigned int )'B' );
     XCTAssertEqual( ( t >>  8 ) & 0xFF, ( unsigned int )'C' );
     XCTAssertEqual( ( t >>  0 ) & 0xFF, ( unsigned int )'D' );
+    
+    t = [ UTI OSTypeForString: nil ];
+    
+    XCTAssertEqual( t, ( unsigned int )0 );
 }
 
 - ( void )test_init
