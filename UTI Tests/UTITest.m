@@ -294,17 +294,39 @@
 
 - ( void )test_UTIWithOSType
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithOSType: @"vCrd" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI vCardTypeUTI ] ] );
 }
 
 - ( void )test_UTIWithOSType_allowDynamic
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithOSType: @"ABCD" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ UTI UTIWithOSType: @"ABCD" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_UTIWithOSType_ConformingTo
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithOSType: @"vCrd" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ UTI UTIWithOSType: @"vCrd" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_UTIWithTag_TagClass_ConformingTo_allowDynamic
