@@ -279,17 +279,39 @@
 
 - ( void )test_UTIWithNSPboardType
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithNSPboardType: @"Apple VCard pasteboard type" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI vCardTypeUTI ] ] );
 }
 
 - ( void )test_UTIWithNSPboardType_allowDynamic
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithNSPboardType: @"Unknown pasteboard type" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ UTI UTIWithNSPboardType: @"Unknown pasteboard type" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_UTIWithNSPboardType_ConformingTo
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ UTI UTIWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_UTIWithOSType
