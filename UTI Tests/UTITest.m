@@ -1136,18 +1136,14 @@
 
 - ( void )test_allUTIsWithFileExtension_allowDynamic
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"xyz" allowDynamic: YES ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"xyz" allowDynamic: NO  ].count, ( NSUInteger )0 );
 }
 
 - ( void )test_allUTIsWithFileExtension_ConformingTo
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
     XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
-}
-
-- ( void )test_AllUTIsWithFileExtension_ConformingTo_allowDynamic
-{
-    
 }
 
 - ( void )test_allUTIsWithMIMEType
@@ -1158,18 +1154,14 @@
 
 - ( void )test_AllUTIsWithMIMEType_allowDynamic
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"xyz/xyz" allowDynamic: YES ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"xyz/xyz" allowDynamic: NO  ].count, ( NSUInteger )0 );
 }
 
 - ( void )test_allUTIsWithMIMEType_ConformingTo
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
     XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
-}
-
-- ( void )test_allUTIsWithMIMEType_ConformingTo_allowDynamic
-{
-    
 }
 
 - ( void )test_allUTIsWithNSPboardType
@@ -1187,11 +1179,6 @@
     
 }
 
-- ( void )test_allUTIsWithNSPboardType_ConformingTo_allowDynamic
-{
-    
-}
-
 - ( void )test_allUTIsWithOSType
 {
     
@@ -1203,16 +1190,6 @@
 }
 
 - ( void )test_allUTIsWithOSType_ConformingTo
-{
-    
-}
-
-- ( void )test_allUTIsWithOSType_ConformingTo_allowDynamic
-{
-    
-}
-
-- ( void )test_allUTIsWithTag_tagClass_conformingTo_allowDynamic
 {
     
 }
