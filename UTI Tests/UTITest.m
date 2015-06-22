@@ -110,6 +110,10 @@
     
     XCTAssertNotNil( uti );
     XCTAssertEqualObjects( uti.description, @"text" );
+    
+    uti = [ UTI UTIWithFileExtension: @"xyz" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti.description );
 }
 
 - ( void )test_declaration
@@ -249,17 +253,39 @@
 
 - ( void )test_UTIWithMIMEType
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithMIMEType: @"text/plain" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI plainTextTypeUTI ] ] );
 }
 
 - ( void )test_UTIWithMIMEType_allowDynamic
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithMIMEType: @"xyz/xyz" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ UTI UTIWithMIMEType: @"xyz/xyz" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_UTIWithMIMEType_ConformingTo
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithMIMEType: @"text/plain" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ UTI UTIWithMIMEType: @"text/plain" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_UTIWithMIMEType_ConformingTo_allowDynamic
@@ -1186,6 +1212,11 @@
 - ( void )test_OSTypeForString
 {
     
+}
+
+- ( void )test_init
+{
+    XCTAssertNil( [ [ UTI alloc ] init ] );
 }
 
 - ( void )test_initWithString
