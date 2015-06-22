@@ -207,17 +207,39 @@
 
 - ( void )test_UTIWithFileExtension
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithFileExtension: @"txt" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI plainTextTypeUTI ] ] );
 }
 
 - ( void )test_UTIWithFileExtension_allowDynamic
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithFileExtension: @"xyz" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ UTI UTIWithFileExtension: @"xyz" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_UTIWithFileExtension_ConformingTo
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithFileExtension: @"txt" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ UTI UTIWithFileExtension: @"txt" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_UTIWithFileExtension_ConformingTo_allowDynamic
