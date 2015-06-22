@@ -1238,29 +1238,70 @@
 
 - ( void )test_isEqualToUTI
 {
-    XCTAssertTrue(  [ [ UTI imageTypeUTI ] isEqualToUTI: [ UTI UTIWithCFString: kUTTypeImage ] ] );
-    XCTAssertFalse( [ [ UTI imageTypeUTI ] isEqualToUTI: [ UTI JPEGTypeUTI ] ] );
+    UTI * uti;
+    
+    uti = [ UTI UTIWithString: @"public.plain-text" ];
+    
+    XCTAssertTrue(  [ uti isEqualToUTI: [ UTI plainTextTypeUTI ] ] );
+    XCTAssertFalse( [ uti isEqualToUTI: [ UTI JPEGTypeUTI ] ] );
 }
 
 - ( void )test_conformsToUTI
 {
-    XCTAssertTrue(  [ [ UTI JPEGTypeUTI ] conformsToUTI: [ UTI imageTypeUTI ] ] );
-    XCTAssertFalse( [ [ UTI textTypeUTI ] conformsToUTI: [ UTI imageTypeUTI ] ] );
+    UTI * uti;
+    
+    uti = [ UTI UTIWithString: @"public.plain-text" ];
+    
+    XCTAssertTrue(  [ uti conformsToUTI: [ UTI textTypeUTI ] ] );
+    XCTAssertFalse( [ uti conformsToUTI: [ UTI imageTypeUTI ] ] );
 }
 
 - ( void )test_objectForDeclarationDictionaryKey
 {
+    /*
+    UTI * uti;
     
+    uti = [ UTI UTIWithString: @"com.xs-labs.uti.test" ];
+    
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIdentifier ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyExportedType ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyImportedType ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ] );
+    XCTAssertNotNil( [ [ UTI plainTextTypeUTI ] objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyDescription ] );
+    XCTAssertNotNil( [ [ UTI plainTextTypeUTI ] objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ] );
+    */
 }
 
 - ( void )test_copy
 {
+    UTI * uti;
     
+    uti = [ [ UTI UTIWithString: @"public.plain-text"  ] copy ];
+    
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI plainTextTypeUTI ] ] );
 }
 
 - ( void )test_isEqual
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithString: @"public.plain-text" ];
+    
+    XCTAssertTrue(  [ uti isEqual: [ UTI plainTextTypeUTI ] ] );
+    XCTAssertFalse( [ uti isEqual: [ UTI JPEGTypeUTI ] ] );
+}
+
+- ( void )test_isEqualTo
+{
+    UTI * uti;
+    
+    uti = [ UTI UTIWithString: @"public.plain-text" ];
+    
+    XCTAssertTrue(  [ uti isEqualTo: [ UTI plainTextTypeUTI ] ] );
+    XCTAssertFalse( [ uti isEqualTo: [ UTI JPEGTypeUTI ] ] );
 }
 
 @end
