@@ -49,42 +49,89 @@
 
 - ( void )test_isDynamic
 {
+    UTI * uti;
     
+    uti = [ UTI UTIWithFileExtension: @"txt" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertFalse( uti.isDynamic );
+    
+    uti = [ UTI UTIWithFileExtension: @"xyz" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_preferredFilenameExtension
 {
+    UTI * uti;
     
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.preferredFilenameExtension, @"txt" );
 }
 
 - ( void )test_preferredMIMEType
 {
+    UTI * uti;
     
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.preferredMIMEType, @"text/plain" );
 }
 
 - ( void )test_preferredNSPboardType
 {
+    UTI * uti;
     
+    uti = [ UTI vCardTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.preferredNSPboardType, @"Apple VCard pasteboard type" );
 }
 
 - ( void )test_preferredOSType
 {
+    UTI * uti;
     
+    uti = [ UTI vCardTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.preferredOSType, @"vCrd" );
 }
 
 - ( void )test_description
 {
+    UTI * uti;
     
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.description, @"text" );
 }
 
 - ( void )test_declaration
 {
+    UTI * uti;
     
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertNotNil( uti.declaration );
+    XCTAssertGreaterThan( uti.declaration.count, ( NSUInteger )0 );
 }
 
 - ( void )test_declaringBundleURL
 {
+    UTI * uti;
     
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertNotNil( uti.declaringBundleURL );
+    XCTAssertTrue( [ [ NSFileManager defaultManager ] fileExistsAtPath: uti.declaringBundleURL.path ] );
 }
 
 - ( void )test_exportedTypes
@@ -395,342 +442,632 @@
 
 - ( void )test_itemTypeUTI
 {
-    XCTAssertNotNil( [ UTI itemTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI itemTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.item" );
 }
 
 - ( void )test_contentTypeUTI
 {
-    XCTAssertNotNil( [ UTI contentTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI contentTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.content" );
 }
 
 - ( void )test_CompositeContentTypeUTI
 {
-    XCTAssertNotNil( [ UTI compositeContentTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI compositeContentTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.composite-content" );
 }
 
 - ( void )test_applicationTypeUTI
 {
-    XCTAssertNotNil( [ UTI applicationTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI applicationTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.application" );
 }
 
 - ( void )test_messageTypeUTI
 {
-    XCTAssertNotNil( [ UTI messageTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI messageTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.message" );
 }
 
 - ( void )test_contactTypeUTI
 {
-    XCTAssertNotNil( [ UTI contactTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI contactTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.contact" );
 }
 
 - ( void )test_archiveTypeUTI
 {
-    XCTAssertNotNil( [ UTI archiveTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI archiveTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.archive" );
 }
 
 - ( void )test_diskImageTypeUTI
 {
-    XCTAssertNotNil( [ UTI diskImageTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI diskImageTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.disk-image" );
 }
 
 - ( void )test_dataTypeUTI
 {
-    XCTAssertNotNil( [ UTI dataTypeUTI ] );
-}
-
-- ( void )test_directoryTypeUTI
-{
-    XCTAssertNotNil( [ UTI directoryTypeUTI ] );
-}
-
-- ( void )test_resolvableTypeUTI
-{
-    XCTAssertNotNil( [ UTI resolvableTypeUTI ] );
-}
-
-- ( void )test_symLinkTypeUTI
-{
-    XCTAssertNotNil( [ UTI symLinkTypeUTI ] );
-}
-
-- ( void )test_mountPointTypeUTI
-{
-    XCTAssertNotNil( [ UTI mountPointTypeUTI ] );
-}
-
-- ( void )test_aliasFileTypeUTI
-{
-    XCTAssertNotNil( [ UTI aliasFileTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI aliasFileTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.alias-file" );
 }
 
 - ( void )test_aliasRecordTypeUTI
 {
-    XCTAssertNotNil( [ UTI aliasRecordTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI aliasRecordTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.alias-record" );
 }
 
 - ( void )test_URLTypeUTI
 {
-    XCTAssertNotNil( [ UTI URLTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI URLTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.url" );
 }
 
 - ( void )test_fileURLTypeUTI
 {
-    XCTAssertNotNil( [ UTI fileURLTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI fileURLTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.file-url" );
 }
 
 - ( void )test_textTypeUTI
 {
-    XCTAssertNotNil( [ UTI textTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI textTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.text" );
 }
 
 - ( void )test_plainTextTypeUTI
 {
-    XCTAssertNotNil( [ UTI plainTextTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.plain-text" );
 }
 
 - ( void )test_UTF8PlainTextTypeUTI
 {
-    XCTAssertNotNil( [ UTI UTF8PlainTextTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI UTF8PlainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.utf8-plain-text" );
 }
 
 - ( void )test_UTF16ExternalPlainTextTypeUTI
 {
-    XCTAssertNotNil( [ UTI UTF16ExternalPlainTextTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI UTF16ExternalPlainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.utf16-external-plain-text" );
 }
 
 - ( void )test_UTF16PlainTextTypeUTI
 {
-    XCTAssertNotNil( [ UTI UTF16PlainTextTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI UTF16PlainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.utf16-plain-text" );
 }
 
 - ( void )test_RTFTypeUTI
 {
-    XCTAssertNotNil( [ UTI RTFTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI RTFTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.rtf" );
 }
 
 - ( void )test_HTMLTypeUTI
 {
-    XCTAssertNotNil( [ UTI HTMLTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI HTMLTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.html" );
 }
 
 - ( void )test_XMLTypeUTI
 {
-    XCTAssertNotNil( [ UTI XMLTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI XMLTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.xml" );
 }
 
 - ( void )test_sourceCodeTypeUTI
 {
-    XCTAssertNotNil( [ UTI sourceCodeTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI sourceCodeTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.source-code" );
 }
 
 - ( void )test_CSourceTypeUTI
 {
-    XCTAssertNotNil( [ UTI CSourceTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI CSourceTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.c-source" );
 }
 
 - ( void )test_objectiveCSourceTypeUTI
 {
-    XCTAssertNotNil( [ UTI objectiveCSourceTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI objectiveCSourceTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
 }
 
 - ( void )test_CPlusPlusSourceTypeUTI
 {
-    XCTAssertNotNil( [ UTI CPlusPlusSourceTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI CPlusPlusSourceTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.c-plus-plus-source" );
 }
 
 - ( void )test_objectiveCPlusPlusSourceTypeUTI
 {
-    XCTAssertNotNil( [ UTI objectiveCPlusPlusSourceTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI objectiveCPlusPlusSourceTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.objective-c-plus-plus-source" );
 }
 
 - ( void )test_CHeaderTypeUTI
 {
-    XCTAssertNotNil( [ UTI CHeaderTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI CHeaderTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.c-header" );
 }
 
 - ( void )test_CPlusPlusHeaderTypeUTI
 {
-    XCTAssertNotNil( [ UTI CPlusPlusHeaderTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI CPlusPlusHeaderTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.c-plus-plus-header" );
 }
 
 - ( void )test_javaSourceTypeUTI
 {
-    XCTAssertNotNil( [ UTI javaSourceTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI javaSourceTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.sun.java-source" );
 }
 
 - ( void )test_PDFTypeUTI
 {
-    XCTAssertNotNil( [ UTI PDFTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI PDFTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.adobe.pdf" );
 }
 
 - ( void )test_RTFDTypeUTI
 {
-    XCTAssertNotNil( [ UTI RTFDTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI RTFDTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.rtfd" );
 }
 
 - ( void )test_flatRTFDTypeUTI
 {
-    XCTAssertNotNil( [ UTI flatRTFDTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI flatRTFDTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.flat-rtfd" );
 }
 
 - ( void )test_TXNTextAndMultimediaDataTypeUTI
 {
-    XCTAssertNotNil( [ UTI TXNTextAndMultimediaDataTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI TXNTextAndMultimediaDataTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.txn.text-multimedia-data" );
 }
 
 - ( void )test_webArchiveTypeUTI
 {
-    XCTAssertNotNil( [ UTI webArchiveTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI webArchiveTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.webarchive" );
 }
 
 - ( void )test_imageTypeUTI
 {
-    XCTAssertNotNil( [ UTI imageTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI imageTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.image" );
 }
 
 - ( void )test_JPEGTypeUTI
 {
-    XCTAssertNotNil( [ UTI JPEGTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI JPEGTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.jpeg" );
 }
 
 - ( void )test_JPEG2000TypeUTI
 {
-    XCTAssertNotNil( [ UTI JPEG2000TypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI JPEG2000TypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.jpeg-2000" );
 }
 
 - ( void )test_TIFFTypeUTI
 {
-    XCTAssertNotNil( [ UTI TIFFTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI TIFFTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.tiff" );
 }
 
 - ( void )test_PICTTypeUTI
 {
-    XCTAssertNotNil( [ UTI PICTTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI PICTTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.pict" );
 }
 
 - ( void )test_GIFTypeUTI
 {
-    XCTAssertNotNil( [ UTI GIFTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI GIFTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.compuserve.gif" );
 }
 
 - ( void )test_PNGTypeUTI
 {
-    XCTAssertNotNil( [ UTI PNGTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI PNGTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.png" );
 }
 
 - ( void )test_quickTimeImageTypeUTI
 {
-    XCTAssertNotNil( [ UTI quickTimeImageTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI quickTimeImageTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.quicktime-image" );
 }
 
 - ( void )test_appleICNSTypeUTI
 {
-    XCTAssertNotNil( [ UTI appleICNSTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI appleICNSTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.icns" );
 }
 
 - ( void )test_BMPTypeUTI
 {
-    XCTAssertNotNil( [ UTI BMPTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI BMPTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.microsoft.bmp" );
 }
 
 - ( void )test_ICOTypeUTI
 {
-    XCTAssertNotNil( [ UTI ICOTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI ICOTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.microsoft.ico" );
 }
 
 - ( void )test_audiovisualContentTypeUTI
 {
-    XCTAssertNotNil( [ UTI audiovisualContentTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI audiovisualContentTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.audiovisual-content" );
 }
 
 - ( void )test_movieTypeUTI
 {
-    XCTAssertNotNil( [ UTI movieTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI movieTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.movie" );
 }
 
 - ( void )test_videoTypeUTI
 {
-    XCTAssertNotNil( [ UTI videoTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI videoTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.video" );
 }
 
 - ( void )test_audioTypeUTI
 {
-    XCTAssertNotNil( [ UTI audioTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI audioTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.audio" );
 }
 
 - ( void )test_quickTimeMovieTypeUTI
 {
-    XCTAssertNotNil( [ UTI quickTimeMovieTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI quickTimeMovieTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.quicktime-movie" );
 }
 
 - ( void )test_MPEGTypeUTI
 {
-    XCTAssertNotNil( [ UTI MPEGTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI MPEGTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.mpeg" );
 }
 
 - ( void )test_MPEG4TypeUTI
 {
-    XCTAssertNotNil( [ UTI MPEG4TypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI MPEG4TypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.mpeg-4" );
 }
 
 - ( void )test_MP3TypeUTI
 {
-    XCTAssertNotNil( [ UTI MP3TypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI MP3TypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.mp3" );
 }
 
 - ( void )test_MPEG4AudioTypeUTI
 {
-    XCTAssertNotNil( [ UTI MPEG4AudioTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI MPEG4AudioTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.mpeg-4-audio" );
 }
 
 - ( void )test_appleProtectedMPEG4AudioTypeUTI
 {
-    XCTAssertNotNil( [ UTI appleProtectedMPEG4AudioTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI appleProtectedMPEG4AudioTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.protected-mpeg-4-audio" );
 }
 
 - ( void )test_folderTypeUTI
 {
-    XCTAssertNotNil( [ UTI folderTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI folderTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.folder" );
 }
 
 - ( void )test_volumeTypeUTI
 {
-    XCTAssertNotNil( [ UTI volumeTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI volumeTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.volume" );
 }
 
 - ( void )test_packageTypeUTI
 {
-    XCTAssertNotNil( [ UTI packageTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI packageTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.package" );
 }
 
 - ( void )test_bundleTypeUTI
 {
-    XCTAssertNotNil( [ UTI bundleTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI bundleTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.bundle" );
 }
 
 - ( void )test_frameworkTypeUTI
 {
-    XCTAssertNotNil( [ UTI frameworkTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI frameworkTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.framework" );
 }
 
 - ( void )test_applicationBundleTypeUTI
 {
-    XCTAssertNotNil( [ UTI applicationBundleTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI applicationBundleTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.application-bundle" );
 }
 
 - ( void )test_applicationFileTypeUTI
 {
-    XCTAssertNotNil( [ UTI applicationFileTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI applicationFileTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.application-file" );
 }
 
 - ( void )test_vCardTypeUTI
 {
-    XCTAssertNotNil( [ UTI vCardTypeUTI ] );
+    UTI * uti;
+    
+    uti = [ UTI vCardTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.vcard" );
 }
 
 - ( void )test_inkTextTypeUTI
 {
+    UTI * uti;
+    
+    uti = [ UTI inkTextTypeUTI ];
+    
     XCTAssertNotNil( [ UTI inkTextTypeUTI ] );
+    XCTAssertEqualObjects( uti.identifier, @"com.apple.ink.inktext" );
 }
 
 - ( void )test_allUTIsWithFileExtension
