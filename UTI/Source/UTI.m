@@ -921,9 +921,9 @@
     }
     
     #if UTI_ARC
-    utiValue = UTTypeCreatePreferredIdentifierForTag( ( __bridge CFStringRef )tag, cfTagClass, ( __bridge CFStringRef )( uti.UTIValue ) );
+    utiValue = UTTypeCreatePreferredIdentifierForTag( cfTagClass, ( __bridge CFStringRef )tag, ( __bridge CFStringRef )( uti.UTIValue ) );
     #else
-    utiValue = UTTypeCreatePreferredIdentifierForTag( ( CFStringRef )tag, ( CFStringRef )cfTagClass, ( CFStringRef )( uti.UTIValue ) );
+    utiValue = UTTypeCreatePreferredIdentifierForTag( cfTagClass, ( CFStringRef )tag, ( CFStringRef )( uti.UTIValue ) );
     #endif
     
     if( utiValue == NULL )
