@@ -179,12 +179,6 @@
     XCTAssertNotNil( uti.iconFile );
 }
 
-- ( void )test_referenceURL
-{}
-
-- ( void )test_version
-{}
-
 - ( void )test_UTIWithString
 {
     UTI * uti;
@@ -246,11 +240,6 @@
     XCTAssertNil( uti );
 }
 
-- ( void )test_UTIWithFileExtension_ConformingTo_allowDynamic
-{
-    
-}
-
 - ( void )test_UTIWithMIMEType
 {
     UTI * uti;
@@ -288,11 +277,6 @@
     XCTAssertNil( uti );
 }
 
-- ( void )test_UTIWithMIMEType_ConformingTo_allowDynamic
-{
-    
-}
-
 - ( void )test_UTIWithNSPboardType
 {
     
@@ -308,11 +292,6 @@
     
 }
 
-- ( void )test_UTIWithNSPboardType_ConformingTo_allowDynamic
-{
-    
-}
-
 - ( void )test_UTIWithOSType
 {
     
@@ -324,11 +303,6 @@
 }
 
 - ( void )test_UTIWithOSType_ConformingTo
-{
-    
-}
-
-- ( void )test_UTIWithOSType_ConformingTo_allowDynamic
 {
     
 }
@@ -1317,11 +1291,6 @@
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ] );
-    
-    /*
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ] );
-    */
 }
 
 - ( void )test_copy
