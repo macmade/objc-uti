@@ -62,15 +62,13 @@ UTITagClass;
  */
 typedef enum
 {
-    UTIDeclarationDictionaryKeyExportedType     = 0x00, /*! An array of exported UTI declarations. */
-    UTIDeclarationDictionaryKeyImportedType     = 0x01, /*! An array of imported UTI declarations. */
-    UTIDeclarationDictionaryKeyIdentifier       = 0x02, /*! The uniform type identifier for the declared type. This key is required. */
-    UTIDeclarationDictionaryKeyTagSpecification = 0x03, /*! A dictionary containing conversions of the uniform type identifier to equivalent tags in other classification schemes. */
-    UTIDeclarationDictionaryKeyConformsTo       = 0x04, /*! The UTIs to which this identifier conforms. */
-    UTIDeclarationDictionaryKeyDescription      = 0x05, /*! A user-visible description of this type (may be localized). */
-    UTIDeclarationDictionaryKeyIconFile         = 0x06, /*! The name of the bundle icon resource to associate with this UTI. */
-    UTIDeclarationDictionaryKeyReferenceURL     = 0x07, /*! The URL of a reference document describing this type. */
-    UTIDeclarationDictionaryKeyVersion          = 0x08  /*! A version string. */
+    UTIDeclarationDictionaryKeyIdentifier       = 0x00, /*! The uniform type identifier for the declared type. This key is required. */
+    UTIDeclarationDictionaryKeyTagSpecification = 0x01, /*! A dictionary containing conversions of the uniform type identifier to equivalent tags in other classification schemes. */
+    UTIDeclarationDictionaryKeyConformsTo       = 0x02, /*! The UTIs to which this identifier conforms. */
+    UTIDeclarationDictionaryKeyDescription      = 0x03, /*! A user-visible description of this type (may be localized). */
+    UTIDeclarationDictionaryKeyIconFile         = 0x04, /*! The name of the bundle icon resource to associate with this UTI. */
+    UTIDeclarationDictionaryKeyReferenceURL     = 0x05, /*! The URL of a reference document describing this type. */
+    UTIDeclarationDictionaryKeyVersion          = 0x06  /*! A version string. */
 }
 UTIDeclarationDictionaryKey;
 
@@ -140,18 +138,6 @@ UTIDeclarationDictionaryKey;
  * @abstract    Returns the location of a bundle containing the declaration for a type.
  */
 @property( nonatomic, readonly ) NSURL * declaringBundleURL;
-
-/*!
- * @property    exportedTypes
- * @abstract    Returns an array of exported UTI declarations.
- */
-@property( nonatomic, readonly ) NSArray * exportedTypes;
-
-/*!
- * @property    importedTypes
- * @abstract    Returns an array of imported UTI declarations.
- */
-@property( nonatomic, readonly ) NSArray * importedTypes;
 
 /*!
  * @property    identifier

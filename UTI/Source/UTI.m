@@ -1056,8 +1056,6 @@
     
     switch( key )
     {
-        case UTIDeclarationDictionaryKeyExportedType:       cfKey = kUTExportedTypeDeclarationsKey; break;
-        case UTIDeclarationDictionaryKeyImportedType:       cfKey = kUTImportedTypeDeclarationsKey; break;
         case UTIDeclarationDictionaryKeyIdentifier:         cfKey = kUTTypeIdentifierKey;           break;
         case UTIDeclarationDictionaryKeyTagSpecification:   cfKey = kUTTypeTagSpecificationKey;     break;
         case UTIDeclarationDictionaryKeyConformsTo:         cfKey = kUTTypeConformsToKey;           break;
@@ -1147,16 +1145,6 @@
     #else
     return [ ( NSURL * )UTTypeCopyDeclaringBundleURL( ( CFStringRef )( self.UTIValue ) ) autorelease ];
     #endif
-}
-
-- ( NSArray * )exportedTypes
-{
-    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyExportedType ];
-}
-
-- ( NSArray * )importedTypes
-{
-    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyImportedType ];
 }
 
 - ( NSString * )identifier

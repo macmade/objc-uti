@@ -134,19 +134,14 @@
     XCTAssertTrue( [ [ NSFileManager defaultManager ] fileExistsAtPath: uti.declaringBundleURL.path ] );
 }
 
-- ( void )test_exportedTypes
-{
-    
-}
-
-- ( void )test_importedTypes
-{
-    
-}
-
 - ( void )test_identifier
 {
+    UTI * uti;
     
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.plain-text" );
 }
 
 - ( void )test_tagSpecifications
@@ -1258,19 +1253,18 @@
 
 - ( void )test_objectForDeclarationDictionaryKey
 {
-    /*
     UTI * uti;
     
-    uti = [ UTI UTIWithString: @"com.xs-labs.uti.test" ];
+    uti = [ UTI dataTypeUTI ];
     
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIdentifier ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyExportedType ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyImportedType ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyDescription ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ] );
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ] );
+    
+    /*
+    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ] );
     */
 }
