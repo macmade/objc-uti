@@ -138,36 +138,48 @@
 {
     UTI * uti;
     
-    uti = [ UTI plainTextTypeUTI ];
+    uti = [ UTI dataTypeUTI ];
     
     XCTAssertNotNil( uti );
-    XCTAssertEqualObjects( uti.identifier, @"public.plain-text" );
+    XCTAssertEqualObjects( uti.identifier, @"public.data" );
 }
 
 - ( void )test_tagSpecifications
 {
+    UTI * uti;
     
+    uti = [ UTI dataTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertNotNil( uti.tagSpecifications );
+    XCTAssertGreaterThan( uti.tagSpecifications.count, ( NSUInteger )0 );
 }
 
 - ( void )test_conformsTo
 {
+    UTI * uti;
     
+    uti = [ UTI dataTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertNotNil( uti.conformsTo );
 }
 
 - ( void )test_iconFile
 {
+    UTI * uti;
     
+    uti = [ UTI dataTypeUTI ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertNotNil( uti.iconFile );
 }
 
 - ( void )test_referenceURL
-{
-    
-}
+{}
 
 - ( void )test_version
-{
-    
-}
+{}
 
 - ( void )test_UTIWithString
 {
