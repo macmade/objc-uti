@@ -1181,6 +1181,15 @@ UTIDeclarationDictionaryKey;
 - ( instancetype )initWithFileExtension: ( NSString * )extension;
 
 /*!
+ * @method      initWithFileExtension:
+ * @abstract    Initializes an UTI object with a file extension.
+ * @param       extension   The file extension.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ */
+- ( instancetype )initWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      initWithFileExtension:conformingTo:
  * @abstract    Initializes an UTI object with a file extension.
  * @param       extension   The file extension.
@@ -1190,12 +1199,31 @@ UTIDeclarationDictionaryKey;
 - ( instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      initWithFileExtension:conformingTo:
+ * @abstract    Initializes an UTI object with a file extension.
+ * @param       extension   The file extension.
+ * @param       uti         If not nil, the returned UTI must conform to this parameter. Otherwise, nil will be returned.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ */
+- ( instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      initWithMIMEType:
  * @abstract    Initializes an UTI object with a mime-type.
  * @param       type        The mime-type.
  * @return      An UTI object.
  */
 - ( instancetype )initWithMIMEType: ( NSString * )type;
+
+/*!
+ * @method      initWithMIMEType:
+ * @abstract    Initializes an UTI object with a mime-type.
+ * @param       type        The mime-type.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ */
+- ( instancetype )initWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      initWithMIMEType:conformingTo:
@@ -1207,12 +1235,31 @@ UTIDeclarationDictionaryKey;
 - ( instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      initWithMIMEType:conformingTo:
+ * @abstract    Initializes an UTI object with a mime-type.
+ * @param       type        The mime-type.
+ * @param       uti         If not nil, the returned UTI must conform to this parameter. Otherwise, nil will be returned.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ */
+- ( instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      initWithNSPboardType
  * @abstract    Initializes an UTI object with a NSPasteboardType.
  * @param       type        The NSPasteboardType.
  * @return      An UTI object.
  */
 - ( instancetype )initWithNSPboardType: ( NSString * )type;
+
+/*!
+ * @method      initWithNSPboardType
+ * @abstract    Initializes an UTI object with a NSPasteboardType.
+ * @param       type        The NSPasteboardType.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ */
+- ( instancetype )initWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      initWithNSPboardType:conformingTo:
@@ -1224,6 +1271,16 @@ UTIDeclarationDictionaryKey;
 - ( instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      initWithNSPboardType:conformingTo:
+ * @abstract    Initializes an UTI object with a NSPasteboardType.
+ * @param       type        The NSPasteboardType.
+ * @param       uti         If not nil, the returned UTI must conform to this parameter. Otherwise, nil will be returned.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ */
+- ( instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      initWithOSType:
  * @abstract    Initializes an UTI object with an OSType.
  * @param       type        The OSType.
@@ -1231,6 +1288,16 @@ UTIDeclarationDictionaryKey;
  * @see         stringForOSType
  */
 - ( instancetype )initWithOSType: ( NSString * )type;
+
+/*!
+ * @method      initWithOSType:
+ * @abstract    Initializes an UTI object with an OSType.
+ * @param       type        The OSType.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ * @see         stringForOSType
+ */
+- ( instancetype )initWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn;
 
 /*!
  * @method      initWithOSType:conformingTo:
@@ -1243,11 +1310,23 @@ UTIDeclarationDictionaryKey;
 - ( instancetype )initWithOSType: ( NSString * )type conformingTo: ( UTI * )uti;
 
 /*!
+ * @method      initWithOSType:conformingTo:
+ * @abstract    Initializes an UTI object with an OSType.
+ * @param       type        The OSType.
+ * @param       uti         If not nil, the returned UTI must conform to this parameter. Otherwise, nil will be returned.
+ * @param       dyn         Allows dynamic UTIs.
+ * @return      An UTI object.
+ * @see         stringForOSType
+ */
+- ( instancetype )initWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn;
+
+/*!
  * @method      initWithTag:tagClass:conformingTo:
  * @abstract    Initializes a uniform type identifier for the type indicated by the specified tag.
  * @param       tag         The tag to translate into a uniform type identifier.
  * @param       tagClass    The class of the tag parameter.
- * @param       uti         If not nil, the returned uniform type identifier must conform to this parameter.
+ * @param       uti         If not nil, the returned UTI must conform to this parameter. Otherwise, nil will be returned.
+ * @param       dyn         Allows dynamic UTIs.
  * @return      An UTI object
  * @discussion  This method is used to translate a type declared using another
  *              declaration mechanism (for example, MIME types) into a uniform
@@ -1257,7 +1336,7 @@ UTIDeclarationDictionaryKey;
  *              conform to that type.
  * @see         UTITagClass
  */
-- ( instancetype )initWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti NS_DESIGNATED_INITIALIZER;
+- ( instancetype )initWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn NS_DESIGNATED_INITIALIZER;
 
 /*!
  * @method      preferredTagForTagClass:

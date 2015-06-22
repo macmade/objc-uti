@@ -351,11 +351,6 @@
     XCTAssertNil( uti );
 }
 
-- ( void )test_UTIWithTag_TagClass_ConformingTo_allowDynamic
-{
-    
-}
-
 - ( void )test_abstractTypes
 {
     NSArray * types;
@@ -1253,52 +1248,174 @@
 
 - ( void )test_initWithString
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithString: @"public.objective-c-source" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
 }
 
 - ( void )test_initWithCFString
 {
+    UTI       * uti;
+    CFStringRef s;
     
+    s   = CFStringCreateWithCString( NULL, "public.objective-c-source", kCFStringEncodingASCII );
+    uti = [ [ UTI alloc ] initWithCFString: s ];
+    
+    CFRelease( s );
+    
+    XCTAssertNotNil( uti );
+    XCTAssertEqualObjects( uti.identifier, @"public.objective-c-source" );
 }
 
 - ( void )test_initWithFileExtension
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithFileExtension: @"txt" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI plainTextTypeUTI ] ] );
+}
+
+- ( void )test_initWithFileExtension_allowDynamic
+{
+    UTI * uti;
+    
+    uti = [ [ UTI alloc ] initWithFileExtension: @"xyz" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithFileExtension: @"xyz" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_initWithFileExtension_conformingTo
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithFileExtension: @"txt" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithFileExtension: @"txt" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_initWithMIMEType
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithMIMEType: @"text/plain" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI plainTextTypeUTI ] ] );
+}
+
+- ( void )test_initWithMIMEType_allowDynamic
+{
+    UTI * uti;
+    
+    uti = [ [ UTI alloc ] initWithMIMEType: @"xyz/xyz" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithMIMEType: @"xyz/xyz" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_initWithMIMEType_conformingTo
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithMIMEType: @"text/plain" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithMIMEType: @"text/plain" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_initWithNSPboardType
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithNSPboardType: @"Apple VCard pasteboard type" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI vCardTypeUTI ] ] );
+}
+
+- ( void )test_initWithNSPboardType_allowDynamic
+{
+    UTI * uti;
+    
+    uti = [ [ UTI alloc ] initWithNSPboardType: @"Unknown pasteboard type" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithNSPboardType: @"Unknown pasteboard type" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_initWithNSPboardType_conformingTo
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_initWithOSType
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithOSType: @"vCrd" ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( [ uti isEqualToUTI: [ UTI vCardTypeUTI ] ] );
+}
+
+- ( void )test_initWithOSType_allowDynamic
+{
+    UTI * uti;
+    
+    uti = [ [ UTI alloc ] initWithOSType: @"ABCD" allowDynamic: NO ];
+    
+    XCTAssertNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithOSType: @"ABCD" allowDynamic: YES ];
+    
+    XCTAssertNotNil( uti );
+    XCTAssertTrue( uti.isDynamic );
 }
 
 - ( void )test_initWithOSType_conformingTo
 {
+    UTI * uti;
     
+    uti = [ [ UTI alloc ] initWithOSType: @"vCrd" conformingTo: [ UTI textTypeUTI ] ];
+    
+    XCTAssertNotNil( uti );
+    
+    uti = [ [ UTI alloc ] initWithOSType: @"vCrd" conformingTo: [ UTI imageTypeUTI ] ];
+    
+    XCTAssertNil( uti );
 }
 
 - ( void )test_initWithTag_tagClass_conformingTo
@@ -1378,6 +1495,15 @@
     
     XCTAssertTrue(  [ uti isEqualTo: [ UTI plainTextTypeUTI ] ] );
     XCTAssertFalse( [ uti isEqualTo: [ UTI JPEGTypeUTI ] ] );
+}
+
+- ( void )test_Hash
+{
+    UTI * uti;
+    
+    uti = [ UTI plainTextTypeUTI ];
+    
+    XCTAssertEqual( [ uti hash ], [ @"public.plain-text" hash ] );
 }
 
 @end
