@@ -89,7 +89,7 @@
     uti = [ UTI vCardTypeUTI ];
     
     XCTAssertNotNil( uti );
-    XCTAssertEqualObjects( uti.preferredNSPboardType, @"Apple VCard pasteboard type" );
+    XCTAssertEqualObjects( uti.preferredNSPboardType, NSVCardPboardType );
 }
 
 - ( void )test_preferredOSType
@@ -227,7 +227,7 @@
     XCTAssertTrue( uti.isDynamic );
 }
 
-- ( void )test_UTIWithFileExtension_ConformingTo
+- ( void )test_UTIWithFileExtension_conformingTo
 {
     UTI * uti;
     
@@ -264,7 +264,7 @@
     XCTAssertTrue( uti.isDynamic );
 }
 
-- ( void )test_UTIWithMIMEType_ConformingTo
+- ( void )test_UTIWithMIMEType_conformingTo
 {
     UTI * uti;
     
@@ -281,7 +281,7 @@
 {
     UTI * uti;
     
-    uti = [ UTI UTIWithNSPboardType: @"Apple VCard pasteboard type" ];
+    uti = [ UTI UTIWithNSPboardType: NSVCardPboardType ];
     
     XCTAssertNotNil( uti );
     XCTAssertTrue( [ uti isEqualToUTI: [ UTI vCardTypeUTI ] ] );
@@ -301,15 +301,15 @@
     XCTAssertTrue( uti.isDynamic );
 }
 
-- ( void )test_UTIWithNSPboardType_ConformingTo
+- ( void )test_UTIWithNSPboardType_conformingTo
 {
     UTI * uti;
     
-    uti = [ UTI UTIWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI textTypeUTI ] ];
+    uti = [ UTI UTIWithNSPboardType: NSVCardPboardType conformingTo: [ UTI textTypeUTI ] ];
     
     XCTAssertNotNil( uti );
     
-    uti = [ UTI UTIWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI imageTypeUTI ] ];
+    uti = [ UTI UTIWithNSPboardType: NSVCardPboardType conformingTo: [ UTI imageTypeUTI ] ];
     
     XCTAssertNil( uti );
 }
@@ -338,7 +338,7 @@
     XCTAssertTrue( uti.isDynamic );
 }
 
-- ( void )test_UTIWithOSType_ConformingTo
+- ( void )test_UTIWithOSType_conformingTo
 {
     UTI * uti;
     
@@ -1140,7 +1140,7 @@
     XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"xyz" allowDynamic: NO  ].count, ( NSUInteger )0 );
 }
 
-- ( void )test_allUTIsWithFileExtension_ConformingTo
+- ( void )test_allUTIsWithFileExtension_conformingTo
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
     XCTAssertEqual(       [ UTI allUTIsWithFileExtension: @"mp4" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
@@ -1158,7 +1158,7 @@
     XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"xyz/xyz" allowDynamic: NO  ].count, ( NSUInteger )0 );
 }
 
-- ( void )test_allUTIsWithMIMEType_ConformingTo
+- ( void )test_allUTIsWithMIMEType_conformingTo
 {
     XCTAssertGreaterThan( [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
     XCTAssertEqual(       [ UTI allUTIsWithMIMEType: @"audio/mpeg" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
@@ -1166,32 +1166,38 @@
 
 - ( void )test_allUTIsWithNSPboardType
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithNSPboardType: NSVCardPboardType          ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithNSPboardType: @"Unknown pasteboard type" ].count, ( NSUInteger )0 );
 }
 
 - ( void )test_allUTIsWithNSPboardType_allowDynamic
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithNSPboardType: @"Unknown pasteboard type" allowDynamic: YES ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithNSPboardType: @"Unknown pasteboard type" allowDynamic: NO  ].count, ( NSUInteger )0 );
 }
 
-- ( void )test_allUTIsWithNSPboardType_ConformingTo
+- ( void )test_allUTIsWithNSPboardType_conformingTo
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithNSPboardType: NSVCardPboardType conformingTo: [ UTI contactTypeUTI ] ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithNSPboardType: NSVCardPboardType conformingTo: [ UTI audioTypeUTI   ] ].count, ( NSUInteger )0 );
 }
 
 - ( void )test_allUTIsWithOSType
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithOSType: @"mpg4" ].count, ( NSUInteger )1 );
+    XCTAssertEqual(       [ UTI allUTIsWithOSType: @"ABCD" ].count, ( NSUInteger )0 );
 }
 
 - ( void )test_allUTIsWithOSType_allowDynamic
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithOSType: @"mpg4" allowDynamic: YES ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithOSType: @"ABCD" allowDynamic: NO  ].count, ( NSUInteger )0 );
 }
 
-- ( void )test_allUTIsWithOSType_ConformingTo
+- ( void )test_allUTIsWithOSType_conformingTo
 {
-    
+    XCTAssertGreaterThan( [ UTI allUTIsWithOSType: @"mpg4" conformingTo: [ UTI audioTypeUTI ] ].count, ( NSUInteger )0 );
+    XCTAssertEqual(       [ UTI allUTIsWithOSType: @"ABCD" conformingTo: [ UTI textTypeUTI  ] ].count, ( NSUInteger )0 );
 }
 
 - ( void )test_stringForOSType
@@ -1329,7 +1335,7 @@
 {
     UTI * uti;
     
-    uti = [ [ UTI alloc ] initWithNSPboardType: @"Apple VCard pasteboard type" ];
+    uti = [ [ UTI alloc ] initWithNSPboardType: NSVCardPboardType ];
     
     XCTAssertNotNil( uti );
     XCTAssertTrue( [ uti isEqualToUTI: [ UTI vCardTypeUTI ] ] );
@@ -1353,11 +1359,11 @@
 {
     UTI * uti;
     
-    uti = [ [ UTI alloc ] initWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI textTypeUTI ] ];
+    uti = [ [ UTI alloc ] initWithNSPboardType: NSVCardPboardType conformingTo: [ UTI textTypeUTI ] ];
     
     XCTAssertNotNil( uti );
     
-    uti = [ [ UTI alloc ] initWithNSPboardType: @"Apple VCard pasteboard type" conformingTo: [ UTI imageTypeUTI ] ];
+    uti = [ [ UTI alloc ] initWithNSPboardType: NSVCardPboardType conformingTo: [ UTI imageTypeUTI ] ];
     
     XCTAssertNil( uti );
 }
@@ -1407,7 +1413,7 @@
     
     XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassFilenameExtension ], @"html" );
     XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassMIMEType ],          @"text/html" );
-    XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassNSPboardType ],      @"Apple HTML pasteboard type" );
+    XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassNSPboardType ],      NSHTMLPboardType );
     XCTAssertEqualObjects( [ uti preferredTagForTagClass: UTITagClassOSType ],            @"HTML" );
 }
 
