@@ -29,6 +29,7 @@
  */
 
 @import UTI;
+@import AppKit; /* For NSVCardPboardType */
 
 @interface UTITest: XCTestCase
 {}
