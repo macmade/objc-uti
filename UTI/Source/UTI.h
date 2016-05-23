@@ -28,7 +28,11 @@
  * @abstract    Objective-C wrapper class for Uniform Type Identifiers (UTIs)
  */
 
+#ifdef UTI_DONT_USE_MODULES
+#import <Foundation/Foundation.h>
+#else
 @import Foundation;
+#endif
 
 /*!
  * @define      NS_DESIGNATED_INITIALIZER
