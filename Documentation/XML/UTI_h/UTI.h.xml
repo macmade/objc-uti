@@ -4,6 +4,7 @@
 <abstract><p>Objective-C wrapper class for Uniform Type Identifiers (UTIs)
 </p></abstract>
 <includes>
+<include><hd_link logicalPath="//xsdoc_ref/doc/header/Foundation.h">&lt;Foundation/Foundation.h&gt;</hd_link></include>
 </includes>
 <desc><p/></desc>
 <typedefs><typedef id="//xsdoc_ref/c/tdef/UTIDeclarationDictionaryKey" lang="c" type="simple"><name>UTIDeclarationDictionaryKey</name>
@@ -16604,9 +16605,9 @@ accessor method.
     <declaration_param>readonly</declaration_param> ) <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> <declaration_var>version</declaration_var>; </declaration>
 <desc><p/></desc>
 </property></properties>
-<timestamp>Tuesday, June 23, 2015</timestamp>
+<timestamp>Wednesday, March 08, 2017</timestamp>
 </class></classes>
 <copyrightinfo>&#169; (c) 2014 - Jean-David Gadina - www.xs-labs.com
 </copyrightinfo>
-<timestamp>Tuesday, June 23, 2015</timestamp>
+<timestamp>Wednesday, March 08, 2017</timestamp>
 </header>
