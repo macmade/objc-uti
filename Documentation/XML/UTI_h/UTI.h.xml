@@ -158,11 +158,6 @@ accessor method.</declaration_comment>
         <declaration_comment>*/</declaration_comment>
     @property( <declaration_param>nonatomic</declaration_param>,
         <declaration_param>readonly</declaration_param> ) <declaration_type>NSArray</declaration_type> <declaration_type>*</declaration_type><declaration_var>conformsTo</declaration_var>;   <declaration_comment>/*!
-@property    iconFile
-@abstract    Returns the name of the bundle icon resource to associate with this UTI.</declaration_comment>
-        <declaration_comment>*/</declaration_comment>
-    @property( <declaration_param>nonatomic</declaration_param>,
-        <declaration_param>readonly</declaration_param> ) <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type><declaration_var>iconFile</declaration_var>;   <declaration_comment>/*!
 @property    referenceURL
 @abstract    Returns the URL of a reference document describing this type.</declaration_comment>
         <declaration_comment>*/</declaration_comment>
@@ -16531,13 +16526,6 @@ accessor method.
     <declaration_param>readonly</declaration_param> ) <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> <declaration_var>description</declaration_var>; </declaration>
 <desc><p>The localized string that describes the uniform type is found in the type’s declaration.
 </p></desc>
-</property><property id="//xsdoc_ref/occ/instp/UTI/iconFile" lang="occ" accessControl="private"><name>iconFile</name>
-<abstract><p>Returns the name of the bundle icon resource to associate with this UTI.
-</p></abstract>
-<returntype>NSString *</returntype>
-<declaration>@property( <declaration_param>nonatomic</declaration_param>,
-    <declaration_param>readonly</declaration_param> ) <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> <declaration_var>iconFile</declaration_var>; </declaration>
-<desc><p/></desc>
 </property><property id="//xsdoc_ref/occ/instp/UTI/identifier" lang="occ" accessControl="private"><name>identifier</name>
 <abstract><p>Returns the uniform type identifier for the declared type.
 </p></abstract>
@@ -16605,9 +16593,9 @@ accessor method.
     <declaration_param>readonly</declaration_param> ) <declaration_type>NSString</declaration_type> <declaration_type>*</declaration_type> <declaration_var>version</declaration_var>; </declaration>
 <desc><p/></desc>
 </property></properties>
-<timestamp>Wednesday, March 08, 2017</timestamp>
+<timestamp>Saturday, March 11, 2017</timestamp>
 </class></classes>
 <copyrightinfo>&#169; (c) 2014 - Jean-David Gadina - www.xs-labs.com
 </copyrightinfo>
-<timestamp>Wednesday, March 08, 2017</timestamp>
+<timestamp>Saturday, March 11, 2017</timestamp>
 </header>

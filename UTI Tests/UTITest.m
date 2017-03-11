@@ -170,16 +170,6 @@
     XCTAssertNotNil( uti.conformsTo );
 }
 
-- ( void )test_iconFile
-{
-    UTI * uti;
-    
-    uti = [ UTI dataTypeUTI ];
-    
-    XCTAssertNotNil( uti );
-    XCTAssertNotNil( uti.iconFile );
-}
-
 - ( void )test_UTIWithString
 {
     UTI * uti;
@@ -1448,7 +1438,6 @@
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyDescription ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ] );
     XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ] );
-    XCTAssertNotNil( [ uti objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ] );
 }
 
 - ( void )test_copy

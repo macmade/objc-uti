@@ -162,12 +162,6 @@ UTIDeclarationDictionaryKey;
 @property( nonatomic, readonly ) NSArray * conformsTo;
 
 /*!
- * @property    iconFile
- * @abstract    Returns the name of the bundle icon resource to associate with this UTI.
- */
-@property( nonatomic, readonly ) NSString * iconFile;
-
-/*!
  * @property    referenceURL
  * @abstract    Returns the URL of a reference document describing this type.
  */

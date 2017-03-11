@@ -1206,11 +1206,6 @@
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ];
 }
 
-- ( NSString * )iconFile
-{
-    return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIconFile ];
-}
-
 - ( NSURL * )referenceURL
 {
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ];
