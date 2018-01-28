@@ -2,6 +2,8 @@ language: objective-c
 compiler: clang
 xcode_project: UTI.xcodeproj
 xcode_scheme: ARC - Mac Framework
+install:
+  - brew install macmade/tap/xcode-coveralls
 before_install:
   - bash Scripts/travis-before.sh
 after_success:
