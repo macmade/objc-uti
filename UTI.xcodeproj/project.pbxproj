@@ -66,7 +66,6 @@
 		05161B7719A271B600BAB80B /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		05161B7819A271B600BAB80B /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
 		05161B7A19A271B600BAB80B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		05161B7B19A271B600BAB80B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		05161B7C19A271B600BAB80B /* UTITest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTITest.m; sourceTree = "<group>"; };
 		051F09651946EB70004B6E47 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0542B7791B2AFC85008807D3 /* travis-after.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
@@ -216,7 +215,6 @@
 			isa = PBXGroup;
 			children = (
 				05161B7A19A271B600BAB80B /* Info.plist */,
-				05161B7B19A271B600BAB80B /* PrefixHeader.pch */,
 				05161B7C19A271B600BAB80B /* UTITest.m */,
 			);
 			path = "UTI Tests";

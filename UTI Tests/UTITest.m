@@ -28,6 +28,14 @@
  * @abstract    Test class for UTI
  */
 
+#ifdef __clang__
+#pragma clang diagnostic ignored "-Wvariadic-macros"
+#pragma clang diagnostic ignored "-Wgnu-statement-expression"
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
+#endif
+
+#import <XCTest/XCTest.h>
+
 @import UTI;
 @import AppKit; /* For NSVCardPboardType */
 
