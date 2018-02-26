@@ -205,7 +205,7 @@
 		05161B7619A271B600BAB80B /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				05161B7719A271B600BAB80B /* UTI.h */,
+				059A366D2044214900429607 /* include */,
 				05161B7819A271B600BAB80B /* UTI.m */,
 			);
 			path = Source;
@@ -266,6 +266,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		059A366D2044214900429607 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				05161B7719A271B600BAB80B /* UTI.h */,
+			);
+			path = include;
 			sourceTree = "<group>";
 		};
 		05DBA27E201E83D800638A44 /* xcconfig */ = {
