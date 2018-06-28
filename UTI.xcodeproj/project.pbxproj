@@ -40,7 +40,6 @@
 /* Begin PBXFileReference section */
 		0509E30D19A3A7E500D7BC48 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		0509E38519A4940700D7BC48 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		0509E38719A4954D00D7BC48 /* objc-uti.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = "objc-uti.podspec"; sourceTree = "<group>"; };
 		05161B7419A271B600BAB80B /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05161B7719A271B600BAB80B /* UTI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTI.h; sourceTree = "<group>"; };
 		05161B7819A271B600BAB80B /* UTI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UTI.m; sourceTree = "<group>"; };
@@ -178,7 +177,6 @@
 				05DBA27E201E83D800638A44 /* xcconfig */,
 				0509E30219A3A7E500D7BC48 /* Documentation */,
 				0509E38519A4940700D7BC48 /* LICENSE.txt */,
-				0509E38719A4954D00D7BC48 /* objc-uti.podspec */,
 				051F09651946EB70004B6E47 /* README.md */,
 				05161B7219A271B600BAB80B /* UTI */,
 				05161B7919A271B600BAB80B /* UTI Tests */,
