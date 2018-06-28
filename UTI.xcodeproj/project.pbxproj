@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050911A020E51A7A009EF90C /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; };
+		050911A120E51A7B009EF90C /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; };
 		05161B8019A271B600BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B8319A271C500BAB80B /* UTITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7C19A271B600BAB80B /* UTITest.m */; };
 		05161B9B19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
@@ -327,10 +329,19 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		0509119F20E51A68009EF90C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				050911A020E51A7A009EF90C /* UTI.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		056C881018C8B85F006260B3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				050911A120E51A7B009EF90C /* UTI.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,6 +416,7 @@
 				056C88A618C8C8AC006260B3 /* Sources */,
 				056C88A718C8C8AC006260B3 /* Frameworks */,
 				056C88A818C8C8AC006260B3 /* CopyFiles */,
+				0509119F20E51A68009EF90C /* Headers */,
 			);
 			buildRules = (
 			);
