@@ -24,16 +24,6 @@
 
 #import "UTI.h"
 
-#ifndef __has_feature
-#define __has_feature( _x_ )    0
-#endif
-
-#if __has_feature( objc_arc )
-#define UTI_ARC                 1
-#else
-#define UTI_ARC                 0
-#endif
-
 #if defined( __IPHONE_OS_VERSION_MIN_REQUIRED ) && __IPHONE_OS_VERSION_MIN_REQUIRED
 #define UTI_IOS                 1
 #else
@@ -65,11 +55,7 @@
 
 + ( instancetype )UTIWithCFString: ( CFStringRef )str
 {
-    #if UTI_ARC
     return [ [ self alloc ] initWithCFString: str ];
-    #else
-    return [ [ [ self alloc ] initWithCFString: str ] autorelease ];
-    #endif
 }
 
 + ( instancetype )UTIWithFileExtension: ( NSString * )extension
@@ -154,11 +140,7 @@
 
 + ( instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
 {
-    #if UTI_ARC
     return [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti allowDynamic: dyn ];
-    #else
-    return [ [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti allowDynamic: dyn ] autorelease ];
-    #endif
 }
 
 + ( NSArray * )abstractTypes
@@ -723,13 +705,8 @@
         #endif
     }
     
-    #if UTI_ARC
     cfUTIs = ( __bridge_transfer NSArray * )UTTypeCreateAllIdentifiersForTag( cfTagClass, ( __bridge CFStringRef )tag, ( __bridge CFStringRef )( uti.UTIValue ) );
-    #else
-    cfUTIs = [ ( NSArray * )UTTypeCreateAllIdentifiersForTag( cfTagClass, ( CFStringRef )tag, ( CFStringRef )( uti.UTIValue ) ) autorelease ];
-    #endif
-    
-    utis = [ NSMutableArray arrayWithCapacity: cfUTIs.count ];
+    utis   = [ NSMutableArray arrayWithCapacity: cfUTIs.count ];
     
     for( str in cfUTIs )
     {
@@ -757,13 +734,9 @@
     
     return nil;
     
-    #elif UTI_ARC
-    
-    return ( __bridge_transfer NSString * )UTCreateStringForOSType( type );
-    
     #else
     
-    return [ ( NSString * )UTCreateStringForOSType( type ) autorelease ];
+    return ( __bridge_transfer NSString * )UTCreateStringForOSType( type );
     
     #endif
 }
@@ -781,13 +754,9 @@
     
     return 0;
     
-    #elif UTI_ARC
-    
-    return UTGetOSTypeFromString( ( __bridge CFStringRef )str ) ;
-    
     #else
     
-    return UTGetOSTypeFromString( ( CFStringRef )str ) ;
+    return UTGetOSTypeFromString( ( __bridge CFStringRef )str );
     
     #endif
 }
@@ -808,18 +777,10 @@
     {
         if( str == NULL )
         {
-            #if UTI_ARC == 0
-            [ self release ];
-            #endif
-            
             return nil;
         }
         
-        #if UTI_ARC
         self.UTIValue = ( __bridge NSString * )str;
-        #else
-        self.UTIValue = ( NSString * )str;
-        #endif
     }
     
     return self;
@@ -917,17 +878,8 @@
         
         #if UTI_IOS
         
-        #if UTI_ARC
-        
         case UTITagClassNSPboardType:       return nil;
         case UTITagClassOSType:             return nil;
-        
-        #else
-        
-        case UTITagClassNSPboardType:       [ self release ]; return nil;
-        case UTITagClassOSType:             [ self release ]; return nil;
-        
-        #endif
         
         #else
         
@@ -937,36 +889,20 @@
         #endif
     }
     
-    #if UTI_ARC
     utiValue = UTTypeCreatePreferredIdentifierForTag( cfTagClass, ( __bridge CFStringRef )tag, ( __bridge CFStringRef )( uti.UTIValue ) );
-    #else
-    utiValue = UTTypeCreatePreferredIdentifierForTag( cfTagClass, ( CFStringRef )tag, ( CFStringRef )( uti.UTIValue ) );
-    #endif
     
     if( utiValue == NULL )
     {
-        #if UTI_ARC == 0
-        [ self release ];
-        #endif
-        
         return nil;
     }
     
     if( ( self = [ super init ] ) )
     {
-        #if UTI_ARC
         self.UTIValue = ( __bridge NSString * )utiValue;
-        #else
-        self.UTIValue = ( NSString * )utiValue;
-        #endif
         
         if( dyn == NO && self.isDynamic )
         {
             CFRelease( utiValue );
-            
-            #if UTI_ARC == 0
-            [ self release ];
-            #endif
             
             return nil;
         }
@@ -975,16 +911,6 @@
     CFRelease( utiValue );
     
     return self;
-}
-
-- ( void )dealloc
-{
-    self.UTIValue       = nil;
-    self.representation = nil;
-    
-    #if UTI_ARC == 0
-    [ super dealloc ];
-    #endif
 }
 
 - ( id )copyWithZone: ( NSZone * )zone
@@ -1019,11 +945,7 @@
         #endif
     }
     
-    #if UTI_ARC
     return ( __bridge_transfer NSString * )UTTypeCopyPreferredTagWithClass( ( __bridge CFStringRef )( self.UTIValue ), cfTagClass );
-    #else
-    return [ ( NSString * )UTTypeCopyPreferredTagWithClass( ( CFStringRef )( self.UTIValue ), cfTagClass ) autorelease ];
-    #endif
 }
 
 - ( NSUInteger )hash
@@ -1063,11 +985,7 @@
         return NO;
     }
     
-    #if UTI_ARC
     return ( UTTypeConformsTo( ( __bridge CFStringRef )( self.UTIValue ), ( __bridge CFStringRef )( uti.UTIValue ) ) ) ? YES : NO;
-    #else
-    return ( UTTypeConformsTo( ( CFStringRef )( self.UTIValue ), ( CFStringRef )( uti.UTIValue ) ) ) ? YES : NO;
-    #endif
 }
 
 - ( id )objectForDeclarationDictionaryKey: ( UTIDeclarationDictionaryKey )key
@@ -1093,11 +1011,7 @@
         case UTIDeclarationDictionaryKeyVersion:            cfKey = kUTTypeVersionKey;              break;
     }
     
-    #if UTI_ARC
     return [ dic objectForKey: ( __bridge NSString * )cfKey ];
-    #else
-    return [ dic objectForKey: ( NSString * )cfKey ];
-    #endif
 }
 
 - ( BOOL )isDynamic
@@ -1134,11 +1048,7 @@
         return [ super description ];
     }
     
-    #if UTI_ARC
     description = ( __bridge_transfer NSString * )UTTypeCopyDescription( ( __bridge CFStringRef )( self.UTIValue ) );
-    #else
-    description = [ ( NSString * )UTTypeCopyDescription( ( CFStringRef )( self.UTIValue ) ) autorelease ];
-    #endif
     
     if( description == nil )
     {
@@ -1166,11 +1076,7 @@
     {
         if( self.representation == nil )
         {
-            #if UTI_ARC
             self.representation = ( __bridge_transfer NSDictionary * )UTTypeCopyDeclaration( ( __bridge CFStringRef )( self.UTIValue ) );
-            #else
-            self.representation = [ ( NSDictionary * )UTTypeCopyDeclaration( ( CFStringRef )( self.UTIValue ) ) autorelease ];
-            #endif
         }
     }
     
@@ -1184,11 +1090,7 @@
         return nil;
     }
     
-    #if UTI_ARC
     return ( __bridge_transfer NSURL * )UTTypeCopyDeclaringBundleURL( ( __bridge CFStringRef )( self.UTIValue ) );
-    #else
-    return [ ( NSURL * )UTTypeCopyDeclaringBundleURL( ( CFStringRef )( self.UTIValue ) ) autorelease ];
-    #endif
 }
 
 - ( NSString * )identifier
