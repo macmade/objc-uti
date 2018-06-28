@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		05161B8019A271B600BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B8319A271C500BAB80B /* UTITest.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7C19A271B600BAB80B /* UTITest.m */; };
-		05161B9A19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B9B19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		05161B9C19A2866F00BAB80B /* UTI.m in Sources */ = {isa = PBXBuildFile; fileRef = 05161B7819A271B600BAB80B /* UTI.m */; };
 		0542B7921B2B0096008807D3 /* UTI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056C885F18C8C76B006260B3 /* UTI.framework */; };
-		05E8979D19A28A6E00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		05E8979E19A28A6F00B5DE48 /* UTI.h in Headers */ = {isa = PBXBuildFile; fileRef = 05161B7719A271B600BAB80B /* UTI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
@@ -52,7 +50,6 @@
 		0542B7791B2AFC85008807D3 /* travis-after.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-after.sh"; sourceTree = "<group>"; };
 		0542B77A1B2AFC85008807D3 /* travis-before.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "travis-before.sh"; sourceTree = "<group>"; };
 		056C881218C8B85F006260B3 /* libUTI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUTI.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		056C884A18C8C547006260B3 /* libUTI.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libUTI.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C885F18C8C76B006260B3 /* UTI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UTI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		056C88AA18C8C8AC006260B3 /* libUTI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libUTI.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		05DBA27F201E83D800638A44 /* Release - ccache.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Release - ccache.xcconfig"; sourceTree = "<group>"; };
@@ -100,13 +97,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		056C880F18C8B85F006260B3 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		056C884718C8C547006260B3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -202,7 +192,6 @@
 			isa = PBXGroup;
 			children = (
 				056C881218C8B85F006260B3 /* libUTI.a */,
-				056C884A18C8C547006260B3 /* libUTI.dylib */,
 				056C885F18C8C76B006260B3 /* UTI.framework */,
 				056C88AA18C8C8AC006260B3 /* libUTI.a */,
 				05E71B631961D9D100F911C4 /* UTI Tests.xctest */,
@@ -347,14 +336,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		056C884818C8C547006260B3 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05E8979D19A28A6E00B5DE48 /* UTI.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		056C885C18C8C76B006260B3 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -383,9 +364,9 @@
 /* End PBXLegacyTarget section */
 
 /* Begin PBXNativeTarget section */
-		056C881118C8B85F006260B3 /* ARC - Mac Static Library */ = {
+		056C881118C8B85F006260B3 /* UTI - Mac Static Library */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "ARC - Mac Static Library" */;
+			buildConfigurationList = 056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "UTI - Mac Static Library" */;
 			buildPhases = (
 				056C880E18C8B85F006260B3 /* Sources */,
 				056C880F18C8B85F006260B3 /* Frameworks */,
@@ -395,31 +376,14 @@
 			);
 			dependencies = (
 			);
-			name = "ARC - Mac Static Library";
+			name = "UTI - Mac Static Library";
 			productName = "CF++";
 			productReference = 056C881218C8B85F006260B3 /* libUTI.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		056C884918C8C547006260B3 /* ARC - Mac Dynamic Library */ = {
+		056C885E18C8C76B006260B3 /* UTI - Mac Framework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 056C884B18C8C547006260B3 /* Build configuration list for PBXNativeTarget "ARC - Mac Dynamic Library" */;
-			buildPhases = (
-				056C884618C8C547006260B3 /* Sources */,
-				056C884718C8C547006260B3 /* Frameworks */,
-				056C884818C8C547006260B3 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "ARC - Mac Dynamic Library";
-			productName = "CF++";
-			productReference = 056C884A18C8C547006260B3 /* libUTI.dylib */;
-			productType = "com.apple.product-type.library.dynamic";
-		};
-		056C885E18C8C76B006260B3 /* ARC - Mac Framework */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 056C888318C8C76C006260B3 /* Build configuration list for PBXNativeTarget "ARC - Mac Framework" */;
+			buildConfigurationList = 056C888318C8C76C006260B3 /* Build configuration list for PBXNativeTarget "UTI - Mac Framework" */;
 			buildPhases = (
 				056C885A18C8C76B006260B3 /* Sources */,
 				056C885B18C8C76B006260B3 /* Frameworks */,
@@ -431,14 +395,14 @@
 			);
 			dependencies = (
 			);
-			name = "ARC - Mac Framework";
+			name = "UTI - Mac Framework";
 			productName = "CF++";
 			productReference = 056C885F18C8C76B006260B3 /* UTI.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		056C88A918C8C8AC006260B3 /* ARC - iOS Static Library */ = {
+		056C88A918C8C8AC006260B3 /* UTI - iOS Static Library */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 056C88C918C8C8AD006260B3 /* Build configuration list for PBXNativeTarget "ARC - iOS Static Library" */;
+			buildConfigurationList = 056C88C918C8C8AD006260B3 /* Build configuration list for PBXNativeTarget "UTI - iOS Static Library" */;
 			buildPhases = (
 				056C88A618C8C8AC006260B3 /* Sources */,
 				056C88A718C8C8AC006260B3 /* Frameworks */,
@@ -448,7 +412,7 @@
 			);
 			dependencies = (
 			);
-			name = "ARC - iOS Static Library";
+			name = "UTI - iOS Static Library";
 			productName = "CF++";
 			productReference = 056C88AA18C8C8AC006260B3 /* libUTI.a */;
 			productType = "com.apple.product-type.library.static";
@@ -490,10 +454,6 @@
 						DevelopmentTeam = 326Y53CJMD;
 						ProvisioningStyle = Automatic;
 					};
-					056C884918C8C547006260B3 = {
-						DevelopmentTeam = 326Y53CJMD;
-						ProvisioningStyle = Automatic;
-					};
 					056C885E18C8C76B006260B3 = {
 						DevelopmentTeam = 326Y53CJMD;
 						ProvisioningStyle = Automatic;
@@ -522,10 +482,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				056C881118C8B85F006260B3 /* ARC - Mac Static Library */,
-				056C884918C8C547006260B3 /* ARC - Mac Dynamic Library */,
-				056C885E18C8C76B006260B3 /* ARC - Mac Framework */,
-				056C88A918C8C8AC006260B3 /* ARC - iOS Static Library */,
+				056C881118C8B85F006260B3 /* UTI - Mac Static Library */,
+				056C885E18C8C76B006260B3 /* UTI - Mac Framework */,
+				056C88A918C8C8AC006260B3 /* UTI - iOS Static Library */,
 				05E71B621961D9D100F911C4 /* UTI Tests */,
 				0509E32419A3A86C00D7BC48 /* Documentation */,
 			);
@@ -587,14 +546,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		056C884618C8C547006260B3 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				05161B9A19A2866F00BAB80B /* UTI.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		056C885A18C8C76B006260B3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -624,7 +575,7 @@
 /* Begin PBXTargetDependency section */
 		0542B7911B2B0093008807D3 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 056C885E18C8C76B006260B3 /* ARC - Mac Framework */;
+			target = 056C885E18C8C76B006260B3 /* UTI - Mac Framework */;
 			targetProxy = 0542B7901B2B0093008807D3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -696,24 +647,6 @@
 				EXECUTABLE_PREFIX = lib;
 				PRODUCT_NAME = UTI;
 				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		056C884C18C8C547006260B3 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = UTI;
-			};
-			name = Debug;
-		};
-		056C884D18C8C547006260B3 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				EXECUTABLE_PREFIX = lib;
-				PRODUCT_NAME = UTI;
 			};
 			name = Release;
 		};
@@ -814,7 +747,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "ARC - Mac Static Library" */ = {
+		056C881318C8B85F006260B3 /* Build configuration list for PBXNativeTarget "UTI - Mac Static Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				056C881418C8B85F006260B3 /* Debug */,
@@ -823,16 +756,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		056C884B18C8C547006260B3 /* Build configuration list for PBXNativeTarget "ARC - Mac Dynamic Library" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				056C884C18C8C547006260B3 /* Debug */,
-				056C884D18C8C547006260B3 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		056C888318C8C76C006260B3 /* Build configuration list for PBXNativeTarget "ARC - Mac Framework" */ = {
+		056C888318C8C76C006260B3 /* Build configuration list for PBXNativeTarget "UTI - Mac Framework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				056C888418C8C76C006260B3 /* Debug */,
@@ -841,7 +765,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		056C88C918C8C8AD006260B3 /* Build configuration list for PBXNativeTarget "ARC - iOS Static Library" */ = {
+		056C88C918C8C8AD006260B3 /* Build configuration list for PBXNativeTarget "UTI - iOS Static Library" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				056C88CA18C8C8AD006260B3 /* Debug */,

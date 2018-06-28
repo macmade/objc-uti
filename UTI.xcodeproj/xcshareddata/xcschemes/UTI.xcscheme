@@ -30,7 +30,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "056C885E18C8C76B006260B3"
                BuildableName = "UTI.framework"
-               BlueprintName = "ARC - Mac Framework"
+               BlueprintName = "UTI - Mac Framework"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -44,7 +44,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "056C881118C8B85F006260B3"
                BuildableName = "libUTI.a"
-               BlueprintName = "ARC - Mac Static Library"
+               BlueprintName = "UTI - Mac Static Library"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -58,7 +58,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "056C88A918C8C8AC006260B3"
                BuildableName = "libUTI.a"
-               BlueprintName = "ARC - iOS Static Library"
+               BlueprintName = "UTI - iOS Static Library"
                ReferencedContainer = "container:UTI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -138,7 +138,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
@@ -168,7 +167,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
