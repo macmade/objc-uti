@@ -22,7 +22,7 @@ The goal is to provide an object-oriented approach to the Uniform Type Identifie
 
 This project is fully compatible with Swift.
 
-In order to use the `UTI` class from Swift, simply link with `UTI.framework` (ARC target - see below) and:
+In order to use the `UTI` class from Swift, simply link with `UTI.framework` and:
 
     import UTI
 
@@ -31,26 +31,13 @@ In order to use the `UTI` class from Swift, simply link with `UTI.framework` (AR
 The following targets are available:
 
  * OS X static library (`.a`).
- * OS X dynamic library (`.dylib`).
  * OS X framework (`.framework`).
  * iOS static library (`.a`).
 
-All targets are available for both ARC and MRC (see below).
-
 ### Supported platforms
 
- * OS X deployment target: **OS X 10.6** (ARC - see below), **OS X 10.4** (MRC - see below)
- * OS X architectures: **x86_64, i386** (non-ARC - see below)
+ * OS X deployment target: **OS X 10.6**
  * iOS deployment target: **iOS 6.0**
- * iOS architectures: **armv7, armv7s, arm64**
-
-### Automatic Reference Counting (ARC) Note
-
-All project's targets comes in two flavors.  
-One using ARC - Automatic Reference Counting, the other using Manual Reference Counting (MRC).
-
-If you're targeting only 64-bits platforms and/or 10.7 deployment targets, you're advised to use the ARC targets.  
-Otherwise, if targeting 32-bits platforms and/or deployment targets lower than 10.7, MRC targets are available.
 
 Documentation
 -------------
@@ -72,5 +59,3 @@ Repository Infos
     GitHub:			github.com/macmade
     LinkedIn:		ch.linkedin.com/in/macmade/
     StackOverflow:	stackoverflow.com/users/182676/macmade
-
-
