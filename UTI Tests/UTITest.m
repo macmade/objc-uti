@@ -143,8 +143,8 @@
     uti = [ UTI plainTextTypeUTI ];
     
     XCTAssertNotNil( uti );
-    XCTAssertNotNil( uti.declaringBundleURL );
-    XCTAssertTrue( [ [ NSFileManager defaultManager ] fileExistsAtPath: uti.declaringBundleURL.path ] );
+    XCTAssertNotNil( uti.declaringBundleURL.path );
+    XCTAssertTrue( [ [ NSFileManager defaultManager ] fileExistsAtPath: ( NSString * _Nonnull )( uti.declaringBundleURL.path ) ] );
 }
 
 - ( void )test_identifier

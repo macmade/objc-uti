@@ -452,7 +452,7 @@
 		056C87C618C8B0F8006260B3 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "XS-Labs";
 				TargetAttributes = {
 					0509E32419A3A86C00D7BC48 = {
@@ -482,10 +482,11 @@
 			};
 			buildConfigurationList = 056C87C918C8B0F8006260B3 /* Build configuration list for PBXProject "UTI" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 056C87C518C8B0F8006260B3;
 			productRefGroup = 056C87CF18C8B0F8006260B3 /* Products */;
@@ -629,7 +630,7 @@
 			baseConfigurationReference = 05DBA281201E83D800638A44 /* Debug - ccache.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Debug;
 		};
@@ -638,7 +639,7 @@
 			baseConfigurationReference = 05DBA27F201E83D800638A44 /* Release - ccache.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 			};
 			name = Release;
 		};
@@ -693,7 +694,7 @@
 		056C88CA18C8C8AD006260B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = UTI;
 				SDKROOT = iphoneos;
@@ -706,7 +707,7 @@
 		056C88CB18C8C8AD006260B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = UTI;
 				SDKROOT = iphoneos;

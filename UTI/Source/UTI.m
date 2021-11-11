@@ -915,7 +915,7 @@
 
 - ( id )copyWithZone: ( NSZone * )zone
 {
-    return [ [ [ self class ] allocWithZone: zone ] initWithString: self.UTIValue ];
+    return ( id )[ [ [ self class ] allocWithZone: zone ] initWithString: self.UTIValue ];
 }
 
 - ( NSString * )preferredTagForTagClass: ( UTITagClass )tagClass
