@@ -2,7 +2,7 @@ name: ci-mac
 on:   [push]
 jobs:
     ci:
-        runs-on: macos-latest
+        runs-on: macos-12
         strategy:
             matrix:
                 run-config:
