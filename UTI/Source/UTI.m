@@ -58,92 +58,92 @@
     return [ [ self alloc ] initWithCFString: str ];
 }
 
-+ ( instancetype )UTIWithFileExtension: ( NSString * )extension
++ ( nullable instancetype )UTIWithFileExtension: ( NSString * )extension
 {
     return [ self UTIWithFileExtension: extension allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithFileExtension: extension conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
++ ( nullable instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( nullable UTI * )uti
 {
     return [ self UTIWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithFileExtension: ( NSString * )extension conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithMIMEType: ( NSString * )type
++ ( nullable instancetype )UTIWithMIMEType: ( NSString * )type
 {
     return [ self UTIWithMIMEType: type allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithMIMEType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
++ ( nullable instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self UTIWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithMIMEType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithNSPboardType: ( NSString * )type
++ ( nullable instancetype )UTIWithNSPboardType: ( NSString * )type
 {
     return [ self UTIWithNSPboardType: type allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithNSPboardType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
++ ( nullable instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self UTIWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithNSPboardType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithOSType: ( NSString * )type
++ ( nullable instancetype )UTIWithOSType: ( NSString * )type
 {
     return [ self UTIWithOSType: type allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithOSType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
++ ( nullable instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self UTIWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithOSType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self UTIWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( nullable instancetype )UTIWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ [ self alloc ] initWithTag: tag tagClass: tagClass conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( NSArray * )abstractTypes
++ ( NSArray< UTI * > * )abstractTypes
 {
     return @[ [ self itemTypeUTI ],
               [ self contentTypeUTI ],
@@ -156,7 +156,7 @@
     ];
 }
 
-+ ( NSArray * )concreteTypes
++ ( NSArray< UTI * > * )concreteTypes
 {
     return @[ [ self dataTypeUTI ],
               [ self directoryTypeUTI ],
@@ -170,7 +170,7 @@
     ];
 }
 
-+ ( NSArray * )textTypes
++ ( NSArray< UTI * > * )textTypes
 {
     return @[ [ self textTypeUTI ],
               [ self plainTextTypeUTI ],
@@ -191,7 +191,7 @@
     ];
 }
 
-+ ( NSArray * )compositeContentTypes
++ ( NSArray< UTI * > * )compositeContentTypes
 {
     return @[ [ self PDFTypeUTI ],
               [ self RTFDTypeUTI ],
@@ -201,7 +201,7 @@
     ];
 }
 
-+ ( NSArray * )imageContentTypes
++ ( NSArray< UTI * > * )imageContentTypes
 {
     return @[ [ self imageTypeUTI ],
               [ self JPEGTypeUTI ],
@@ -217,7 +217,7 @@
     ];
 }
 
-+ ( NSArray * )audioVisualContentTypes
++ ( NSArray< UTI * > * )audioVisualContentTypes
 {
     return @[ [ self audiovisualContentTypeUTI ],
               [ self movieTypeUTI ],
@@ -232,7 +232,7 @@
     ];
 }
 
-+ ( NSArray * )directoryTypes
++ ( NSArray< UTI * > * )directoryTypes
 {
     return @[ [ self folderTypeUTI ],
               [ self volumeTypeUTI ],
@@ -242,19 +242,19 @@
     ];
 }
 
-+ ( NSArray * )applicationTypes
++ ( NSArray< UTI * > * )applicationTypes
 {
     return @[ [ self applicationBundleTypeUTI ],
               [ self applicationFileTypeUTI ]
     ];
 }
 
-+ ( NSArray * )contactTypes
++ ( NSArray< UTI * > * )contactTypes
 {
     return @[ [ self vCardTypeUTI ] ];
 }
 
-+ ( NSArray * )miscellaneousTypes
++ ( NSArray< UTI * > * )miscellaneousTypes
 {
     return @[ [ self inkTextTypeUTI ] ];
 }
@@ -599,87 +599,87 @@
     return [ self UTIWithCFString: kUTTypeInkText ];
 }
 
-+ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension
++ ( NSArray< UTI * > * )allUTIsWithFileExtension: ( NSString * )extension
 {
     return [ self allUTIsWithFileExtension: extension allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithFileExtension: extension conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
++ ( NSArray< UTI * > * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( nullable UTI * )uti
 {
     return [ self allUTIsWithFileExtension: extension conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithFileExtension: ( NSString * )extension conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type
++ ( NSArray< UTI * > * )allUTIsWithMIMEType: ( NSString * )type
 {
     return [ self allUTIsWithMIMEType: type allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithMIMEType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
++ ( NSArray< UTI * > * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self allUTIsWithMIMEType: type conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithMIMEType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type
++ ( NSArray< UTI * > * )allUTIsWithNSPboardType: ( NSString * )type
 {
     return [ self allUTIsWithNSPboardType: type allowDynamic: NO];
 }
 
-+ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithNSPboardType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
++ ( NSArray< UTI * > * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self allUTIsWithNSPboardType: type conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithNSPboardType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithOSType: ( NSString * )type
++ ( NSArray< UTI * > * )allUTIsWithOSType: ( NSString * )type
 {
     return [ self allUTIsWithOSType: type allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithOSType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
++ ( NSArray< UTI * > * )allUTIsWithOSType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self allUTIsWithOSType: type conformingTo: uti allowDynamic: NO ];
 }
 
-+ ( NSArray * )allUTIsWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithOSType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self allUTIsWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: dyn ];
 }
 
-+ ( NSArray * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
++ ( NSArray< UTI * > * )allUTIsWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     CFStringRef      cfTagClass;
     NSArray        * cfUTIs;
@@ -726,7 +726,7 @@
     return [ NSArray arrayWithArray: utis ];
 }
 
-+ ( NSString * )stringForOSType: ( OSType )type
++ ( nullable NSString * )stringForOSType: ( OSType )type
 {
     #if UTI_IOS
     
@@ -763,7 +763,7 @@
 
 - ( instancetype )init
 {
-    return [ self initWithString: nil ];
+    return [ self initWithString: @"" ];
 }
 
 - ( instancetype )initWithString: ( NSString * )str
@@ -775,98 +775,93 @@
 {
     if( ( self = [ super init ] ) )
     {
-        if( str == NULL )
-        {
-            return nil;
-        }
-        
         self.UTIValue = ( __bridge NSString * )str;
     }
     
     return self;
 }
 
-- ( instancetype )initWithFileExtension: ( NSString * )extension
+- ( nullable instancetype )initWithFileExtension: ( NSString * )extension
 {
     return [ self initWithFileExtension: extension allowDynamic: NO ];
 }
 
-- ( instancetype )initWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithFileExtension: ( NSString * )extension allowDynamic: ( BOOL )dyn
 {
     return [ self initWithFileExtension: extension conformingTo: nil allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti
+- ( nullable instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( nullable UTI * )uti
 {
     return [ self initWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: NO ];
 }
 
-- ( instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithFileExtension: ( NSString * )extension conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self initWithTag: extension tagClass: UTITagClassFilenameExtension conformingTo: uti allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithMIMEType: ( NSString * )type
+- ( nullable instancetype )initWithMIMEType: ( NSString * )type
 {
     return [ self initWithMIMEType: type allowDynamic: NO ];
 }
 
-- ( instancetype )initWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithMIMEType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self initWithMIMEType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti
+- ( nullable instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self initWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: NO ];
 }
 
-- ( instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithMIMEType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self initWithTag: type tagClass: UTITagClassMIMEType conformingTo: uti allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithNSPboardType: ( NSString * )type
+- ( nullable instancetype )initWithNSPboardType: ( NSString * )type
 {
     return [ self initWithNSPboardType: type allowDynamic: NO ];
 }
 
-- ( instancetype )initWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithNSPboardType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self initWithNSPboardType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti
+- ( nullable instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self initWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: NO ];
 }
 
-- ( instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithNSPboardType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self initWithTag: type tagClass: UTITagClassNSPboardType conformingTo: uti allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithOSType: ( NSString * )type
+- ( nullable instancetype )initWithOSType: ( NSString * )type
 {
     return [ self initWithOSType: type allowDynamic: NO ];
 }
 
-- ( instancetype )initWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithOSType: ( NSString * )type allowDynamic: ( BOOL )dyn
 {
     return [ self initWithOSType: type conformingTo: nil allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithOSType: ( NSString * )type conformingTo: ( UTI * )uti
+- ( nullable instancetype )initWithOSType: ( NSString * )type conformingTo: ( nullable UTI * )uti
 {
     return [ self initWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: NO ];
 }
 
-- ( instancetype )initWithOSType: ( NSString * )type conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithOSType: ( NSString * )type conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     return [ self initWithTag: type tagClass: UTITagClassOSType conformingTo: uti allowDynamic: dyn ];
 }
 
-- ( instancetype )initWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( UTI * )uti allowDynamic: ( BOOL )dyn
+- ( nullable instancetype )initWithTag: ( NSString * )tag tagClass: ( UTITagClass )tagClass conformingTo: ( nullable UTI * )uti allowDynamic: ( BOOL )dyn
 {
     CFStringRef utiValue;
     CFStringRef cfTagClass;
@@ -918,14 +913,9 @@
     return ( id )[ [ [ self class ] allocWithZone: zone ] initWithString: self.UTIValue ];
 }
 
-- ( NSString * )preferredTagForTagClass: ( UTITagClass )tagClass
+- ( nullable NSString * )preferredTagForTagClass: ( UTITagClass )tagClass
 {
     CFStringRef cfTagClass;
-    
-    if( self.UTIValue == nil )
-    {
-        return nil;
-    }
     
     switch( tagClass )
     {
@@ -988,7 +978,7 @@
     return ( UTTypeConformsTo( ( __bridge CFStringRef )( self.UTIValue ), ( __bridge CFStringRef )( uti.UTIValue ) ) ) ? YES : NO;
 }
 
-- ( id )objectForDeclarationDictionaryKey: ( UTIDeclarationDictionaryKey )key
+- ( nullable id )objectForDeclarationDictionaryKey: ( UTIDeclarationDictionaryKey )key
 {
     NSDictionary * dic;
     CFStringRef    cfKey;
@@ -1019,22 +1009,22 @@
     return [ self.UTIValue hasPrefix: @"dyn." ];
 }
 
-- ( NSString * )preferredFilenameExtension
+- ( nullable NSString * )preferredFilenameExtension
 {
     return [ self preferredTagForTagClass: UTITagClassFilenameExtension ];
 }
 
-- ( NSString * )preferredMIMEType
+- ( nullable NSString * )preferredMIMEType
 {
     return [ self preferredTagForTagClass: UTITagClassMIMEType ];
 }
 
-- ( NSString * )preferredNSPboardType
+- ( nullable NSString * )preferredNSPboardType
 {
     return [ self preferredTagForTagClass: UTITagClassNSPboardType ];
 }
 
-- ( NSString * )preferredOSType
+- ( nullable NSString * )preferredOSType
 {
     return [ self preferredTagForTagClass: UTITagClassOSType ];
 }
@@ -1067,11 +1057,6 @@
 
 - ( NSDictionary * )declaration
 {
-    if( self.UTIValue == nil )
-    {
-        return nil;
-    }
-    
     @synchronized( self )
     {
         if( self.representation == nil )
@@ -1085,35 +1070,30 @@
 
 - ( NSURL * )declaringBundleURL
 {
-    if( self.UTIValue == nil )
-    {
-        return nil;
-    }
-    
     return ( __bridge_transfer NSURL * )UTTypeCopyDeclaringBundleURL( ( __bridge CFStringRef )( self.UTIValue ) );
 }
 
-- ( NSString * )identifier
+- ( nullable NSString * )identifier
 {
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyIdentifier ];
 }
 
-- ( NSDictionary * )tagSpecifications
+- ( nullable NSDictionary * )tagSpecifications
 {
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyTagSpecification ];
 }
 
-- ( NSArray * )conformsTo
+- ( nullable NSArray * )conformsTo
 {
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyConformsTo ];
 }
 
-- ( NSURL * )referenceURL
+- ( nullable NSURL * )referenceURL
 {
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyReferenceURL ];
 }
 
-- ( NSString * )version
+- ( nullable NSString * )version
 {
     return [ self objectForDeclarationDictionaryKey: UTIDeclarationDictionaryKeyVersion ];
 }
